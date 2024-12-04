@@ -6,7 +6,9 @@ import type { Hero as Props } from '~/types';
 
 const {
   title = await Astro.slots.render('title'),
+  subtitlePrimary = await Astro.slots.render('subtitlePrimary'),
   subtitle = await Astro.slots.render('subtitle'),
+
   tagline,
 
   content = await Astro.slots.render('content'),
@@ -29,10 +31,10 @@ const {
     <div class="py-12 md:py-20">
       <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto">
         {
-          tagline && (
+          subtitlePrimary && (
             <p
-              class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-              set:html={tagline}
+              class="text-xl text-muted mb-6 dark:text-slate-300 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+              set:html={subtitlePrimary}
             />
           )
         }

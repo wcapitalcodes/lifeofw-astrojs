@@ -134,11 +134,8 @@ export interface Stat {
 
 export interface Item {
   title?: string;
-  description?: string;
-  icon?: string;
+  logos?: { url: string }[];
   classes?: Record<string, string>;
-  callToAction?: CallToAction;
-  image?: Image;
 }
 
 export interface Price {
@@ -195,7 +192,28 @@ export interface ItemGrid {
   defaultIcon?: string;
   classes?: Record<string, string>;
 }
+// partners;
+// Category, Logo;
 
+export interface Partners {
+  title?: string;
+  subtitle?: string;
+}
+export interface PartnerGrid {
+  items?: Array<PartnerItem>;
+  classes?: Record<string, string>;
+}
+
+export interface PartnerItem {
+  title?: string;
+  classes?: Record<string, string>;
+  logos?: Array<PartnerLogo>;
+}
+export interface PartnerLogo {
+  // name: string;
+  url: string;
+  classes?: string;
+}
 export interface Collapse {
   iconUp?: string;
   iconDown?: string;
