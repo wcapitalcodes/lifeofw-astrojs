@@ -2,7 +2,7 @@ backend:
   name: github
   repo: wcapitalcodes/lifeofw-astrojs
   branch: main
-  base_url: https://netlify-cms.adrianub.vercel.app
+  base_url: https://wvault-astro.vercel.app
 
 media_folder: "src/assets/images"
 public_folder: "src/assets/images"
