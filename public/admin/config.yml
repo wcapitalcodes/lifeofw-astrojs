@@ -1,5 +1,5 @@
 backend:
-  name: [github | gitlab]
+  name: github
   repo: wcapitalcodes/lifeofw-astrojs
   branch: main
   base_url: https://netlify-cms.adrianub.vercel.app
