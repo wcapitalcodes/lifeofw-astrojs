@@ -1,7 +1,7 @@
 {
-  "name": "@onwidget/astrowind",
-  "version": "1.0.0-beta.48",
-  "description": "AstroWind: A free template using Astro 4.0 and Tailwind CSS. Astro starter theme.",
+  "name": "lifeofw",
+  "version": "beta-0.1.1",
+  "description": "Life of W website",
   "type": "module",
   "private": true,
   "engines": {
