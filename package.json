@@ -1,7 +1,7 @@
 {
-  "name": "@onwidget/astrowind",
-  "version": "1.0.0-beta.48",
-  "description": "AstroWind: A free template using Astro 4.0 and Tailwind CSS. Astro starter theme.",
+  "name": "lifeofw",
+  "version": "beta-0.1.1",
+  "description": "Life of W website",
   "type": "module",
   "private": true,
   "engines": {
@@ -31,6 +31,7 @@
     "astro": "^4.16.2",
     "astro-embed": "^0.7.4",
     "astro-icon": "^1.1.1",
+    "decap-cms-app": "^3.4.0",
     "limax": "4.1.0",
     "lodash.merge": "^4.6.2",
     "unpic": "^3.18.0"
