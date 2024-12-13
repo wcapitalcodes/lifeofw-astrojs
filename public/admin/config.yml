@@ -1,31 +1,21 @@
 backend:
-  name: github
-  repo: wcapitalcodes/lifeofw-astrojs
+  name: git-gateway
   branch: main
-  base_url: https://netlify-cms.adrianub.vercel.app
 
-media_folder: "src/assets/images"
-public_folder: "src/assets/images"
+media_folder: 'public/images/uploads'
+public_folder: '/images/uploads'
 
-collections:
-  - name: 'post'
-    label: 'Post'
-    folder: 'src/content/post'
-    create: true
-    fields:
+collections: # A list of collections the CMS should be able to edit
+  - name: 'post' # Used in routes, ie.: /admin/collections/:slug/edit
+    label: 'Post' # Used in the UI, ie.: "New Post"
+    folder: 'src/pages/blog' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - {label: "Layout", name: "layout", widget: "hidden", default: "$/layouts/post.astro"}
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Excerpt', name: 'excerpt', widget: 'string' }
-      - { label: 'Category', name: 'category', widget: 'string' }
-      - {
-          label: 'Tags',
-          name: 'tags',
-          widget: 'list',
-          allow_add: true,
-          allow_delete: true,
-          collapsed: false,
-          field: { label: 'Tag', name: 'tag', widget: 'string' },
-        }
-      - { label: 'Image', name: 'image', widget: 'string' }
-      - { label: 'Publish Date', name: 'publishDate', widget: 'datetime', required: false }
+      - { label: 'Description', name: 'description', widget: 'text' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Tags', name: 'tags', widget: 'list' }
       - { label: 'Author', name: 'author', widget: 'string' }
-      - { label: 'Content', name: 'body', widget: 'markdown' }
+      - { label: 'Author Twitter Handle', name: 'authorTwitter', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
