@@ -10,6 +10,7 @@ import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
 import compress from 'astro-compress';
 import type { AstroIntegration } from 'astro';
+import svelte from '@astrojs/svelte';
 
 import astrowind from './vendor/integration';
 
@@ -30,6 +31,7 @@ export default defineConfig({
     }),
     sitemap(),
     mdx(),
+    svelte(),
     icon({
       include: {
         tabler: ['*'],
