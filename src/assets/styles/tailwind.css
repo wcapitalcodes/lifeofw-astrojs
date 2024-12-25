@@ -27,7 +27,7 @@
   }
 
   .btn-primary {
-    @apply btn font-semibold bg-primary text-white border-primary hover:bg-secondary hover:border-secondary hover:text-white dark:text-white dark:bg-primary dark:border-primary dark:hover:border-secondary dark:hover:bg-secondary;
+    @apply btn font-semibold bg-primary-500 text-white border-primary-500 hover:bg-secondary hover:border-secondary hover:text-white dark:text-white dark:bg-primary-500 dark:border-primary-500 dark:hover:border-secondary dark:hover:bg-secondary;
   }
 
   .btn-secondary {
@@ -90,4 +90,15 @@
 
 .dd *:first-child {
   margin-top: 0;
+}
+
+.theme-gradient {
+  --tw-gradient-from: #e5357f var(--tw-gradient-from-position);
+  --tw-gradient-to: rgba(229, 53, 127, 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  --tw-gradient-to: #0d9488 var(--tw-gradient-to-position);
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(to top left, var(--tw-gradient-stops));
+  color: transparent;
 }

@@ -1,0 +1,31 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  highlightedTitleText?: string;
+}
+
+const { title, subtitle, highlightedTitleText } = Astro.props;
+
+// Function to highlight words
+const highlightWords = (text: string, words: string) => {
+  const wordsArray = words.split(',').map(word => word.trim());
+  const regex = new RegExp(`(${wordsArray.join('|')})`, 'gi');
+  return text.split(regex).map((part, index) => 
+    wordsArray.includes(part) ? `<span class="theme-gradient">${part}</span>` : part
+  ).join('');
+};
+---
+
+<div
+  class="relative overflow-hidden before:absolute before:top-0 before:start-1/2 before:bg-[url('https://preline.co/assets/svg/examples/polygon-bg-element.svg')] before:bg-no-repeat before:bg-top before:bg-cover before:w-full before:h-full before:-z-[1] before:transform before:-translate-x-1/2"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-10">
+    <div class="mt-5 max-w-2xl text-center mx-auto">
+      <h1 class="block font-heading font-medium text-gray-800 text-4xl md:text-5xl lg:text-6xl" set:html={highlightWords(title, highlightedTitleText)} />
+    </div>
+    <div class="mt-5 max-w-3xl text-center mx-auto">
+      <p class="text-lg text-gray-600 font-sans" set:html={subtitle} />
+    </div>
+  </div>
+</div>

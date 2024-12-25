@@ -1,0 +1,43 @@
+---
+const {
+  title = "Join the\nWahine Community",
+  description = "Connect with fellow W Vault users and share your insights, questions, or feedback! Whether you're looking to collaborate, seek support, or simply engage with our vibrant community, we'd love to hear from you. Fill out the form below, and let's build a secure and innovative future together!",
+  buttonText = "Register Now",
+  imagePath = "/images/community-network.jpeg",
+  imageAlt = "Wahine Community Members"
+} = Astro.props;
+---
+
+<div class="mx-auto max-w-5xl mb-4 relative w-full lg:h-[400px]">
+  {/* Background Image */}
+  <div class="absolute inset-0">
+    <img
+      src={imagePath}
+      alt={imageAlt}
+      class="absolute inset-0 w-full h-full object-cover brightness-75"
+    />
+    {/* Subtle dark overlay for better text readability */}
+    <div class="absolute inset-0 bg-black/20"></div>
+  </div>
+
+  {/* Content */}
+  <div class="relative h-full flex items-center">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <div class="text-white">
+        <h1 class="text-3xl font-serif mb-6 leading-tight">
+          {title.split('\n').map((line, i) => (
+            i === 0 ? line : <><br />{line}</>
+          ))}
+        </h1>
+        
+        <p class="text-lg mb-8 leading-relaxed max-w-3xl">
+          {description}
+        </p>
+
+        <button class="bg-lime-300 text-teal-900 px-3 py-2 rounded-md text-md font-medium hover:bg-lime-400 transition-colors">
+          {buttonText}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

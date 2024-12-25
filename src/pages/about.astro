@@ -1,16 +1,75 @@
 ---
-import Features2 from '~/components/widgets/Features2.astro';
-import Features3 from '~/components/widgets/Features3.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import Steps2 from '~/components/widgets/Steps2.astro';
-import Layout from '~/layouts/PageLayout.astro';
+import TeamCard from '~/components/TeamCard.astro';
+import PageLayout from '~/layouts/PageLayout.astro';
+
+const pageTitle = 'The Women At The Helm';
+const pageSubtitle =
+  'Get to know our remarkable female founders, pioneers at the forefront, steering our journey with unwavering determination, brilliance, and a vision for inclusive success.';
+
+const content = {
+  paragraphs: [
+    "We are lifelong friends with over 50 years of collective experience in finance and human rights. As advocates for women's empowerment, we embody roles like mothers, wives, daughters, sisters, and mentors. Our goal is to enrich and brighten women's lives by contributing our expertise.",
+    "Wahine Capital was born during the COVID lockdown with a vision to through financial knowledge and collaborative platforms. We aim to revolutionize women's role in the economy, fostering balance and sustainability.",
+    "At Wahine Capital, we envisage a future where women flourish with confidence, skills, and financial acumen. Despite the surge in women's consumerism, their representation and ownership in the economy still lag. Our aspiration is to drive a harmonious, sustainable contribution of women to society and the economy.",
+  ],
+};
 
 const metadata = {
   title: 'About us',
 };
 ---
 
-<Layout metadata={metadata}>
-  
-</Layout>
+<PageLayout
+  metadata={metadata}
+  hasPageHeader={true}
+  pageTitle={pageTitle}
+  pageSubtitle={pageSubtitle}
+  highlightedTitleText="Women"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+    <div class="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20">
+      <div class="relative">
+        <div class="h-auto w-full rounded-md bg-gradient-to-r from-accent-500 via-athens-gray-500 to-primary-500 p-1">
+          <img class="w-full md:rounded-md" src="/images/fp2.jpg" alt="founder photos" />
+          <div
+            class="absolute inset-0 -z-[1] w-full h-full rounded-md mt-4 -mb-4 me-4 -ms-4 lg:mt-6 lg:-mb-6 lg:me-6 lg:-ms-6"
+          >
+          </div>
+        </div>
+      </div>
+
+      {/* Content Column */}
+      <div>
+        {
+          content.paragraphs.map((paragraph, index) => (
+            <p
+              class={`${
+                index === 0
+                  ? 'first-letter:float-left first-letter:text-7xl first-letter:pr-4 first-letter:font-black first-letter:text-accent-900 '
+                  : 'mt-4 '
+              }text-lg text-gray-800 font-sans prose`}
+            >
+              {paragraph}
+            </p>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 md:space-x-16 flex flex-col md:flex-row items-center space-y-10 md:space-y-0 py-10"
+  >
+    <TeamCard
+      name="Rejina Rahim"
+      position="Managing Founder"
+      description="24 years in Investment Management Ex-MD Nomura Asset Management, Malaysia"
+      imageUrl="images/rejina-founder.jpg"
+    />
+    <TeamCard
+      name="Sherry Sheriff"
+      position="Co Founder"
+      description="Women's rights subject matter expert & Ex Regulator with Securities Commission Malaysia"
+      imageUrl="images/sherry-founder.jpg"
+    />
+  </div>
+</PageLayout>
