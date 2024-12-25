@@ -199,10 +199,6 @@ export interface Partners {
   title?: string;
   subtitle?: string;
 }
-export interface PartnerGrid {
-  items?: Array<PartnerItem>;
-  classes?: Record<string, string>;
-}
 
 export interface PartnerItem {
   title?: string;

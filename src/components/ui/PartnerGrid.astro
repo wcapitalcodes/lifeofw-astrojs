@@ -2,7 +2,7 @@
 import type { PartnerGrid as Props } from '~/types';
 import { twMerge } from 'tailwind-merge';
 
-const { items = [], classes = {} } = Astro.props;
+const { title, substitle, items = [], classes = {} } = Astro.props;
 
 const { title: titleClass = '' } = classes;
 ---

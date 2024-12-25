@@ -10,11 +10,47 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Partners from '~/components/widgets/Partners.astro';
-
+import Recognitions from '~/components/Recognitions.astro';
+import Solutions from '~/components/Solutions.astro';
+import FeaturedOn from '~/components/FeaturedOn.astro';
+import Quote from '~/components/Quote.astro';
+const featuredData = [
+  { url: '/images/featuredon/bfm.png', classes: 'object-contain w-32' },
+  { url: '/images/featuredon/the-edge.png', classes: 'object-contain w-36' },
+  { url: '/images/featuredon/star-biz7.png', classes: 'w-14' },
+  { url: '/images/featuredon/astro-awani.png', classes: 'w-32' },
+];
 const metadata = {
   title: 'Life of W',
   ignoreTitleTemplate: true,
 };
+
+const toolsData = [
+  {
+    icon: '/path-to-vault-icon.svg',
+    title: 'W Vault',
+    description:
+      'A dedicated digital safe, uniquely crafted for women, allowing women to securely store and organize vital digital details such as documents and financial records.',
+  },
+  {
+    icon: '/path-to-masterclass-icon.svg',
+    title: 'Wahine Finance Masterclass',
+    description:
+      "A comprehensive video series focused on empowering women in finance. Each module covers essential topics such as financial literacy, investment strategies, budgeting, providing valuable insights and practical guidance to enhance women's financial confidence and independence.",
+  },
+  {
+    icon: '/path-to-wani-icon.svg',
+    title: 'Wani Chat',
+    description:
+      'Our friendly assistant bot designed to help with any questions you have about budgeting, investing, or women. Wani is equipped to provide insights to empower women in their financial journeys.',
+  },
+  {
+    icon: '/path-to-community-icon.svg',
+    title: 'Wahine Community',
+    description:
+      'Empowering network for women, providing support, resources, and networking opportunities. Fosters personal and professional growth through mentorship programs, workshops, and collaborative projects.',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
@@ -52,29 +88,96 @@ const metadata = {
     items={[
       {
         title: 'Insurance & Protection',
-        logos: [{ url: 'https://assets.lifeofw.com/images/patners/download.png', classes: 'w-16 h-16' }],
+        logos: [
+          {
+            url: 'https://assets.lifeofw.com/images/patners/download.png',
+            classes: 'w-16 h-16',
+          },
+        ],
       },
       {
         title: 'Investment & Wealth Management',
         logos: [
-          { url: 'https://assets.lifeofw.com/images/resolute-logo.webp', classes: 'w-16 object-contain' },
-          { url: 'https://assets.lifeofw.com/images/patners/KIB_OL-Color.png', classes: 'w-40 object-contain' },
+          {
+            url: 'https://assets.lifeofw.com/images/kenanga-investor.png',
+            classes: 'w-32 object-contain',
+          },
+          {
+            url: 'https://assets.lifeofw.com/images/halogen.png',
+            classes: 'w-36 object-contain',
+          },
         ],
       },
       {
-        title: 'Personal Finance & Financial Literacy',
+        title: 'Personal Finance & Advisory',
         logos: [
-          { url: 'https://assets.lifeofw.com/images/mula.png', classes: 'w-36 object-contain' },
-          { url: 'https://assets.lifeofw.com/css/m.webp', classes: 'w-24' },
+          {
+            url: 'https://assets.lifeofw.com/images/resolute-logo.webp',
+            classes: 'w-16 object-contain',
+          },
+          {
+            url: 'https://assets.lifeofw.com/images/mula.png',
+            classes: 'w-36 object-contain',
+          },
+          {
+            url: 'https://assets.lifeofw.com/css/m.webp',
+            classes: 'w-24',
+          },
         ],
       },
       {
         title: 'Estate Planning & Legacy',
-        logos: [ { url: 'https://assets.lifeofw.com/css/pa.webp', classes: 'w-36 object-contain' },],
+        logos: [
+          {
+            url: 'https://assets.lifeofw.com/images/pewarisan.png',
+            classes: 'w-16 object-contain',
+          },
+        ],
+      },
+      {
+        title: 'P2P Financing',
+        logos: [
+          {
+            url: 'https://assets.lifeofw.com/images/capsphere.webp',
+            classes: 'w-40 object-contain',
+          },
+          {
+            url: 'https://assets.lifeofw.com/images/fundaztic.png',
+            classes: 'w-20 object-contain',
+          },
+        ],
+      },
+      {
+        title: 'Property',
+        logos: [
+          {
+            url: 'https://assets.lifeofw.com/images/reu-living.png',
+            classes: 'w-20 object-contain',
+          },
+        ],
       },
     ]}
   />
 
+  <!-- Recognitions Widget -->
+  <Recognitions
+    title="Proudly Recognized By"
+    images={[
+      { url: '/images/recognitions/wep-awards.png', classes: 'object-contain w-32' },
+      { url: '/images/recognitions/1337.png', classes: 'object-contain w-36' },
+      { url: '/images/recognitions/tigerhall-women.png', classes: 'w-14' },
+      { url: '/images/recognitions/rhb.png', classes: 'w-32' },
+    ]}
+  />
+
+  <!--Featured On -->
+  <FeaturedOn title="As Featured On" features={featuredData} />
+
+  <!--Solutions -->
+  <Solutions title="Financial Tools & <br/>Resources for Your Needs" tools={toolsData} />
+    
+  <!-- Quote -->
+  <Quote />
   <!-- Content Widget **************** -->
 
   <Content
@@ -113,6 +216,9 @@ const metadata = {
     </Fragment>
   </Content>
 
+  <!--Solutions Widget -->
+
+  <Solutions title="Financial Tools & <br/>Resources for Your Needs" tools={toolsData} />
   <!-- Content Widget **************** -->
 
   <Content
