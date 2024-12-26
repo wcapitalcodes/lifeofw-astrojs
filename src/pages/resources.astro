@@ -1,0 +1,31 @@
+---
+import AchievementCard from '~/components/AchievementCard.astro';
+import AdvisorCard from '~/components/AdvisorCard.astro';
+import PageHeader from '~/components/PageHeader.astro';
+import TeamCard from '~/components/TeamCard.astro';
+import PageLayout from '~/layouts/PageLayout.astro';
+
+const pageTitle = 'Resources';
+const pageSubtitle =
+  "Explore our engaging articles and powerful financial tools, including retirement calculators, on W Vault's resource page! Discover how to take charge of your financial future today!";
+
+const metadata = {
+  title: 'Resources',
+};
+---
+
+<PageLayout
+  metadata={metadata}
+  hasPageHeader={true}
+  pageTitle={pageTitle}
+  pageSubtitle={pageSubtitle}
+  highlightedTitleText="Resources"
+>
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 md:space-x-16 flex flex-col md:flex-row items-center space-y-10 md:space-y-0 py-10"
+  >
+    <div class="flex flex-col items-center justify-center ">
+      <img src="https://assets.lifeofw.com/images/calculator-article.png" alt="" class="w-lg" />
+    </div>
+  </div>
+</PageLayout>
