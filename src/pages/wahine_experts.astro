@@ -1,7 +1,7 @@
 ---
 import ExpertCard from '~/components/ExpertCard.astro';
 import PageLayout from '~/layouts/PageLayout.astro';
-
+import ExpertModal from '~/components/ExpertModal.astro';
 const pageTitle = 'Wahine Experts';
 const pageSubtitle =
   'Because we know that sometimes its always good to bounce off ideas and get opinion from people in the know, our network of experts are here to help you through your journey of life. Get in touch so you can have a chat* with them to kickstart your journey towards a future you want.';
@@ -106,6 +106,7 @@ const careerExperts = [
   highlightedTitleText="Experts"
 >
   <div class="mx-auto max-w-7xl">
+    <ExpertModal />
     <div class="grid lg:grid-cols-2 my-16">
       <div class="max-w-md">
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Money and Me</h2>
@@ -153,4 +154,5 @@ const careerExperts = [
       </ul>
     </div>
   </div>
+  
 </PageLayout>

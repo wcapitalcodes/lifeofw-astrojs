@@ -17,7 +17,7 @@ const { name, avatarUrl, description } = Astro.props;
         class="h-24 w-24 rounded-full bg-gray-100"
         src={avatarUrl}
         alt={`${name}'s profile photo`}
-        onclick={`openModal({name:'${name}',avatar_url:'${avatarUrl}',description:'${description}'})`}
+        onclick={`openModal({name: '${name.replace(/'/g, "\\'")}', avatar_url: '${avatarUrl}', description: '${description.replace(/'/g, "\\'")}'})`}
       />
     </div>
     <div>
@@ -25,7 +25,7 @@ const { name, avatarUrl, description } = Astro.props;
         {name}
       </h3>
       <a
-        onclick={`openModal({name:'${name}',avatar_url:'${avatarUrl}',description:'${description}'})`}
+        onclick={`openModal({name: '${name.replace(/'/g, "\\'")}', avatar_url: '${avatarUrl}', description: '${description.replace(/'/g, "\\'")}'})`}
         class="flex items-center space-x-2 underline text-primary-700 font-semibold"
       >
         <Icon name="lucide:phone" class="w-4 mr-2" />
@@ -35,10 +35,4 @@ const { name, avatarUrl, description } = Astro.props;
   </div>
 </li>
 
-<script>
-  // Define the openModal function if it's not defined elsewhere
-  function openModal(data) {
-    // You might want to use a client-side framework or library to handle modals
-    window.dispatchEvent(new CustomEvent('open-modal', { detail: data }));
-  }
-</script>
+
