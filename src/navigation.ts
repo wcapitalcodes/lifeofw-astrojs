@@ -4,11 +4,11 @@ export const headerData = {
   links: [
     {
       text: 'Home',
-      href: '#',
+      href: '/',
     },
     {
       text: 'About Us',
-      href: '#',
+      href: '/about',
     },
     {
       text: 'Solutions',
@@ -33,7 +33,11 @@ export const headerData = {
     },
     {
       text: 'Contact Us',
-      href: '#',
+      href: '/contact',
+    },
+    {
+      text: 'Resources',
+      href: '/resources',
     },
   ],
   actions: [{ text: 'Get Started', href: '#', target: '_blank' }],
