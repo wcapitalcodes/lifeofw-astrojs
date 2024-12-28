@@ -14,20 +14,26 @@ export const headerData = {
       text: 'Solutions',
       links: [
         {
-          text: 'Lead Generation',
+          text: 'W Vault',
           href: getPermalink('/landing/lead-generation'),
+          description: 'Your personal digital vault designed for women by women.',
         },
         {
-          text: 'Long-form Sales',
+          text: 'Wahine Finance Video Series',
           href: getPermalink('/landing/sales'),
+          description: 'A comprehensive video series focused on empowering women in finance.',
         },
         {
-          text: 'Click-Through',
+          text: 'Wani Chat',
           href: getPermalink('/landing/click-through'),
+          description:
+            'Our friendly assistant bot designed to help with any questions you have about budgeting, investing, or women',
         },
         {
-          text: 'Product Details (or Services)',
+          text: 'Wahine Community',
           href: getPermalink('/landing/product'),
+          description:
+            'Our friendly assistant bot designed to help with any questions you have about budgeting, investing, or women',
         },
       ],
     },
