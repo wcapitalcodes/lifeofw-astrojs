@@ -2,9 +2,9 @@
 import { Icon } from 'astro-icon/components';
 
 interface Props {
-  name: string;
-  avatarUrl: string;
-  description: string;
+  name?: string;
+  avatarUrl?: string;
+  description?: string;
 }
 
 const { name, avatarUrl, description } = Astro.props;

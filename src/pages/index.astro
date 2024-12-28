@@ -10,6 +10,7 @@ import NewsQuote from '~/components/NewsQuote.astro';
 import Quote from '~/components/Quote.astro';
 import CommunityJoin from '~/components/CommunityJoin.astro';
 import VideoSeriesPreview from '~/components/VideoSeriesPreview.astro';
+import ExpertSlider from '~/components/ExpertSlider.astro';
 const featuredData = [
   { url: '/images/featuredon/bfm.png', classes: 'object-contain w-32' },
   { url: '/images/featuredon/the-edge.png', classes: 'object-contain w-36' },
@@ -157,6 +158,8 @@ const toolsData = [
 
   <!--Solutions -->
   <Solutions title="Financial Tools & <br/>Resources for Your Needs" tools={toolsData} />
+
+  <ExpertSlider />
   <!-- Quote -->
   <Quote />
   <!-- News Quote -->
