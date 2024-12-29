@@ -5,6 +5,8 @@ import ProductBenefits from '~/components/ProductBenefits.astro';
 import type { Benefit } from '~/types';
 import FeatureCard from '~/components/FeatureCard.astro';
 import TestimonialSection from '~/components/TestimonialSection.astro';
+import HighlightSection from '~/components/HighlightSection.astro';
+import PricingSection from '~/components/PricingSection.astro';
 
 const benefits: Benefit[] = [
   {
@@ -76,8 +78,14 @@ const features = [
           allowfullscreen
           title="Introductory Video"
           aria-label="Introductory video about AstroWind"
-          class="absolute top-0 left-0 w-full h-full"></iframe>
+          class="absolute top-0 left-0 w-full h-full video-player"></iframe>
       </div>
+      <style>
+        .video-player {
+          border-radius: 1rem; /* or any size you prefer */
+          overflow: hidden; /* ensures content doesn't overflow rounded corners */
+        }
+      </style>
       <script
         src="https://player.vimeo.com/api/player.js"
         integrity="sha256-eUufT6FTYjlNmRNVQSG5VvLuX13DaFQKjMdh3Jx2aPE="
@@ -99,4 +107,6 @@ const features = [
     </div>
   </div>
   <TestimonialSection />
+  <PricingSection />
+  <HighlightSection />
 </PageLayout>

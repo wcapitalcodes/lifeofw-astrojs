@@ -1,0 +1,171 @@
+---
+interface Feature {
+  category: string;
+  items: {
+    title: string;
+    free: boolean | string;
+    pro: boolean | string;
+  }[];
+}
+
+const features: Feature[] = [
+  {
+    category: "Asset & Liability Management",
+    items: [
+      { title: "Track up to 5 asset categories", free: true, pro: true },
+      { title: "Track up to 3 liability types", free: true, pro: true },
+      { title: "Unlimited asset & liability tracking", free: false, pro: true },
+      { title: "Custom categories", free: false, pro: true }
+    ]
+  },
+  {
+    category: "Financial Planning Tools",
+    items: [
+      { title: "Basic financial calculators", free: true, pro: true },
+      { title: "Advanced planning tools", free: false, pro: true },
+      { title: "Custom financial templates", free: "Limited", pro: true }
+    ]
+  },
+  {
+    category: "Support",
+    items: [
+      { title: "Knowledge base access", free: true, pro: true },
+      { title: "Community support", free: true, pro: true },
+      { title: "Priority support", free: "Basic", pro: "24/7 Priority" }
+    ]
+  }
+];
+
+const faqs = [
+  {
+    question: "Is my financial data secure?",
+    answer: "Yes, we use bank-level encryption to protect your data. All information is stored in secure, encrypted formats and we never share your data with third parties."
+  },
+  {
+    question: "Can I cancel my subscription anytime?",
+    answer: "Yes, you can cancel your Pro subscription at any time. Your data will remain accessible with the Free plan features."
+  },
+  {
+    question: "What payment methods do you accept?",
+    answer: "We accept all major credit cards, online banking and e-wallets."
+  },
+  {
+    question: "How do I upgrade my plan?",
+    answer: "You can upgrade to Pro anytime from your account settings. The new features will be instantly available."
+  }
+];
+---
+
+<section class="py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900">Pricing</h2>
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
+      <!-- Free Plan -->
+      <div class="bg-white rounded-2xl shadow-sm p-8">
+        <div class="mb-6">
+          <h3 class="text-xl font-semibold mb-2">W Vault Free</h3>
+          <p class="text-gray-600">Start organizing your finances</p>
+          
+          <div class="mt-4">
+            <span class="text-4xl font-bold">$0</span>
+            <span class="text-gray-500">/forever</span>
+          </div>
+        </div>
+        
+        <a href="#" class="block w-full py-3 px-4 rounded-full bg-gray-100 text-center text-gray-800 font-medium hover:bg-gray-200 transition-colors">
+          Get Started Free
+        </a>
+      </div>
+
+      <!-- Pro Plan -->
+      <div class="bg-white rounded-2xl shadow-sm p-8 relative">
+        <div class="absolute top-4 right-4">
+          <span class="bg-purple-100 text-purple-800 text-xs font-medium px-3 py-1 rounded-full">
+            Popular
+          </span>
+        </div>
+
+        <div class="mb-6">
+          <h3 class="text-xl font-semibold mb-2">W Vault Pro</h3>
+          <p class="text-gray-600">Complete financial management</p>
+          
+          <div class="mt-4">
+            <span class="text-4xl font-bold">$19</span>
+            <span class="text-gray-500">/month</span>
+          </div>
+        </div>
+
+        <a href="#" class="block w-full py-3 px-4 rounded-full bg-purple-600 text-center text-white font-medium hover:bg-purple-700 transition-colors mb-3">
+          Subscribe
+        </a>
+        <p class="text-sm text-gray-500 text-center">Try free for 30 days</p>
+      </div>
+    </div>
+
+    <!-- Feature Comparison -->
+    <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-sm overflow-hidden mb-16">
+      {features.map(category => (
+        <div class="border-b border-gray-200 last:border-0">
+          <div class="px-6 py-4 bg-gray-50">
+            <h4 class="font-medium text-gray-900">{category.category}</h4>
+          </div>
+          {category.items.map(item => (
+            <div class="grid grid-cols-3 px-6 py-4 border-t border-gray-200 first:border-0">
+              <div class="text-gray-600">{item.title}</div>
+              <div class="text-center">
+                {item.free === true ? (
+                  <svg class="w-5 h-5 text-purple-600 mx-auto" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                ) : (
+                  <span class="text-sm text-gray-500">{item.free}</span>
+                )}
+              </div>
+              <div class="text-center">
+                {item.pro === true ? (
+                  <svg class="w-5 h-5 text-purple-600 mx-auto" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                ) : (
+                  <span class="text-sm text-gray-500">{item.pro}</span>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="max-w-3xl mx-auto">
+      <h3 class="text-2xl font-bold text-center mb-8">Frequently Asked Questions</h3>
+      <div class="space-y-4">
+        {faqs.map(faq => (
+          <div class="bg-white rounded-lg shadow-sm">
+            <details class="group">
+              <summary class="flex justify-between items-center p-4 cursor-pointer">
+                <h5 class="font-medium text-gray-900">{faq.question}</h5>
+                <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </summary>
+              <div class="px-4 pb-4">
+                <p class="text-gray-600">{faq.answer}</p>
+              </div>
+            </details>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
