@@ -7,6 +7,7 @@ import PageHeader from '~/components/PageHeader.astro';
 import { headerData, footerData } from '~/navigation';
 
 import type { MetaData } from '~/types';
+import PageHeaderAlt from '~/components/PageHeaderAlt.astro';
 
 export interface Props {
   metadata?: MetaData;
@@ -24,7 +25,12 @@ const { metadata, hasPageHeader = false, pageTitle, pageSubtitle, highlightedTit
     <Header {...headerData} isSticky showRssFeed showToggleTheme />
   </slot>
   <main>
-    {hasPageHeader && <PageHeader title={pageTitle} subtitle={pageSubtitle} highlightedTitleText={highlightedTitleText} />}
+    {
+      hasPageHeader && (
+        <PageHeader title={pageTitle} subtitle={pageSubtitle} highlightedTitleText={highlightedTitleText} />
+        <PageHeaderAlt/>
+      )
+    }
     <slot />
   </main>
   <slot name="footer">

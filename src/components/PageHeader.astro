@@ -6,16 +6,18 @@ interface Props {
   hasBackground?: boolean;
 }
 
-const { title, subtitle, highlightedTitleText, hasBackground = true } = Astro.props;
+const { title, subtitle, highlightedTitleText = '', hasBackground = true } = Astro.props;
 
 // Function to highlight words
 const highlightWords = (text: string, words: string) => {
-  const wordsArray = words.split(',').map((word) => word.trim());
-  const regex = new RegExp(`(${wordsArray.join('|')})`, 'gi');
-  return text
-    .split(regex)
-    .map((part, index) => (wordsArray.includes(part) ? `<span class="theme-gradient">${part}</span>` : part))
-    .join('');
+  if (highlightedTitleText) {
+    const wordsArray = words.split(',').map((word) => word.trim());
+    const regex = new RegExp(`(${wordsArray.join('|')})`, 'gi');
+    return text
+      .split(regex)
+      .map((part, index) => (wordsArray.includes(part) ? `<span class="theme-gradient">${part}</span>` : part))
+      .join('');
+  }
 };
 ---
 

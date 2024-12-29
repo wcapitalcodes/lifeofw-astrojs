@@ -15,7 +15,7 @@ export const headerData = {
       links: [
         {
           text: 'W Vault',
-          href: getPermalink('/landing/lead-generation'),
+          href: getPermalink('/wvault'),
           description: 'Your personal digital vault designed for women by women.',
         },
         {

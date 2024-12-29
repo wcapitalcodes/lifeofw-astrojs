@@ -6,64 +6,71 @@ interface Tool {
 }
 
 const {
-  title = "Financial Tools & Resources for Your Needs",
+  title = 'Financial Tools & Resources for Your Needs',
   tools = [
     {
-      icon: "/path-to-vault-icon.svg",
-      title: "W Vault",
-      description: "A dedicated digital safe, uniquely crafted for women, allowing women to securely store and organize vital digital details such as documents and financial records."
+      icon: '/path-to-vault-icon.svg',
+      title: 'W Vault',
+      description:
+        'A dedicated digital safe, uniquely crafted for women, allowing women to securely store and organize vital digital details such as documents and financial records.',
     },
     {
-      icon: "/path-to-masterclass-icon.svg",
-      title: "Wahine Finance Masterclass",
-      description: "A comprehensive video series focused on empowering women in finance. Each module covers essential topics such as financial literacy, investment strategies, budgeting, providing valuable insights and practical guidance to enhance women's financial confidence and independence."
+      icon: '/path-to-masterclass-icon.svg',
+      title: 'Wahine Finance Video Series',
+      description:
+        "A comprehensive video series focused on empowering women in finance. Each module covers essential topics such as financial literacy, investment strategies, budgeting, providing valuable insights and practical guidance to enhance women's financial confidence and independence.",
     },
     {
-      icon: "/path-to-wani-icon.svg",
-      title: "Wani Chat",
-      description: "Our friendly assistant bot designed to help with any questions you have about budgeting, investing, or women. Wani is equipped to provide insights to empower women in their financial journeys."
+      icon: '/path-to-wani-icon.svg',
+      title: 'Wani Chat',
+      description:
+        'Our friendly assistant bot designed to help with any questions you have about budgeting, investing, or women. Wani is equipped to provide insights to empower women in their financial journeys.',
     },
     {
-      icon: "/path-to-community-icon.svg",
-      title: "Wahine Community",
-      description: "Empowering network for women, providing support, resources, and networking opportunities. Fosters personal and professional growth through mentorship programs, workshops, and collaborative projects."
-    }
-  ]
+      icon: '/path-to-community-icon.svg',
+      title: 'Wahine Community',
+      description:
+        'Empowering network for women, providing support, resources, and networking opportunities. Fosters personal and professional growth through mentorship programs, workshops, and collaborative projects.',
+    },
+  ],
 } = Astro.props;
 ---
 
 <div class="container mx-auto px-4 py-16 max-w-7xl">
   <!-- Header Section -->
   <div class="mb-16">
-    <h1 class="font-bold font-heading leading-tighter text-heading tracking-tighter md:text-4xl text-3xl">
-      {title.split('<br/>').map((line, i) => (
-        i === 0 ? line : <><br />{line}</>
-      ))}
+    <h1 class="font-medium font-heading leading-tighter text-heading tracking-tighter md:text-4xl text-3xl">
+      {
+        title.split('<br/>').map((line, i) =>
+          i === 0 ? (
+            line
+          ) : (
+            <>
+              <br />
+              {line}
+            </>
+          )
+        )
+      }
     </h1>
   </div>
 
   <!-- Main Content Grid -->
   <div>
     <div class="grid grid-cols-4 gap-4">
-      {tools.map((tool) => (
-        <div class="flex flex-col gap-4 items-center">
-          <div class="w-12 h-12 flex-shrink-0">
-            <img
-              src={tool.icon}
-              alt={`${tool.title} icon`}
-              class="w-full h-full object-contain"
-            />
+      {
+        tools.map((tool) => (
+          <div class="flex flex-col gap-4 items-center">
+            <div class="w-12 h-12 flex-shrink-0">
+              <img src={tool.icon} alt={`${tool.title} icon`} class="w-full h-full object-contain" />
+            </div>
+            <div class="text-center">
+              <h3 class="text-xl font-serif text-teal-800 mb-2">{tool.title}</h3>
+              <p class="text-gray-600 leading-relaxed">{tool.description}</p>
+            </div>
           </div>
-          <div class="text-center">
-            <h3 class="text-xl font-serif text-teal-800 mb-2">
-              {tool.title}
-            </h3>
-            <p class="text-gray-600 leading-relaxed">
-              {tool.description}
-            </p>
-          </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </div>

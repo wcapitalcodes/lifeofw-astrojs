@@ -1,0 +1,46 @@
+---
+import Hero from '~/components/widgets/Hero.astro';
+import PageLayout from '~/layouts/PageLayout.astro';
+---
+
+<PageLayout>
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get template',
+        href: 'https://github.com/onwidget/astrowind',
+        target: '_blank',
+        icon: 'tabler:download',
+      },
+      { text: 'Learn more', href: '#features' },
+    ]}
+  >
+    <Fragment slot="subtitlePrimary" class="font-serif theme-gradient"> W Vault </Fragment>
+    <Fragment slot="title" class="font-serif text-gray-800">
+      A dedicated digital safe, uniquely crafted <span class="theme-gradient">for women by women</span></Fragment
+    >
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        Your financial future, reimagined: Innovative wealth management solutions that celebrate and support women's
+        unique paths to success.
+      </span>
+    </Fragment>
+    <Fragment slot="image">
+      <div class="relative" style="padding:55% 0 0 0;">
+        <iframe
+          src="https://player.vimeo.com/video/1042610150?badge=0&autopause=0&player_id=0&app_id=58479"
+          allow="fullscreen; picture-in-picture"
+          allowfullscreen
+          title="Introductory Video"
+          aria-label="Introductory video about AstroWind"
+          class="absolute top-0 left-0 w-full h-full"></iframe>
+      </div>
+      <script
+        src="https://player.vimeo.com/api/player.js"
+        integrity="sha256-eUufT6FTYjlNmRNVQSG5VvLuX13DaFQKjMdh3Jx2aPE="
+        crossorigin="anonymous"></script>
+    </Fragment>
+  </Hero>
+  <div class="relative max-w-5xl mx-auto"></div>
+</PageLayout>
