@@ -268,6 +268,14 @@ export interface Features extends Omit<Headline, 'classes'>, Widget {
   isAfterContent?: boolean;
 }
 
+interface Benefit {
+  id: number;
+  title: string;
+  description: string;
+  visualType: 'customLayout' | 'platformAgnostic' | 'multiPlatform' | 'syncPlayback';
+}
+
+
 export interface Faqs extends Omit<Headline, 'classes'>, Widget {
   iconUp?: string;
   iconDown?: string;

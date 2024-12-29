@@ -1,0 +1,50 @@
+---
+// TestimonialSection.astro
+interface Props {
+  quote?: string;
+  highlightedText?: string;
+  conclusion?: string;
+  authorName?: string;
+  authorTitle?: string;
+  authorCompany?: string;
+  companyLogo?: string;
+}
+
+const {
+  quote = "I've been using W Vault to manage my finances for the past year. It's an incredible platform that truly understands what women need for financial organization.",
+  highlightedText = "The comprehensive asset tracking and financial planning tools have transformed how I manage my wealth and plan for the future",
+  conclusion = "Exactly what I needed.",
+  authorName = "Sarah Chen",
+  authorTitle = "Finance Director",
+  authorCompany = "Tech Innovations Asia",
+  companyLogo = "/images/company-logo.png"
+} = Astro.props;
+---
+
+<section class="bg-gray-50 py-24">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <blockquote class="text-center">
+      <p class="text-gray-600 text-lg sm:text-xl">
+        {quote}
+        <span class="font-medium text-gray-900"> {highlightedText}. </span>
+        {conclusion}
+      </p>
+      
+      <footer class="mt-8 flex items-center justify-center gap-4">
+        <div class="flex items-center gap-4">
+          <div class="h-12 w-12 rounded-full bg-gray-200"></div>
+          <div class="text-left">
+            <div class="font-medium text-gray-900">{authorName}</div>
+            <div class="text-gray-600">{authorTitle} at {authorCompany}</div>
+          </div>
+        </div>
+      </footer>
+    </blockquote>
+  </div>
+</section>
+
+<style>
+  blockquote {
+    font-feature-settings: "zero" 1;
+  }
+</style>
