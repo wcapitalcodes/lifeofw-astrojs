@@ -12,9 +12,8 @@ const features: Feature[] = [
   {
     category: "Asset & Liability Management",
     items: [
-      { title: "Track up to 5 asset categories", free: true, pro: true },
-      { title: "Track up to 3 liability types", free: true, pro: true },
-      { title: "Unlimited asset & liability tracking", free: false, pro: true },
+      { title: "Track up to 9 asset categories", free: true, pro: true },
+      { title: "Track up to 5 liability types", free: true, pro: true },
       { title: "Custom categories", free: false, pro: true }
     ]
   },
@@ -38,20 +37,20 @@ const features: Feature[] = [
 
 const faqs = [
   {
-    question: "Is my financial data secure?",
-    answer: "Yes, we use bank-level encryption to protect your data. All information is stored in secure, encrypted formats and we never share your data with third parties."
+    question: "Do you offer free trial?",
+    answer: "Absolutely! We want you to experience the security and convenience of WVault firsthand. Sign up for a 14 days free trial and explore all its features before committing to a paid plan."
   },
   {
-    question: "Can I cancel my subscription anytime?",
-    answer: "Yes, you can cancel your Pro subscription at any time. Your data will remain accessible with the Free plan features."
+    question: "What happens after the free trial ends?",
+    answer: "At the end of your free trial, you'll be prompted to choose a paid subscription plan to continue using WVault. If you don't choose a plan, your access will be restricted."
   },
   {
-    question: "What payment methods do you accept?",
-    answer: "We accept all major credit cards, online banking and e-wallets."
+    question: "What happens upon cancellation, refund or default in payment?",
+    answer: "Please contact Wahine Capital immediately upon occurrence of any of these events. We have a grace period of 30 days within which you can save your information (albeit not in the format provided in W Vault). After 30 days, the information and your account will be deleted."
   },
   {
-    question: "How do I upgrade my plan?",
-    answer: "You can upgrade to Pro anytime from your account settings. The new features will be instantly available."
+    question: "Can I switch between monthly and annual plans?",
+    answer: "You can easily upgrade or downgrade your subscription plan at any time. But to do so, please email Wahine Capital at hellowahine@wcapital.asia. If you upgrade mid-cycle, your initial plan subscription will remain the same until the end of the month and the new plan will change the subsequent month. If you downgrade, you'll enjoy the remainder of your current billing cycle before the new plan takes effect."
   }
 ];
 ---
@@ -67,42 +66,42 @@ const faqs = [
       <!-- Free Plan -->
       <div class="bg-white rounded-2xl shadow-sm p-8">
         <div class="mb-6">
-          <h3 class="text-xl font-semibold mb-2">W Vault Free</h3>
+          <h3 class="text-xl font-semibold mb-2">W Vault Monthly</h3>
           <p class="text-gray-600">Start organizing your finances</p>
           
           <div class="mt-4">
-            <span class="text-4xl font-bold">$0</span>
-            <span class="text-gray-500">/forever</span>
+            <span class="text-4xl font-bold">RM 19.90</span>
+            <span class="text-gray-500">/ per month</span>
           </div>
         </div>
         
         <a href="#" class="block w-full py-3 px-4 rounded-full bg-gray-100 text-center text-gray-800 font-medium hover:bg-gray-200 transition-colors">
-          Get Started Free
+          Try free for 14 days
         </a>
       </div>
 
       <!-- Pro Plan -->
       <div class="bg-white rounded-2xl shadow-sm p-8 relative">
         <div class="absolute top-4 right-4">
-          <span class="bg-purple-100 text-purple-800 text-xs font-medium px-3 py-1 rounded-full">
+          <span class="bg-accent-100 text-accent-800 text-xs font-medium px-3 py-1 rounded-full">
             Popular
           </span>
         </div>
 
         <div class="mb-6">
-          <h3 class="text-xl font-semibold mb-2">W Vault Pro</h3>
+          <h3 class="text-xl font-semibold mb-2">W Vault Annual</h3>
           <p class="text-gray-600">Complete financial management</p>
           
           <div class="mt-4">
-            <span class="text-4xl font-bold">$19</span>
-            <span class="text-gray-500">/month</span>
+            <span class="text-4xl font-bold">RM 199.00</span>
+            <span class="text-gray-500">/ per year</span>
           </div>
         </div>
 
-        <a href="#" class="block w-full py-3 px-4 rounded-full bg-purple-600 text-center text-white font-medium hover:bg-purple-700 transition-colors mb-3">
+        <a href="#" class="block w-full py-3 px-4 rounded-full bg-accent-600 text-center text-white font-medium hover:bg-accent-700 transition-colors mb-3">
           Subscribe
         </a>
-        <p class="text-sm text-gray-500 text-center">Try free for 30 days</p>
+        <p class="text-sm text-gray-500 text-center">Try free for 14 days</p>
       </div>
     </div>
 
@@ -118,7 +117,7 @@ const faqs = [
               <div class="text-gray-600">{item.title}</div>
               <div class="text-center">
                 {item.free === true ? (
-                  <svg class="w-5 h-5 text-purple-600 mx-auto" viewBox="0 0 20 20" fill="currentColor">
+                  <svg class="w-5 h-5 text-accent-600 mx-auto" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                   </svg>
                 ) : (
@@ -127,7 +126,7 @@ const faqs = [
               </div>
               <div class="text-center">
                 {item.pro === true ? (
-                  <svg class="w-5 h-5 text-purple-600 mx-auto" viewBox="0 0 20 20" fill="currentColor">
+                  <svg class="w-5 h-5 text-accent-600 mx-auto" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                   </svg>
                 ) : (
