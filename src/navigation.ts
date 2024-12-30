@@ -25,15 +25,14 @@ export const headerData = {
         },
         {
           text: 'Wani Chat',
-          href: getPermalink('/landing/click-through'),
+          href: 'https://wani.lifeofw.com/',
           description:
             'Our friendly assistant bot designed to help with any questions you have about budgeting, investing, or women',
         },
         {
           text: 'Wahine Community',
           href: getPermalink('/landing/product'),
-          description:
-            'Our friendly assistant bot designed to help with any questions you have about budgeting, investing, or women',
+          description: 'Empowering network for women, providing support, resources, and networking opportunities.',
         },
       ],
     },
@@ -56,7 +55,7 @@ export const footerData = {
       links: [
         { text: 'W Vault', href: '/wvault' },
         { text: 'Wahine Finance Video Series', href: '#' },
-        { text: 'Wani Chat', href: '#' },
+        { text: 'Wani Chat', href: 'https://wani.lifeofw.com/' },
         { text: 'Wahine Community', href: '#' },
       ],
     },
@@ -64,9 +63,8 @@ export const footerData = {
       title: 'Company',
       links: [
         { text: 'About Us', href: '#' },
-        { text: 'Press', href: '#' },
-        { text: 'Inclusion', href: '#' },
         { text: 'Social Impact', href: '#' },
+        { text: 'Press', href: '#' },
       ],
     },
   ],
@@ -76,7 +74,11 @@ export const footerData = {
   ],
   socialLinks: [
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/wahine_capital/' },
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/p/Wahine-Capital-100087760548404/' },
+    {
+      ariaLabel: 'Facebook',
+      icon: 'tabler:brand-facebook',
+      href: 'https://www.facebook.com/p/Wahine-Capital-100087760548404/',
+    },
     { ariaLabel: 'Vimeo', icon: 'tabler:brand-vimeo', href: 'https://vimeo.com/user220015810' },
   ],
   footNote: `

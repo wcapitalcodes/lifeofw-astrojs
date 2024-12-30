@@ -39,11 +39,41 @@ const benefits: Benefit[] = [
 ];
 
 const features = [
-  { title: 'Comprehensive Asset & Liabilities Tracking', icon: 'chat' },
-  { title: 'Access & Notifier List Management', icon: 'whiteboard' },
-  { title: 'Smart Financial Calculators', icon: 'quiz' },
-  { title: 'Financial Worksheet Templates', icon: 'recording' },
-  { title: 'Financial Knowledge Hub', icon: 'recording' },
+  {
+    title: 'Comprehensive Asset Management',
+    description:
+      'Easily catalog and track all your assets, from bank accounts and investments to property, vehicles, and more.',
+    icon: 'chat',
+  },
+  {
+    title: 'Liability Control',
+    description:
+      'Get a clear view of your liabilities, including loans and credit cards, to make strategic debt management decisions.',
+    icon: 'whiteboard',
+  },
+  {
+    title: 'Access & Notifier List Management',
+    description:
+      'Designate trusted loved ones to have access to your W Vault information and to be notified in case of critical life events, ensuring your financial life is managed according to your wishes.',
+    icon: 'whiteboard',
+  },
+  {
+    title: 'Smart Financial Calculators',
+    description: 'Plan for your future with confidence using our suite of six financial calculators:',
+    icon: 'quiz',
+  },
+  {
+    title: 'Financial Worksheet Templates',
+    description:
+      'Access professionally designed templates to structure your financial journey, including SMART goal setting worksheets and comprehensive monthly budgeting tools that help you track income, expenses, and progress toward your financial objectives.',
+    icon: 'recording',
+  },
+  {
+    title: 'Financial Knowledge Hub',
+    description:
+      'Expand your financial knowledge with our curated collection of articles, guides, and resources covering essential topics from basic money management to advanced wealth-building strategies.',
+    icon: 'recording',
+  },
 ];
 ---
 
@@ -65,10 +95,7 @@ const features = [
       A dedicated digital safe, uniquely crafted <span class="theme-gradient">for women by women</span></Fragment
     >
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        Your financial future, reimagined: Innovative wealth management solutions that celebrate and support women's
-        unique paths to success.
-      </span>
+      <span class="hidden sm:inline"> Organize your complete financial picture in one secure digital vault </span>
     </Fragment>
     <Fragment slot="image">
       <div class="relative" style="padding:55% 0 0 0;">
@@ -82,8 +109,8 @@ const features = [
       </div>
       <style>
         .video-player {
-          border-radius: 1rem; /* or any size you prefer */
-          overflow: hidden; /* ensures content doesn't overflow rounded corners */
+          border-radius: 1rem;
+          overflow: hidden;
         }
       </style>
       <script
@@ -98,11 +125,19 @@ const features = [
   <div class="py-12">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <p class="text-sm font-medium tracking-wider text-gray-500 uppercase mb-2">What's In The Vault?</p>
-        <h2 class="text-4xl font-bold text-gray-900">Tools for your personal finance success</h2>
+        <p class="text-lg font-medium text-gray-500 mb-2 font-serif theme-gradient">What's In The Vault?</p>
+        <h2 class="text-3xl font-medium text-gray-800">
+          Whether you're just starting your financial journey or looking to take your wealth to the next level, W Vault
+          provides the tools, education, and support you need to succeed. It's not just a financial management platform
+          - it's your partner in building a thriving financial future.
+        </h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {features.map((feature) => <FeatureCard title={feature.title} icon={feature.icon} />)}
+        {
+          features.map((feature) => (
+            <FeatureCard title={feature.title} icon={feature.icon} description={feature.description} />
+          ))
+        }
       </div>
     </div>
   </div>
