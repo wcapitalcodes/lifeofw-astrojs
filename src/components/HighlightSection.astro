@@ -16,10 +16,7 @@ interface Props {
 }
 
 const {
-  title = {
-    line1: 'Your Digital Vault for',
-    line2: 'Financial Empowerment',
-  },
+  title = 'Your Digital Vault for Financial Empowerment',
   description = "Securely organize and manage your assets, track financial goals, and access powerful tools designed specifically for women's wealth management.",
   primaryCTA = {
     text: 'Start your journey',
@@ -32,7 +29,7 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative overflow-hidden bg-white">
+<section class="relative overflow-hidden">
   <div class="bg-gray-900 rounded-3xl mx-4 sm:mx-8 lg:mx-auto lg:max-w-6xl">
     <div class="relative pt-24 pb-20 px-4 sm:px-6 lg:px-8">
       <!-- Decorative elements -->
@@ -46,8 +43,7 @@ const {
       <!-- Main content -->
       <div class="relative max-w-3xl mx-auto text-center">
         <h1 class="text-4xl sm:text-5xl font-medium text-white mb-6 font-serif">
-          {title.line1}<br />
-          {title.line2}
+          {title}
         </h1>
         <p class="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
           {description}
@@ -65,12 +61,16 @@ const {
                 clip-rule="evenodd"></path>
             </svg>
           </a>
-          <a
-            href={secondaryCTA.href}
-            class="inline-flex items-center px-6 py-3 rounded-full bg-gray-800 hover:bg-gray-700 text-white font-medium transition-colors"
-          >
-            {secondaryCTA.text}
-          </a>
+          {
+            secondaryCTA && (
+              <a
+                href={secondaryCTA.href}
+                class="inline-flex items-center px-6 py-3 rounded-full bg-gray-800 hover:bg-gray-700 text-white font-medium transition-colors"
+              >
+                {secondaryCTA.text}
+              </a>
+            )
+          }
         </div>
       </div>
 

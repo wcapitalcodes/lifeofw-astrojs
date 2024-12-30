@@ -20,7 +20,7 @@ export const headerData = {
         },
         {
           text: 'Wahine Finance Video Series',
-          href: getPermalink('/landing/sales'),
+          href: getPermalink('/outclass'),
           description: 'A comprehensive video series focused on empowering women in finance.',
         },
         {
