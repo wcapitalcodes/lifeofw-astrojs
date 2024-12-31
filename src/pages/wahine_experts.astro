@@ -1,0 +1,158 @@
+---
+import ExpertCard from '~/components/ExpertCard.astro';
+import PageLayout from '~/layouts/PageLayout.astro';
+import ExpertModal from '~/components/ExpertModal.astro';
+const pageTitle = 'Wahine Experts';
+const pageSubtitle =
+  'Because we know that sometimes its always good to bounce off ideas and get opinion from people in the know, our network of experts are here to help you through your journey of life. Get in touch so you can have a chat* with them to kickstart your journey towards a future you want.';
+
+const metadata = {
+  title: 'Wahine Experts',
+};
+
+const moneyExperts = [
+  {
+    name: 'Rejina Rahim',
+    avatarUrl: '/images/partner-rejina.png',
+    description:
+      'With over 25 years experience in the capital markets with most of it spent in investment management, Rejina is also a certified NLP Coach and has been mentoring and coaching young adults to senior executives to take charge of their lives and create a future they want. If you are looking for guidance on how to figure out where to go for financial advice or general guidance on your life and finances, schedule a chat with Rejina to learn how to live your best life.',
+  },
+  {
+    name: 'Jessica Wee',
+    avatarUrl: '/images/partner-jessica.png',
+    description:
+      "Jessica Wee is former banker with 13 years' experience in stockbroking and private banking. Geared with knowledge gained through trading for her foreign institutional clients and handling client's asset under management of more than RM1bil, she is now helping others to navigate the web of money management using investment strategies that she learnt.",
+  },
+  {
+    name: 'Joanna Lopez',
+    avatarUrl: '/images/partner-joanne.png',
+    description:
+      'Joanne is a seasoned capital markets player with 30 years of fund management for leading financial institutions. She believes the key to success is good leadership skills and empowering people to achieve their individual and team goals. She constantly strives to learn new things, be it in her career or pursuing new hobbies and challenges!',
+  },
+  {
+    name: 'Priscilla Yong',
+    avatarUrl: '/images/partner-priscilla.png',
+    description:
+      'Priscilla is a highly regarded financial coach with over 450 satisfied customers and has trained over 1,800 employees across 20 corporations. She has achieved significant improvements in clients financial health, including debt elimination and insurance cost reduction. Priscilla is a Certified Financial Planner (CFP) and has been a licensed financial planner since 2021. She previously worked at Great Eastern Life Berhad, providing advisory services and training to over 5,000 agents.',
+  },
+  {
+    name: 'Khairunnisa Rodzi',
+    avatarUrl: '/images/partner-khairunnisa.png',
+    description:
+      'Khairunnisa is a trusted financial coach with over 300 satisfied customers and has trained more than 500 employees across 6 corporations. She has successfully reduced annual costs and taxes for her clients, cleared substantial credit card debts, and increased annual savings through comprehensive financial planning. Khairunnisa holds an FPAM Islamic Financial Planner (IFP) certification and has been a licensed financial planner since 2020.',
+  },
+];
+
+const relationshipExperts = [
+  {
+    name: 'Sherry Sheriff',
+    avatarUrl: '/images/partner-sherry.png',
+    description:
+      "Sherry specializes in family law, leveraging her extensive experience. She spearheaded a helpline aimed at empowering women with a comprehensive understanding of their rights throughout the divorce process. This encompassed critical areas such as equitable asset distribution, custody arrangements for children, and the intricacies of maintenance payments. Sherry's approach is collaborative, encompassing both financial considerations and emotional well-being, ensuring her clients achieve enhanced and favorable outcomes.",
+  },
+  {
+    name: 'Azreen Pharmy',
+    avatarUrl: '/images/partner-azreen.png',
+    description:
+      'Azreen is a Clinical Psychologist who consults patients with a range of personal and well-being issues including diagnosed mental health conditions. Her professional goal is to help clients improve their well-being, functioning, relationships, and quality of life',
+  },
+  {
+    name: 'Rita Shah',
+    avatarUrl: '/images/partner-rita.png',
+    description:
+      'Rita helps women gain clarity and focus on what matters most – amidst the expectations, the challenges and the multiple roles women play instinctively. She offers a safe and non-judgmental space to self-reflect and gain the confidence to take bold steps to achieve personal and professional goals. A Master Certified Coach, Rita has been a full-time professional coach for the past 15 years. Prior to that she founded a creative business after leaving her corporate career. She is also an abstract expressionist artist.',
+  },
+];
+
+const careerExperts = [
+  {
+    name: 'Dr. Khatina',
+    avatarUrl: '/images/partner-khatina.png',
+    description:
+      "Dr. Khatina is a leading economist and strategy advisor, with 26 year's experience in developing economic and public policies and investment strategy in Malaysia and ASEAN. Her passions are learning and building high performance teams.",
+  },
+  {
+    name: 'Jesvin Kaur',
+    avatarUrl: '/images/partner-jesvin.png',
+    description:
+      'Jesvin has over 20 years of experience in strategic communication, reputation management, business advisory and stakeholder engagement. She provides strategic business advice, communication strategy, reputation management and assists clients in navigating through a diverse range of investment and commercial challenges within the ASEAN region. She also advises on a market access strategy, stakeholder relations, media engagement, strategic and financial communication.',
+  },
+  {
+    name: 'Jasmine Ng',
+    avatarUrl: '/images/partner-jasmine.png',
+    description:
+      'A serial start-up investor, entrepreneur and mentor, Jasmine believes that with the advent of technology, the opportunity to democratize access to prosperity, health, information and education is literally at the fingertips of every individual, it is a question of choice and will',
+  },
+  {
+    name: 'Rita Shah',
+    avatarUrl: '/images/partner-rita.png',
+    description:
+      'Rita helps women gain clarity and focus on what matters most – amidst the expectations, the challenges and the multiple roles women play instinctively. She offers a safe and non-judgmental space to self-reflect and gain the confidence to take bold steps to achieve personal and professional goals. A Master Certified Coach, Rita has been a full-time professional coach for the past 15 years. Prior to that she founded a creative business after leaving her corporate career. She is also an abstract expressionist artist.',
+  },
+  {
+    name: 'Janet Chai',
+    avatarUrl: '/images/partner-janet.png',
+    description:
+      'Janet Chai is an advocate and solicitor of the High Court of Malaya, dealing with commercial and construction disputes. She is an accredited adjudicator with the Asian International Arbitration Centre. She is a regular judge at moot competitions and an active advocacy trainer with the Malaysian Bar Council. She is also a known speaker at legal conferences and seminars.',
+  },
+];
+---
+
+<PageLayout
+  metadata={metadata}
+  hasPageHeader={true}
+  pageTitle={pageTitle}
+  pageSubtitle={pageSubtitle}
+  highlightedTitleText="Experts"
+>
+  <div class="mx-auto max-w-7xl">
+    <ExpertModal />
+    <div class="grid lg:grid-cols-2 my-16">
+      <div class="max-w-md">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Money and Me</h2>
+        <p class="mt-6 text-lg leading-8 text-gray-600 font-sans">
+          Discover insights from financial mavens, guiding you toward fiscal empowerment and a prosperous future.
+        </p>
+      </div>
+      <ul role="list" class="grid lg:grid-cols-2 gap-8">
+        {
+          moneyExperts.map((expert) => (
+            <ExpertCard name={expert.name} avatarUrl={expert.avatarUrl} description={expert.description} />
+          ))
+        }
+      </ul>
+    </div>
+    <div class="grid lg:grid-cols-2 my-16">
+      <div class="max-w-md">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Relationships & Me</h2>
+        <p class="mt-6 text-lg leading-8 text-gray-600 font-sans">
+          Explore advice from relationship connoisseurs, fostering connections and empowering love that lasts.
+        </p>
+      </div>
+      <ul role="list" class="grid lg:grid-cols-2 gap-8">
+        {
+          relationshipExperts.map((expert) => (
+            <ExpertCard name={expert.name} avatarUrl={expert.avatarUrl} description={expert.description} />
+          ))
+        }
+      </ul>
+    </div>
+    <div class="grid lg:grid-cols-2 my-16">
+      <div class="max-w-md">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Career & Me</h2>
+        <p class="mt-6 text-lg leading-8 text-gray-600 font-sans">
+          Empower your professional journey with wisdom from career trailblazers, shaping success stories and fostering
+          growth.
+        </p>
+      </div>
+      <ul role="list" class="grid lg:grid-cols-2 gap-8">
+        {
+          careerExperts.map((expert) => (
+            <ExpertCard name={expert.name} avatarUrl={expert.avatarUrl} description={expert.description} />
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+  
+</PageLayout>

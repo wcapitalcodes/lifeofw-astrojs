@@ -199,10 +199,6 @@ export interface Partners {
   title?: string;
   subtitle?: string;
 }
-export interface PartnerGrid {
-  items?: Array<PartnerItem>;
-  classes?: Record<string, string>;
-}
 
 export interface PartnerItem {
   title?: string;
@@ -271,6 +267,14 @@ export interface Features extends Omit<Headline, 'classes'>, Widget {
   isBeforeContent?: boolean;
   isAfterContent?: boolean;
 }
+
+interface Benefit {
+  id: number;
+  title: string;
+  description: string;
+  visualType: 'customLayout' | 'platformAgnostic' | 'multiPlatform' | 'syncPlayback';
+}
+
 
 export interface Faqs extends Omit<Headline, 'classes'>, Widget {
   iconUp?: string;

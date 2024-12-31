@@ -1,0 +1,56 @@
+---
+const achievements = [
+  {
+    title: 'The 2024 WEPs Awards',
+    description: 'Second Place in Innovative Financing',
+    images: [{ src: '/images/wep-award.webp', width: 'w-36' }],
+  },
+  {
+    title: 'FWD x 1337',
+    description: 'Top 10 Finalist – Jan 2023',
+    images: [
+      { src: '/images/1337.webp', width: 'w-36' },
+      { src: '/images/fwd.webp', width: 'w-36' },
+    ],
+  },
+  {
+    title: 'AWS x Tigerhall Womens',
+    description: 'ASEAN Program – Jan 2023',
+    images: [
+      { src: '/images/aws.webp', width: 'w-36' },
+      { src: '/images/tigerhall.webp', width: 'w-36' },
+    ],
+  },
+  {
+    title: 'RHB Xcelerator 2023',
+    description: 'Top 28 for RHB Xcelerator Program – Jan 2023',
+    images: [{ src: '/images/rhb.png', width: 'w-36' }],
+  },
+  {
+    title: 'Supported the fight against child marriage with',
+    description: '#MyArt2EndChildMarriage',
+    images: [{ src: '/images/student-not-brides.webp', width: 'w-36' }],
+  },
+];
+---
+
+<div class="max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-6">
+    {
+      achievements.map((achievement) => (
+        <div class="p-4 md:p-7 rounded-xl border border-accent-200 shadow-lg shadow-accent-100 flex flex-col justify-center items-center">
+          <div class="flex items-center space-x-6">
+            {achievement.images.map((image) => (
+              <img src={image.src} alt="" class={image.width} />
+            ))}
+          </div>
+          <p class="font-medium font-sans text-center text-gray-800">
+            {achievement.title}
+            <br />
+            {achievement.description}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</div>

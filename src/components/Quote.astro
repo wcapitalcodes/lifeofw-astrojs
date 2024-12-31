@@ -1,0 +1,22 @@
+---
+const {
+  quote = {
+    line1: "Where traditional banks fall short,",
+    line2: "Wahine Capital steps up, designing",
+    line3: "financial strategies with women in mind."
+  }
+} = Astro.props;
+---
+
+<div class="container mx-auto px-4 my-10 max-w-7xl flex justify-center">
+  <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif text-teal-900 leading-tight tracking-normal text-center">
+    {quote.line1}
+    <br class="hidden md:block" />
+    <span class="block mt-2 md:mt-4">
+      {quote.line2}
+    </span>
+    <span class="block mt-2 md:mt-4">
+      {quote.line3}
+    </span>
+  </h1>
+</div>

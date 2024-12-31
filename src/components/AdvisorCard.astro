@@ -1,0 +1,47 @@
+---
+interface AdvisorMember {
+  image: string;
+  name: string;
+  bio: string[];
+}
+
+const advisorMembers: AdvisorMember[] = [
+  {
+    image: '/images/claire-wahine.png',
+    name: 'Claire Sancelot',
+    bio: [
+      'Claire Sancelot is a seasoned and passionate manager with over 20 years of experience building business operations across Hong Kong, Kuala Lumpur, and Singapore. She has a strong passion for developing high-performing teams in diverse environments, including Marketing, E-commerce, Marketplace, Digital Marketing, Retail, and B2B sectors, to drive key areas of business growth. Known for her collaborative, enthusiastic, and committed leadership style, Claire has consistently demonstrated her ability to inspire and lead teams towards success.',
+      "In 2016, Claire founded The Hive Store, Southeast Asia's first zero-waste concept store, in Malaysia. Under her leadership, The Hive quickly expanded, reaching six stores in Kuala Lumpur by early 2020 and opening its first store in Singapore in 2021. The Hive's products are now available in some of Kuala Lumpur's largest supermarkets, such as Jaya Grocer, Village Grocer, and BIG, as well as Malaysia's largest pharmacies, including Watsons, Healthlane, Wellings, and Maxwell. Additionally, The Hive has established a presence in top concept stores across Penang, Kuala Lumpur, Johor, and Singapore. Since 2022, Claire has been managing The Hive Eco Store virtually while based in Lille, Northern France.",
+      'Beyond her entrepreneurial endeavors, Claire is also a university lecturer, teaching courses on "Intercultural Management," "International Communication," "International Marketing," and "Entrepreneurship and Leadership" at EDHEC and IESEG Business School. She holds both undergraduate and graduate degrees in Economics from Hunter College, New York City.',
+      'Claire Sancelot continues to inspire and lead in the fields of sustainable retail and education, combining her extensive experience and passion for sustainability, innovation, and leadership development.',
+    ],
+  },
+  {
+    image: '/images/sahana-wahine.png',
+    name: 'Sahana Arun Kumar',
+    bio: [
+      'Sahana is a digital and financial inclusion ethusiast with over 16 years of experience working in the intersections of innovation and technology for economic and social impact. Sahana is passionate about achieving the triple bottom line : impact, profitability and positive actions for the planet. She has worked with a wide range of stakeholders in the inclusion space, from telecom operators to financial institutions to international donor organizations like the UN and World Bank and other social impact investors and start-ups in order to assist them with their digital and impact projects. With experience delivering projects across the globe, Sahana believes digital and financial inclusion drive necessary change to create aggregate growth in developing countries.',
+      'Sahana heads Amarante Consulting an international boutique consulting firm focused on digital and inclusion projects for social impact. She is an ardent advocate for women-in business and is member of Mindshift Capital and WAIN (Women Angel Investor Network) via which she contributes to increasing funding, awareness and support to women entrepreneurs as they grow their businesses.',
+      'Sahana graduated from HEC Paris with a Master of Business Administration and her work has covered a number of countries in Africa, Eastern Europe, Middle East, Latin America and Asia. She is also a speaker and trainer for digital and financial inclusion thematics with contributions to various events organized in English, French, Hindi and Spanish.',
+    ],
+  },
+];
+---
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10">
+  <div class="flex items-start flex-col lg:flex-row space-y-6 lg:space-y-0">
+    {
+      advisorMembers.map((member) => (
+        <div class="flex flex-col justify-center items-center space-x-6 space-y-6">
+          <img src={member.image} alt={member.name} class="rounded-full object-contain max-w-56 h-auto" />
+          <div class="prose">
+            <h2 class="text-center">{member.name}</h2>
+            {member.bio.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>

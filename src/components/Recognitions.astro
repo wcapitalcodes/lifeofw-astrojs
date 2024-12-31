@@ -1,0 +1,31 @@
+---
+const {
+  title = 'Proudly Recognized By',
+  images = [
+    { url: '/images/recognitions/wep-awards.png', classes: 'object-contain w-32' },
+    { url: '/images/recognitions/1337.png', classes: 'object-contain w-36' },
+    { url: '/images/recognitions/tigerhall-women.png', classes: 'w-14' },
+    { url: '/images/recognitions/rhb.png', classes: 'w-32' },
+  ],
+} = Astro.props;
+---
+
+<section class="relative not-prose scroll-mt-[72px]">
+  <div class="inset-0 absolute pointer-events-none -z-[1]" aria-hidden="true">
+    <div class="inset-0 absolute"></div>
+  </div>
+  <div
+    class="intersect-once motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-quarter intercept-no-queue relative mx-auto px-4 lg:py-20 md:px-6 md:py-16 py-12 text-default max-w-5xl"
+  >
+    <div class="text-center md:mx-auto mb-8 md:mb-12 max-w-3xl">
+      <h2 class="font-bold font-heading leading-tighter text-heading tracking-tighter md:text-4xl text-3xl">
+        {title}
+      </h2>
+    </div>
+    <div class="mx-auto gap-8 md:gap-y-12">
+      <div class="flex items-center justify-center flex-row space-x-6">
+        {images.map(({ url, classes }) => <img class={classes} src={url} alt="" />)}
+      </div>
+    </div>
+  </div>
+</section>

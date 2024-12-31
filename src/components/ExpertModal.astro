@@ -1,0 +1,44 @@
+---
+
+---
+
+<div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+  <div class="bg-white p-6 rounded-lg max-w-md w-full">
+    <div class="flex items-center justify-center space-x-6">
+      <div class="rounded-full bg-gradient-to-r from-primary-500 via-athens-gray-500 to-accent-500 p-1">
+        <img id="modal-avatar" class="w-28 h-28 rounded-full bg-gray-100" src="" alt="" />
+      </div>
+    </div>
+    <h2 id="modal-name" class="text-xl font-bold mt-4 text-center"></h2>
+    <p id="modal-description" class="mt-2 text-gray-600"></p>
+    <button onclick="closeModal()" class="mt-4 w-full bg-primary-700 text-white py-2 rounded-lg"> Close </button>
+  </div>
+
+  <script>
+    // Expose openModal to the global scope
+    window.openModal = function (data) {
+      const modal = document.getElementById('modal');
+      const modalAvatar = document.getElementById('modal-avatar');
+      const modalName = document.getElementById('modal-name');
+      const modalDescription = document.getElementById('modal-description');
+
+      if (modal && modalAvatar && modalName && modalDescription) {
+        modalAvatar.src = data.avatar_url;
+        modalName.textContent = data.name;
+        modalDescription.textContent = data.description;
+        modal.classList.remove('hidden');
+      }
+    };
+
+    // Expose closeModal to the global scope
+    window.closeModal = function () {
+      const modal = document.getElementById('modal');
+      if (modal) {
+        modal.classList.add('hidden');
+      }
+    };
+
+    // Listen for the custom event
+    window.addEventListener('open-modal', (e) => openModal(e.detail));
+  </script>
+</div>

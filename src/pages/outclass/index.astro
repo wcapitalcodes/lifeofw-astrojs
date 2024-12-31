@@ -1,0 +1,272 @@
+---
+import PageLayout from '~/layouts/PageLayout.astro';
+import HighlightSection from '~/components/HighlightSection.astro';
+interface Course {
+  title: string;
+  description: string;
+  buttonText: string;
+}
+interface BenefitCard {
+  title: string;
+  description: string;
+}
+
+const highlight = {
+  title: "We're committed to making financial mastery achievable for every woman.",
+  description:
+    "Securely organize and manage your assets, track financial goals, and access powerful tools designed specifically for women's wealth management.",
+  primaryCTA: {
+    text: 'Explore the Videos in OutClass',
+    href: '#',
+  },
+};
+
+const benefits: BenefitCard[] = [
+  {
+    title: '4 Power-Packed Modules',
+    description:
+      'From mindset to mastery: A structured journey through financial fundamentals, smart budgeting, investment strategies, and legacy planning designed specifically for Malaysian women.',
+  },
+  {
+    title: 'Expert-Led Video Lessons',
+    description:
+      "Learn from Malaysia's top female financial experts who share their real-world experience and strategies in engaging, easy-to-follow 15-minute sessions.",
+  },
+  {
+    title: 'Practical, Actionable Strategies',
+    description:
+      'Turn knowledge into results with our ready-to-use templates, worksheets, and step-by-step implementation guides tailored for your financial success.',
+  },
+  {
+    title: 'Flexible Learning Path',
+    description:
+      "Learn at your own pace with bite-sized, structured content that fits your busy lifestyle - anytime, anywhere on AirAsia's Outclass platform.",
+  },
+];
+
+const courses: Course[] = [
+  {
+    title: 'Financial Vulnerabilities',
+    description: 'The financial vulnerabilities unique to women',
+    buttonText: 'Enroll now',
+  },
+  {
+    title: "Women's Risk Appetites",
+    description: 'The factors women consider in making financial decisions',
+    buttonText: 'Enroll now',
+  },
+  {
+    title: 'Financial Independence',
+    description: 'The importance of financial independence',
+    buttonText: 'Enroll now',
+  },
+  {
+    title: 'Finance talk with your partner',
+    description: 'How to talk finances with your partner',
+    buttonText: 'Enroll now',
+  },
+  {
+    title: 'Setting your financial goals',
+    description: 'Back to basics - Setting your Financial Goals',
+    buttonText: 'Enroll now',
+  },
+];
+---
+
+<PageLayout>
+  <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl sm:text-5xl font-medium font-serif text-accent-900 max-w-4xl mx-auto leading-tight mb-8">
+        Master your money, secure your future, and build lasting wealth with Malaysia's premier financial education
+        series designed exclusively for women.
+      </h1>
+
+      <a
+        href="#"
+        class="inline-block bg-teal-600 text-white px-8 py-3 rounded-full font-medium hover:bg-teal-700 transition-colors"
+      >
+        Explore The Videos in OutClass
+      </a>
+    </div>
+
+    <!-- Course cards with auto-scroll -->
+    <div
+      x-data="{ 
+            scrollDistance: 0,
+            scrollWidth: 0,
+            containerWidth: 0,
+            init() {
+              this.scrollWidth = this.$refs.scroller.scrollWidth;
+              this.containerWidth = this.$refs.scroller.offsetWidth;
+              this.startScrolling();
+            },
+            startScrolling() {
+              const scroll = () => {
+                if (this.scrollDistance >= this.scrollWidth - this.containerWidth) {
+                  this.scrollDistance = 0;
+                } else {
+                  this.scrollDistance += 1;
+                }
+                this.$refs.scroller.scrollLeft = this.scrollDistance;
+                requestAnimationFrame(scroll);
+              };
+              requestAnimationFrame(scroll);
+            }
+          }"
+      class="mt-16 relative overflow-hidden"
+      @mouseover="$refs.scroller.style.animationPlayState = 'paused'"
+      @mouseleave="$refs.scroller.style.animationPlayState = 'running'"
+    >
+      <div x-ref="scroller" class="flex gap-4 animate-scroll">
+        {
+          [...courses, ...courses].map((course, index) => (
+            <div
+              class={`flex-none w-72 ${
+                index % courses.length === 4 ? 'bg-red-800 text-white' : 'bg-cream-50'
+              } rounded-xl p-6`}
+            >
+              <h3 class="font-semibold text-lg mb-1">{course.title}</h3>
+              <p class="text-sm mb-4">{course.description}</p>
+              <button
+                class={`text-sm px-4 py-2 rounded-full ${
+                  index % courses.length === 4 ? 'bg-white text-red-800' : 'bg-gray-800 text-white'
+                } hover:opacity-90 transition-opacity`}
+              >
+                {course.buttonText}
+              </button>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+      <!-- Feature Card -->
+      <div class="bg-[#822F46] text-white p-8 rounded-3xl relative overflow-hidden">
+        <!-- Decorative Elements -->
+        <div class="absolute top-0 left-0 w-20 h-20 bg-[#7AB8B1] rounded-full -translate-x-8 -translate-y-8"></div>
+        <div class="absolute bottom-0 right-0 w-32 h-32 bg-[#7AB8B1] -translate-y-4 translate-x-4"></div>
+
+        <!-- Content -->
+        <div class="relative z-10">
+          <p class="text-sm mb-6">Wahine Financial Wellness</p>
+          <h1 class="text-3xl md:text-4xl font-medium italic leading-tight mb-6 font-serif">
+            Join thousands of Malaysian women who've revolutionized their approach to personal finance through our
+            comprehensive 16-video series.
+          </h1>
+        </div>
+      </div>
+
+      <!-- Benefits Grid -->
+      <div class="grid grid-cols-2 gap-8">
+        {
+          benefits.map((benefit) => (
+            <div class="bg-white rounded-xl">
+              <h3 class="text-[#822F46] font-semibold text-lg mb-2">{benefit.title}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">{benefit.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Left Content -->
+      <div class="space-y-12">
+        <div class="relative">
+          <h2 class="text-4xl lg:text-5xl font-bold text-[#1E293B] leading-tight mb-12">
+            Bridging Knowledge And Aspirations.
+          </h2>
+
+          <!-- Decorative dots grid -->
+          <div class="absolute right-0 -bottom-8">
+            <div class="grid grid-cols-5 gap-2">
+              {[...Array(25)].map(() => <div class="w-2 h-2 rounded-full bg-gray-200" />)}
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-xl font-semibold text-[#1E293B] mb-4">Empowering Financial Independence</h3>
+            <p class="text-gray-600">
+              We understand that financial literacy is more than just numbers—it's about gaining confidence and control
+              over your financial future. Our platform provides the tools and knowledge you need to make informed
+              decisions about your wealth management journey.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold text-[#1E293B] mb-4">Building Lasting Financial Legacy</h3>
+            <p class="text-gray-600">
+              Take charge of your financial destiny with comprehensive asset tracking, smart planning tools, and expert
+              guidance. W Vault is designed to help Malaysian women create, preserve, and grow their wealth for
+              generations to come.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Images -->
+      <div class="space-y-6">
+        <div class="rounded-2xl overflow-hidden aspect-[16/6]">
+          <img
+            src="/images/outclass-rejina-speaking.png"
+            alt="Financial expert discussing wealth management"
+            class="w-full h-full object-cover object-top rounded-2xl"
+          />
+        </div>
+        <div class="rounded-2xl overflow-hidden aspect-[16/8]">
+          <img
+            src="/images/outclass-sherry-speaking.png"
+            alt="Financial planning session"
+            class="w-full h-full object-cover rounded-2xl"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <HighlightSection
+    title={highlight.title}
+    description={``}
+    primaryCTA={{ text: highlight.primaryCTA.text, href: highlight.primaryCTA.href }}
+    secondaryCTA={``}
+  />
+
+  <style>
+    .aspect-[16/10] {
+      aspect-ratio: 16/10;
+    }
+  </style>
+
+  <style>
+    /* Optional hover effects */
+    .bg-white:hover {
+      transform: translateY(-2px);
+      transition: transform 0.2s ease-in-out;
+    }
+  </style>
+  <style>
+    .bg-cream-50 {
+      background-color: #fdfbf3;
+    }
+
+    .animate-scroll {
+      animation: scroll 50s linear infinite;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-100% / 2));
+      }
+    }
+  </style>
+</PageLayout>
