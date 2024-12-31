@@ -1,0 +1,207 @@
+---
+import Hero from '~/components/widgets/Hero.astro';
+import PageLayout from '~/layouts/PageLayout.astro';
+---
+
+<PageLayout>
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get template',
+        href: 'https://github.com/onwidget/astrowind',
+        target: '_blank',
+        icon: 'tabler:download',
+      },
+      { text: 'Learn more', href: '#features' },
+    ]}
+  >
+    <Fragment slot="subtitlePrimary" class="font-serif theme-gradient"> Wahine Community </Fragment>
+    <Fragment slot="title" class="font-serif text-gray-800">
+      Uniting women for <span class="theme-gradient">stronger communities</span></Fragment
+    >
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        At Wahine Capital, we believe in the power of collective wisdom. Here, you'll find a treasure trove of
+        knowledge, a springboard for innovative ideas, and a support system that propels you forward. Whether you're
+        decoding market trends or perfecting you financial plans, you'll never walk alone. Are you ready to redefine
+        what's possible in finance? Join us and let's make waves together!</span
+      >
+      <div>
+        <a
+          href="https://forms.gle/W9pvgTJy4BQtLs5s6"
+          class="inline-flex items-center px-6 py-3 rounded-full bg-accent-600 hover:bg-accent-700 text-white font-medium transition-colors"
+        >
+          Join Our Community
+          <svg class="ml-2 w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+            <path
+              fill-rule="evenodd"
+              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+    </Fragment>
+  </Hero>
+  <div class="pb-4">
+    <div class="flex items-center justify-center mb-8">
+      <img src="/wahine-logo.png" class="text-center w-16" />
+    </div>
+    <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+      <p
+        class="mx-auto mt-2 max-w-4xl text-pretty text-center text-2xl font-medium tracking-tight text-gray-950 sm:text-2xl"
+      >
+        We firmly believe that when <span class="theme-gradient"
+          >women thrive in finance, entire communities prosper</span
+        >. We're not just about individual success—we're about creating a ripple effect that touches lives, reshapes
+        industries, and builds stronger economies. Our diverse network isn't just a group of professionals; it's a
+        powerhouse of innovation and change.
+      </p>
+      <div class="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
+        <div class="relative lg:row-span-2 rounded-2xl border">
+          <div class="relative flex h-full flex-col overflow-hidden">
+            <div class="px-8 pb-3 pt-8 sm:px-10 sm:pb-0 sm:pt-10">
+              <p class="mt-2 text-lg/7 font-semibold tracking-tight text-gray-950 text-justify theme-gradient">
+                Community Network
+              </p>
+              <p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
+                Connect, collaborate, and grow together with like-minded women in finance and leadership. Access
+                mentorship programs, discussion forums, exclusive job opportunities, make lasting connections, and build
+                professional networks that empower success.
+              </p>
+            </div>
+            <div class="relative h-80 aspect-[4/3] w-full max-lg:mx-auto max-lg:max-w-sm mt-4 p-4">
+              <img
+                class="size-full object-cover object-top rounded-2xl"
+                src="/images/community/community-network.jpeg"
+                alt="community-network"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="relative lg:row-span-2 rounded-2xl border">
+          <div class="relative flex flex-col overflow-hidden">
+            <div class="px-8 pb-3 pt-8 sm:px-10 sm:pb-0 sm:pt-10">
+              <p class="mt-2 text-lg/7 font-semibold tracking-tight text-gray-950 max-lg:text-center theme-gradient">
+                Events & Workshops
+              </p>
+              <p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
+                Participate in inspiring webinars, skill-building workshops, and dynamic networking events. Join us to
+                share valuable insights, celebrate significant achievements, and collaboratively shape the future
+                landscape of finance together with peers.
+              </p>
+            </div>
+            <div class="relative h-80 aspect-[4/3] w-full max-lg:mx-auto max-lg:max-w-sm mt-4 p-4">
+              <img
+                class="size-full object-cover object-center rounded-2xl"
+                src="/images/community/events.jpeg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+        <div class="relative lg:row-span-2 rounded-2xl border">
+          <div class="relative flex h-full flex-col overflow-hidden">
+            <div class="px-8 pb-3 pt-8 sm:px-10 sm:pb-0 sm:pt-10">
+              <p class="mt-2 text-lg/7 font-semibold tracking-tight text-gray-950 max-lg:text-center theme-gradient">
+                Financial Tools &amp; Resources
+              </p>
+              <p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
+                Access our comprehensive suite of financial tools, expert resources, and industry insights. Empower your
+                decision-making, optimize strategies, and accelerate growth with our curated collection of essential
+                materials.
+              </p>
+            </div>
+            <div class="relative h-80 aspect-[4/3] w-full max-lg:mx-auto max-lg:max-w-sm mt-4 p-4">
+              <img
+                class="size-full object-cover object-bottom rounded-2xl"
+                src="/images/community/member.jpeg"
+                alt="member"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-10 sm:py-10">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4 mt-4">
+        <div class="break-inside-avoid">
+          <img class="w-full rounded-lg" src="/images/community/01.jpeg" alt="" />
+        </div>
+        <div class="break-inside-avoid">
+          <img class="w-full rounded-lg" src="/images/community/02.jpeg" alt="" />
+        </div>
+        <div class="break-inside-avoid">
+          <img class="w-full rounded-lg" src="/images/community/03.jpeg" alt="" />
+        </div>
+        <div class="break-inside-avoid">
+          <img class="w-full rounded-lg" src="/images/community/04.jpeg" alt="" />
+        </div>
+        <div class="break-inside-avoid">
+          <img class="w-full rounded-lg" src="/images/community/05.jpeg" alt="" />
+        </div>
+        <div class="break-inside-avoid">
+          <img class="w-full rounded-lg" src="/images/community/06.jpeg" alt="" />
+        </div>
+        <div class="break-inside-avoid">
+          <img class="w-full rounded-lg" src="/images/community/07.jpeg" alt="" />
+        </div>
+        <div class="break-inside-avoid">
+          <img class="w-full rounded-lg" src="/images/community/08.jpeg" alt="" />
+        </div>
+        <div class="break-inside-avoid">
+          <img class="w-full rounded-lg" src="/images/community/09.jpeg" alt="" />
+        </div>
+        <div class="break-inside-avoid">
+          <img class="w-full rounded-lg" src="/images/community/10.jpeg" alt="" />
+        </div>
+        <div class="break-inside-avoid">
+          <img class="w-full rounded-lg" src="/images/community/11.jpeg" alt="" />
+        </div>
+        <div class="break-inside-avoid">
+          <img class="w-full rounded-lg" src="/images/community/12.jpeg" alt="" />
+        </div>
+        <div class="break-inside-avoid">
+          <img class="w-full rounded-lg" src="/images/community/15.jpeg" alt="" />
+        </div>
+        <div class="break-inside-avoid">
+          <img class="w-full rounded-lg" src="/images/community/16.jpeg" alt="" />
+        </div>
+        <div class="break-inside-avoid">
+            <img class="w-full rounded-lg" src="/images/community/03.jpeg" alt="" />
+          </div>
+          <div class="break-inside-avoid">
+            <img class="w-full rounded-lg" src="/images/community/08.jpeg" alt="" />
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8 my-16">
+    <h2
+      class="mx-auto mt-2 max-w-4xl text-pretty text-center text-2xl font-medium tracking-tight text-gray-950 sm:text-3xl"
+    >
+      Redefine Finance Together: <span class="theme-gradient">Join Wahine Community</span>
+    </h2>
+    <p class="mx-auto mt-2 max-w-4xl text-pretty text-center text-2xl font-medium text-gray-800 sm:text-2xl">
+      Join us as we forge a new era in finance, where every woman's voice is heard, every ambition is supported, and
+      every success story inspires the next generation of female financial leaders. Together, we're not just breaking
+      barriers – we're creating a legacy of empowerment, excellence, and enduring impact in the world of finance.
+    </p>
+    <div class="flex items-center justify-center mt-6 mb-10">
+      <a
+        href="https://forms.gle/W9pvgTJy4BQtLs5s6"
+        class="inline-flex items-center px-6 py-3 rounded-full bg-accent-600 hover:bg-accent-700 text-white font-medium transition-colors"
+      >
+        Join Our Community
+        <svg class="ml-2 w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+          <path
+            fill-rule="evenodd"
+            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</PageLayout>

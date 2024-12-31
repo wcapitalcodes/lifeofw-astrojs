@@ -1,39 +1,5 @@
 ---
-interface Feature {
-  category: string;
-  items: {
-    title: string;
-    free: boolean | string;
-    pro: boolean | string;
-  }[];
-}
 
-const features: Feature[] = [
-  {
-    category: "Asset & Liability Management",
-    items: [
-      { title: "Track up to 9 asset categories", free: true, pro: true },
-      { title: "Track up to 5 liability types", free: true, pro: true },
-      { title: "Custom categories", free: false, pro: true }
-    ]
-  },
-  {
-    category: "Financial Planning Tools",
-    items: [
-      { title: "Basic financial calculators", free: true, pro: true },
-      { title: "Advanced planning tools", free: false, pro: true },
-      { title: "Custom financial templates", free: "Limited", pro: true }
-    ]
-  },
-  {
-    category: "Support",
-    items: [
-      { title: "Knowledge base access", free: true, pro: true },
-      { title: "Community support", free: true, pro: true },
-      { title: "Priority support", free: "Basic", pro: "24/7 Priority" }
-    ]
-  }
-];
 
 const faqs = [
   {

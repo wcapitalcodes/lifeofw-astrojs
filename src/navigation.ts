@@ -31,7 +31,7 @@ export const headerData = {
         },
         {
           text: 'Wahine Community',
-          href: getPermalink('/landing/product'),
+          href: getPermalink('/community'),
           description: 'Empowering network for women, providing support, resources, and networking opportunities.',
         },
       ],
@@ -54,9 +54,9 @@ export const footerData = {
       title: 'Solutions',
       links: [
         { text: 'W Vault', href: '/wvault' },
-        { text: 'Wahine Finance Video Series', href: '#' },
+        { text: 'Wahine Finance Video Series', href: '/outclass' },
         { text: 'Wani Chat', href: 'https://wani.lifeofw.com/' },
-        { text: 'Wahine Community', href: '#' },
+        { text: 'Wahine Community', href: '/community/' },
       ],
     },
     {
