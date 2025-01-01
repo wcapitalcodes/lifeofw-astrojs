@@ -64,7 +64,8 @@ export const footerData = {
       links: [
         { text: 'About Us', href: '#' },
         { text: 'Social Impact', href: '#' },
-        { text: 'Press', href: '#' },
+        { text: 'Terms', href: '#' },
+        { text: 'Privacy Policy', href: '#' },
       ],
     },
   ],

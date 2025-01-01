@@ -35,8 +35,14 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
       <div class="col-span-12 lg:col-span-4">
         <div class="mb-2">
           <a class="inline-block font-bold text-xl" href={getHomePermalink()}>{SITE?.name}</a>
+          <div class="text-sm">
+            Wahine Capital Sdn Bhd (hereafter “Wahine Capital”) is not in any capacity associated with Wahine Capital
+            Limited, which is a company incorporated in the British Virgin Islands. The naming of the company is purely
+            coincidental and Wahine Capital has no working relationship or any other connection with Wahine Capital
+            Limited.
+          </div>
         </div>
-        <div class="text-sm text-muted flex gap-1">
+        <!-- <div class="text-sm text-muted flex gap-1">
           {
             secondaryLinks.map(({ text, href }, index) => (
               <>
@@ -49,7 +55,7 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
               </>
             ))
           }
-        </div>
+        </div> -->
       </div>
       {
         links.map(({ title, links }) => (
@@ -101,5 +107,4 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
       </div>
     </div>
   </div>
-
 </footer>
