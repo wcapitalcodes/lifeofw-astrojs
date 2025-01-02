@@ -10,14 +10,14 @@ const { title, subtitle, highlightedTitleText = '', hasBackground = true } = Ast
 
 // Function to highlight words
 const highlightWords = (text: string, words: string) => {
-  if (highlightedTitleText) {
-    const wordsArray = words.split(',').map((word) => word.trim());
-    const regex = new RegExp(`(${wordsArray.join('|')})`, 'gi');
-    return text
-      .split(regex)
-      .map((part, index) => (wordsArray.includes(part) ? `<span class="theme-gradient">${part}</span>` : part))
-      .join('');
-  }
+  if (!text || !highlightedTitleText) return text;
+  
+  const wordsArray = words.split(',').map((word) => word.trim());
+  const regex = new RegExp(`(${wordsArray.join('|')})`, 'gi');
+  return text
+    .split(regex)
+    .map((part, index) => (wordsArray.includes(part) ? `<span class="theme-gradient">${part}</span>` : part))
+    .join('');
 };
 ---
 

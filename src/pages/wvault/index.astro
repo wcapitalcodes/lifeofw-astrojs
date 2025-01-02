@@ -7,6 +7,7 @@ import FeatureCard from '~/components/FeatureCard.astro';
 import TestimonialSection from '~/components/TestimonialSection.astro';
 import HighlightSection from '~/components/HighlightSection.astro';
 import PricingSection from '~/components/PricingSection.astro';
+import { Icon } from 'astro-icon/components';
 
 const benefits: Benefit[] = [
   {
@@ -95,7 +96,22 @@ const features = [
       A dedicated digital safe, uniquely crafted <span class="theme-gradient">for women by women</span></Fragment
     >
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline"> Organize your complete financial picture in one secure digital vault </span>
+      <div class="">
+        <div class="">
+          <p class="text-md lg:text-xl">Organize your complete financial picture in one secure digital vault</p>
+        </div>
+        <a
+          href="https://wahine.wcapital.asia/accounts/register/"
+          target="_blank"
+          class="inline-flex items-center bg-primary-700 text-white px-6 py-3 rounded-full hover:bg-primary-800 transition-colors group my-6"
+        >
+          <span class="font-medium">Get Stared for Free</span>
+          <Icon
+            name="lucide:arrow-up-right"
+            class="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+          />
+        </a>
+      </div>
     </Fragment>
     <Fragment slot="image">
       <div class="relative" style="padding:55% 0 0 0;">
@@ -143,5 +159,8 @@ const features = [
   </div>
   <TestimonialSection />
   <PricingSection />
-  <HighlightSection />
+  <HighlightSection
+    primaryCTA={{ text: 'Get Started for Free', href: 'https://wahine.wcapital.asia/accounts/register/' }}
+    secondaryCTA={false}
+  />
 </PageLayout>
