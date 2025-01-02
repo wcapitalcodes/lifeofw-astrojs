@@ -66,6 +66,7 @@ export const footerData = {
         { text: 'Social Impact', href: '#' },
         { text: 'Terms', href: '/terms' },
         { text: 'Privacy Policy', href: '/privacy-policy' },
+        { text: 'Community Guidelines', href: '/community/guidelines' },
       ],
     },
   ],
