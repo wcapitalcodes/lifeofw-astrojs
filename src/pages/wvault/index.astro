@@ -8,6 +8,7 @@ import TestimonialSection from '~/components/TestimonialSection.astro';
 import HighlightSection from '~/components/HighlightSection.astro';
 import PricingSection from '~/components/PricingSection.astro';
 import { Icon } from 'astro-icon/components';
+import Headline from '~/components/ui/Headline.astro';
 
 const benefits: Benefit[] = [
   {
@@ -158,7 +159,18 @@ const features = [
     </div>
   </div>
   <TestimonialSection />
+  <div
+    class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 md:space-x-16 flex flex-col md:flex-row items-center space-y-10 md:space-y-0 py-10"
+  >
+    <div class="flex flex-col items-center justify-center">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-medium text-gray-900 font-serif">Explore our engaging articles and powerful financial tools, including retirement calculators, on W Vault's resource page! Discover how to take charge of your financial future today!</h2>
+      </div>
+      <img src="https://assets.lifeofw.com/images/calculator-article.png" alt="" class="w-lg" />
+    </div>
+  </div>
   <PricingSection />
+  
   <HighlightSection
     primaryCTA={{ text: 'Get Started for Free', href: 'https://wahine.wcapital.asia/accounts/register/' }}
     secondaryCTA={false}
