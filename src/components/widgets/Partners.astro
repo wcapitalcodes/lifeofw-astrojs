@@ -1,46 +1,38 @@
 ---
-import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import Headline from '~/components/ui/Headline.astro';
 
-const {
-  title = await Astro.slots.render('title'),
-  subtitle = await Astro.slots.render('subtitle'),
-  items = [],
-  classes = {},
-} = Astro.props;
+const { title = await Astro.slots.render('title'), items = [] } = Astro.props;
 ---
 
-<WidgetWrapper containerClass={`max-w-5xl ${classes?.container ?? ''}`}>
-  <div class="relative not-prose scroll-mt-[72px]">
-    <div class="inset-0 absolute pointer-events-none -z-[1]" aria-hidden="true">
-      <div class="inset-0 absolute"></div>
+<section class="relative not-prose scroll-mt-[72px] my-16">
+  <div class="inset-0 absolute pointer-events-none -z-[1]" aria-hidden="true">
+    <div class="inset-0 absolute"></div>
+  </div>
+  <div
+    class="intersect-once motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-quarter intercept-no-queue relative mx-auto px-4 text-default max-w-5xl"
+  >
+    <div class="text-center md:mx-auto md:mb-12 max-w-3xl">
+      <Headline title={title} subtitle={''} />
     </div>
-
-    <div
-      class="intersect-once motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-quarter intercept-no-queue"
-    >
-      <Headline title={title} subtitle={subtitle} />
-
-      <div class="mx-auto gap-8 md:gap-y-12">
-        {
-          items && (
-            <div>
-              {items.map(({ title, logos }) => (
-                <div class="items-center w-full gap-3 grid grid-cols-1 lg:grid-cols-2 my-6">
-                  <div>{title && <h3 class="text-xl font-medium">{title}</h3>}</div>
-                  <div class="flex items-center flex-row space-x-6">
-                    {logos?.map(({ url, ref_link, classes }) => (
-                      <a href={ref_link} target="_blank">
-                        <img src={url} alt="" class={classes} />
-                      </a>
-                    ))}
-                  </div>
+    <div class="mx-auto gap-8 md:gap-y-12">
+      {
+        items && (
+          <div>
+            {items.map(({ title, logos }) => (
+              <div class="items-center w-full gap-3 grid grid-cols-1 lg:grid-cols-2 my-6">
+                <div>{title && <h3 class="text-xl font-medium">{title}</h3>}</div>
+                <div class="flex items-center flex-row space-x-6">
+                  {logos?.map(({ url, ref_link, classes }) => (
+                    <a href={ref_link} target="_blank">
+                      <img src={url} alt="" class={classes} />
+                    </a>
+                  ))}
                 </div>
-              ))}
-            </div>
-          )
-        }
-      </div>
+              </div>
+            ))}
+          </div>
+        )
+      }
     </div>
   </div>
-</WidgetWrapper>
+</section>

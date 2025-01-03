@@ -1,0 +1,19 @@
+---
+import Headline from './ui/Headline.astro';
+---
+
+<section class="relative not-prose scroll-mt-[72px] my-8">
+  <div class="inset-0 absolute pointer-events-none -z-[1]" aria-hidden="true">
+    <div class="inset-0 absolute"></div>
+  </div>
+  <div
+    class="intersect-once motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-quarter intercept-no-queue relative mx-auto px-4 text-default max-w-5xl"
+  >
+  <div class="">
+    <Headline title="Accredited By" subtitle={''} />
+  </div>
+  <div class="mx-auto gap-8 md:gap-y-12 items-center flex justify-center">
+    <img src="/images/hrdf-logo-rejina.png" alt="" style="max-height: 150px;" />
+  </div>
+  </div>
+</section>
