@@ -11,6 +11,11 @@ interface BenefitCard {
   description: string;
 }
 
+const metadata = {
+  title: 'Life of W',
+  ignoreTitleTemplate: true,
+};
+
 const highlight = {
   title: "We're committed to making financial mastery achievable for every woman.",
   description:
@@ -73,7 +78,7 @@ const courses: Course[] = [
 ];
 ---
 
-<PageLayout>
+<PageLayout metadata={metadata}>
   <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
     <div class="text-center mb-12">
       <h1 class="text-4xl sm:text-5xl font-medium font-serif text-accent-900 max-w-4xl mx-auto leading-tight mb-8">
