@@ -272,7 +272,7 @@ interface Benefit {
   id: number;
   title: string;
   description: string;
-  visualType: 'customLayout' | 'platformAgnostic' | 'multiPlatform' | 'syncPlayback';
+  image?: string;
 }
 
 
