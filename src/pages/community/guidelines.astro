@@ -1,14 +1,25 @@
 ---
 import PageLayout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Community Guidelines | Wahine Community',
+  description:
+    "Read the Wahine Community guidelines for creating a respectful, inclusive, and empowering environment. Learn how to engage and contribute positively.",
+  ignoreTitleTemplate: true,
+  keywords:
+    'Wahine Community guidelines, community rules Malaysia, women community guidelines, financial community conduct, safe space guidelines, online community rules, professional networking etiquette, women network guidelines, inclusive community standards, Malaysian women community, community participation guidelines, professional community conduct',
+  openGraph: {
+    site_name: 'Wahine Community Guidelines - Building a Supportive Network',
+  },
+};
 ---
 
-<PageLayout hasPageHeader pageTitle='Community Guidelines' highlightedTitleText='Community'>
+<PageLayout hasPageHeader pageTitle="Community Guidelines" highlightedTitleText="Community" metadata={metadata}>
   <div class="max-w-5xl px-4 py-10 sm:px-6 lg:px-8 mx-auto font-sans prose">
     <h2 class="text-lg font-bold font-body">Welcome to Wahine Community Guidelines</h2>
     <p>
-      Welcome to the Wahine community! We are committed to fostering a supportive and inclusive environment
-      where everyone can thrive. Please adhere to the following guidelines to ensure a positive experience for all
-      members.
+      Welcome to the Wahine community! We are committed to fostering a supportive and inclusive environment where
+      everyone can thrive. Please adhere to the following guidelines to ensure a positive experience for all members.
     </p>
     <br />
     <h2>1. Respect and Inclusivity</h2>

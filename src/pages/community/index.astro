@@ -1,9 +1,21 @@
 ---
 import Hero from '~/components/widgets/Hero.astro';
 import PageLayout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Wahine Community | Empowering Women Through Networks',
+  description:
+    "Join Wahine's thriving community of Malaysian women supporting each other's financial journey. Network, learn, and grow through events, workshops, and shared resources.",
+  ignoreTitleTemplate: true,
+  keywords:
+    'Wahine Community, women financial network Malaysia, women finance community, financial empowerment community, Malaysian women network, financial workshops Malaysia, women finance events, financial community Malaysia, women business network, Malaysian women empowerment, financial networking events, women finance workshops',
+  openGraph: {
+    site_name: 'Wahine Community - Uniting Women for Stronger Financial Futures',
+  },
+};
 ---
 
-<PageLayout>
+<PageLayout metadata={metadata}>
   <Hero
     actions={[
       {
@@ -170,11 +182,11 @@ import PageLayout from '~/layouts/PageLayout.astro';
           <img class="w-full rounded-lg" src="/images/community/16.jpeg" alt="" />
         </div>
         <div class="break-inside-avoid">
-            <img class="w-full rounded-lg" src="/images/community/03.jpeg" alt="" />
-          </div>
-          <div class="break-inside-avoid">
-            <img class="w-full rounded-lg" src="/images/community/08.jpeg" alt="" />
-          </div>
+          <img class="w-full rounded-lg" src="/images/community/03.jpeg" alt="" />
+        </div>
+        <div class="break-inside-avoid">
+          <img class="w-full rounded-lg" src="/images/community/08.jpeg" alt="" />
+        </div>
       </div>
     </div>
   </div>

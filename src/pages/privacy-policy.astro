@@ -1,10 +1,18 @@
 ---
 import PageLayout from '~/layouts/PageLayout.astro';
-const metadata = {
-  title: 'Privacy Policy',
-  ignoreTitleTemplate: true,
-};
+
 const pageTitle = 'Privacy Policy';
+const metadata = {
+  title: 'Privacy Policy | Wahine Capital',
+  description:
+    "Learn about Wahine Capital's privacy policy and how we protect your personal data under PDPA 2010. Understand your rights, data collection, usage, and security measures.",
+  ignoreTitleTemplate: true,
+  keywords:
+    'Wahine Capital privacy policy, PDPA Malaysia, personal data protection, Malaysian privacy law, data privacy policy, financial services privacy, data protection Malaysia, privacy rights Malaysia, personal data collection, data security policy, Malaysian financial privacy, privacy policy Kuala Lumpur, PDPA 2010 compliance',
+  openGraph: {
+    site_name: 'Wahine Capital Privacy Policy - Protecting Your Personal Data',
+  },
+};
 ---
 
 <PageLayout metadata={metadata} hasPageHeader pageTitle={pageTitle} highlightedTitleText="Privacy">
@@ -170,11 +178,13 @@ const pageTitle = 'Privacy Policy';
       <address>
         <p>
           Wahine Capital Sdn Bhd<br />
-          Suite B9-07, Plaza Mont Kiara, 2 Jalan Kiara, Mont Kiara, 50480 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur<br />
+          Suite B9-07, Plaza Mont Kiara, 2 Jalan Kiara, Mont Kiara, 50480 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur<br
+          />
           Email: <a href="mailto:privacy@company.com">hellowahine@wcapital.asia</a><br />
         </p>
         <p>
-          For privacy-related inquiries or to exercise your rights under the PDPA, please contact us at the above address.
+          For privacy-related inquiries or to exercise your rights under the PDPA, please contact us at the above
+          address.
         </p>
       </address>
     </section>

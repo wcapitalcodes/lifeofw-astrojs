@@ -5,9 +5,8 @@ import PageHeader from '~/components/PageHeader.astro';
 import TeamCard from '~/components/TeamCard.astro';
 import PageLayout from '~/layouts/PageLayout.astro';
 
-const pageTitle = 'The Women At The Helm';
-const pageSubtitle =
-  'Get to know our remarkable female founders, pioneers at the forefront, steering our journey with unwavering determination, brilliance, and a vision for inclusive success.';
+const pageTitle = 'About Us | Wahine Capital';
+const pageSubtitle = 'The why behind Wahine Capital';
 
 const content = {
   paragraphs: [
@@ -18,7 +17,11 @@ const content = {
 };
 
 const metadata = {
-  title: 'About us',
+  title: 'About Us | Wahine Capital',
+  description:
+    "Discover Wahine Capital, Malaysia's pioneering women-focused fintech company. We're transforming financial literacy through innovative solutions like W Vault and educational initiatives.",
+  keywords:
+    'Wahine Capital, Malaysian fintech, women fintech, financial literacy Malaysia, W Vault, women financial empowerment, digital vault Malaysia, women wealth management, financial education Malaysia, women-focused fintech, Malaysian women finance, financial technology Malaysia',
 };
 ---
 
@@ -27,7 +30,7 @@ const metadata = {
   hasPageHeader={true}
   pageTitle={pageTitle}
   pageSubtitle={pageSubtitle}
-  highlightedTitleText="Women"
+  highlightedTitleText="Us"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
     <div class="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20">

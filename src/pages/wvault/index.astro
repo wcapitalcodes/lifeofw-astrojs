@@ -9,6 +9,16 @@ import HighlightSection from '~/components/HighlightSection.astro';
 import PricingSection from '~/components/PricingSection.astro';
 import { Icon } from 'astro-icon/components';
 
+const metadata = {
+  title: 'W Vault | Digital Financial Vault for Women',
+  description:
+    'W Vault: A secure digital vault designed for women to manage their financial assets, liabilities, and documents. Access comprehensive financial tools from RM19.90/month.',
+  keywords:
+    'W Vault, digital vault Malaysia, women financial vault, financial document storage, digital safe Malaysia, financial asset management, online financial vault, financial liability tracking, women financial tools, secure document storage Malaysia, digital financial management, women estate planning Malaysia, financial information storage',
+  openGraph: {
+    site_name: 'W Vault - Your Digital Financial Vault | Secure, Simple, Made for Women',
+  },
+};
 const benefits: Benefit[] = [
   {
     id: 1,
@@ -21,7 +31,7 @@ const benefits: Benefit[] = [
     title: 'Prepare for Life Events',
     description:
       'Prepare for major life events like divorce, death, or tax filing. Share what you have stored in W Vault with your loved ones. Reduce complications in estate distribution and other legal processes',
-      image: '/images/benefits/prepare-for-life-events.png',
+    image: '/images/benefits/prepare-for-life-events.png',
   },
   {
     id: 3,
@@ -89,7 +99,7 @@ const navlinks = [
 ];
 ---
 
-<PageLayout>
+<PageLayout metadata={metadata}>
   <Hero
     actions={[
       {
@@ -192,8 +202,8 @@ const navlinks = [
   <svg width="0" height="0" class="absolute">
     <defs>
       <linearGradient id="gradient" gradientTransform="rotate(315)">
-        <stop offset="0%" stop-color="#e5357f" />
-        <stop offset="100%" stop-color="#0d9488" />
+        <stop offset="0%" stop-color="#e5357f"></stop>
+        <stop offset="100%" stop-color="#0d9488"></stop>
       </linearGradient>
     </defs>
   </svg>
