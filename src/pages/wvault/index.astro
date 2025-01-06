@@ -8,6 +8,7 @@ import TestimonialSection from '~/components/TestimonialSection.astro';
 import HighlightSection from '~/components/HighlightSection.astro';
 import PricingSection from '~/components/PricingSection.astro';
 import { Icon } from 'astro-icon/components';
+import LinkButton from '~/components/ui/LinkButton.astro';
 
 const metadata = {
   title: 'W Vault | Digital Financial Vault for Women',
@@ -117,21 +118,16 @@ const navlinks = [
       A dedicated digital safe, uniquely crafted <span class="theme-gradient">for women by women</span></Fragment
     >
     <Fragment slot="subtitle">
-      <div class="">
-        <div class="">
+      <div class="space-y-6">
+        <div>
           <p class="text-md lg:text-xl">Organize your complete financial picture in one secure digital vault</p>
         </div>
-        <a
-          href="https://wahine.wcapital.asia/accounts/register/"
+        <LinkButton
+          link="https://wahine.wcapital.asia/accounts/register/"
           target="_blank"
-          class="inline-flex items-center bg-primary-700 text-white px-6 py-3 rounded-full hover:bg-primary-800 transition-colors group my-6"
-        >
-          <span class="font-medium">Get Stared for Free</span>
-          <Icon
-            name="lucide:arrow-up-right"
-            class="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-          />
-        </a>
+          color="primary"
+          buttonText="Get Started for Free"
+        />
       </div>
     </Fragment>
     <Fragment slot="image">
@@ -158,13 +154,26 @@ const navlinks = [
   </Hero>
 
   <div class="bg-gray-100 py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-lg font-medium text-gray-500 mb-2 font-serif theme-gradient">What is W Vault?</p>
+        <h2 class="text-2xl font-medium text-gray-800">
+          W Vault is a dedicated digital safe, uniquely crafted for women, allowing you to securely store and organize
+          vital digital details such as documents and financial records. Similar to a highly secure digital vault, it
+          provides extra safety measures and tools tailored to meet women's requirements. Moreover, W Vault simplifies
+          the process of sharing this financial information with your loved ones, making it accessible when needed, yet
+          keeping it secure from unauthorized access.
+        </h2>
+      </div>
+    </div>
     <ProductBenefits benefits={benefits} />
   </div>
+
   <div class="py-12">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <p class="text-lg font-medium text-gray-500 mb-2 font-serif theme-gradient">What's In The Vault?</p>
-        <h2 class="text-3xl font-medium text-gray-800">
+        <h2 class="text-2xl font-medium text-gray-800">
           Whether you're just starting your financial journey or looking to take your wealth to the next level, W Vault
           provides the tools, education, and support you need to succeed. It's not just a financial management platform
           - it's your partner in building a thriving financial future.
@@ -199,12 +208,4 @@ const navlinks = [
     primaryCTA={{ text: 'Get Started for Free', href: 'https://wahine.wcapital.asia/accounts/register/' }}
     secondaryCTA={false}
   />
-  <svg width="0" height="0" class="absolute">
-    <defs>
-      <linearGradient id="gradient" gradientTransform="rotate(315)">
-        <stop offset="0%" stop-color="#e5357f"></stop>
-        <stop offset="100%" stop-color="#0d9488"></stop>
-      </linearGradient>
-    </defs>
-  </svg>
 </PageLayout>

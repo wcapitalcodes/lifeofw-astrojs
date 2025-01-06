@@ -5,7 +5,7 @@ import PageHeader from '~/components/PageHeader.astro';
 import TeamCard from '~/components/TeamCard.astro';
 import PageLayout from '~/layouts/PageLayout.astro';
 
-const pageTitle = 'About Us | Wahine Capital';
+const pageTitle = 'About Us';
 const pageSubtitle = 'The why behind Wahine Capital';
 
 const content = {
@@ -17,11 +17,14 @@ const content = {
 };
 
 const metadata = {
-  title: 'About Us | Wahine Capital',
+  title: 'About Us | Life of W • Wahine Capital',
   description:
     "Discover Wahine Capital, Malaysia's pioneering women-focused fintech company. We're transforming financial literacy through innovative solutions like W Vault and educational initiatives.",
   keywords:
     'Wahine Capital, Malaysian fintech, women fintech, financial literacy Malaysia, W Vault, women financial empowerment, digital vault Malaysia, women wealth management, financial education Malaysia, women-focused fintech, Malaysian women finance, financial technology Malaysia',
+  openGraph: {
+    site_name: 'About Us | Life of W • Wahine Capital',
+  },
 };
 ---
 
