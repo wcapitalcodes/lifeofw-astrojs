@@ -1,26 +1,31 @@
 ---
-import { Icon } from "astro-icon/components";
+import { Icon } from 'astro-icon/components';
 
-const { color = "theme", size = "medium", link, buttonText, target="_self" } = Astro.props;
+const { color = 'theme', size = 'medium', link, buttonText, target = '_self' } = Astro.props;
 
 const colorClasses = {
-  primary: "bg-primary-800 text-white hover:bg-primary-900",
-  theme:"bg-lime-300 text-teal-900 hover:bg-lime-400",
-  secondary: "bg-blue-300 text-white hover:bg-blue-400",
-  accent: "bg-accent-800 text-white hover:bg-accent-900"
+  primary: 'bg-primary-800 text-white hover:bg-primary-900',
+  theme: 'bg-lime-300 text-teal-900 hover:bg-lime-400',
+  secondary: 'bg-blue-300 text-white hover:bg-blue-400',
+  accent: 'bg-accent-800 text-white hover:bg-accent-900',
+  gray: 'bg-gray-800 text-white hover:bg-gray-900',
 };
 
 const sizeClasses = {
-  small: "px-4 py-2 text-sm",
-  medium: "px-6 py-3 text-md",
-  large: "px-8 py-4 text-lg"
+  small: 'px-4 py-2 text-sm',
+  medium: 'px-6 py-3 text-md',
+  large: 'px-8 py-4 text-lg',
 };
 ---
 
-<a target={target} href={link} class={`inline-flex items-center ${colorClasses[color]} ${sizeClasses[size]} rounded-full transition-colors group`}>
+<a
+  target={target}
+  href={link}
+  class={`inline-flex items-center ${colorClasses[color]} ${sizeClasses[size]} rounded-full transition-colors group`}
+>
   <span class="font-medium">{buttonText}</span>
-  <Icon 
-    name="lucide:arrow-up-right" 
+  <Icon
+    name="lucide:arrow-up-right"
     class="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
   />
 </a>
