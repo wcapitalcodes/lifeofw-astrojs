@@ -61,6 +61,7 @@ export interface MetaData {
 
   openGraph?: MetaDataOpenGraph;
   twitter?: MetaDataTwitter;
+  keywords?: string;
 }
 
 export interface MetaDataRobots {
@@ -272,7 +273,7 @@ interface Benefit {
   id: number;
   title: string;
   description: string;
-  visualType: 'customLayout' | 'platformAgnostic' | 'multiPlatform' | 'syncPlayback';
+  image?: string;
 }
 
 

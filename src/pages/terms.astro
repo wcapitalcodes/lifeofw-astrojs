@@ -1,13 +1,21 @@
 ---
 import PageLayout from '~/layouts/PageLayout.astro';
-const metadata = {
-  title: 'Terms of Service',
-  ignoreTitleTemplate: true,
-};
+
 const pageTitle = 'Terms of Service';
+const metadata = {
+  title: 'Terms of Service | Wahine Capital',
+  description:
+    "Read Wahine Capital's Terms of Service agreement. Learn about our policies, user rights, service conditions, and legal obligations for using our financial education and digital vault services.",
+  ignoreTitleTemplate: true,
+  keywords:
+    'Wahine Capital terms, service agreement Malaysia, financial services terms, digital vault terms, user agreement Malaysia, terms and conditions Wahine, legal terms Malaysia, service terms financial platform, Malaysian financial services agreement, user rights financial services, terms of use Wahine Capital, subscription terms Malaysia',
+  openGraph: {
+    site_name: 'Wahine Capital Terms of Service - User Agreement & Policies',
+  },
+};
 ---
 
-<PageLayout metadata={metadata} hasPageHeader={true} pageTitle={pageTitle} highlightedTitleText='Service'>
+<PageLayout metadata={metadata} hasPageHeader={true} pageTitle={pageTitle} highlightedTitleText="Service">
   <div class="max-w-5xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto font-sans prose">
     <h4 class="text-lg font-bold font-body">Overview</h4>
     <p>

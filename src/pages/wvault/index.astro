@@ -8,35 +8,45 @@ import TestimonialSection from '~/components/TestimonialSection.astro';
 import HighlightSection from '~/components/HighlightSection.astro';
 import PricingSection from '~/components/PricingSection.astro';
 import { Icon } from 'astro-icon/components';
-import Headline from '~/components/ui/Headline.astro';
+import LinkButton from '~/components/ui/LinkButton.astro';
 
+const metadata = {
+  title: 'W Vault | Digital Financial Vault for Women',
+  description:
+    'W Vault: A secure digital vault designed for women to manage their financial assets, liabilities, and documents. Access comprehensive financial tools from RM19.90/month.',
+  keywords:
+    'W Vault, digital vault Malaysia, women financial vault, financial document storage, digital safe Malaysia, financial asset management, online financial vault, financial liability tracking, women financial tools, secure document storage Malaysia, digital financial management, women estate planning Malaysia, financial information storage',
+  openGraph: {
+    site_name: 'W Vault - Your Digital Financial Vault | Secure, Simple, Made for Women',
+  },
+};
 const benefits: Benefit[] = [
   {
     id: 1,
     title: 'Instant Financial Access',
     description: 'Backup your important financial information like assets and liabilities in one place.',
-    visualType: 'customLayout',
+    image: '/images/benefits/instant-financial-access.png',
   },
   {
     id: 2,
     title: 'Prepare for Life Events',
     description:
       'Prepare for major life events like divorce, death, or tax filing. Share what you have stored in W Vault with your loved ones. Reduce complications in estate distribution and other legal processes',
-    visualType: 'platformAgnostic',
+    image: '/images/benefits/prepare-for-life-events.png',
   },
   {
     id: 3,
     title: 'Clear Financial Overview',
     description:
       'Gain new insights on your finances via an intuitive dashboard, empowering informed decision-making and better financial management.',
-    visualType: 'multiPlatform',
+    image: '/images/benefits/clear-financial-overview.png',
   },
   {
     id: 4,
     title: 'Network of Experts',
     description:
       'WVault is here to support you every step of the way, providing a safe space where you can grow, learn, and connect with our superwomen.',
-    visualType: 'syncPlayback',
+    image: '/images/benefits/network-of-experts.png',
   },
 ];
 
@@ -45,41 +55,52 @@ const features = [
     title: 'Comprehensive Asset Management',
     description:
       'Easily catalog and track all your assets, from bank accounts and investments to property, vehicles, and more.',
-    icon: 'chat',
+    icon: 'lucide:wallet',
   },
   {
     title: 'Liability Control',
     description:
       'Get a clear view of your liabilities, including loans and credit cards, to make strategic debt management decisions.',
-    icon: 'whiteboard',
+    icon: 'lucide:credit-card',
   },
   {
     title: 'Access & Notifier List Management',
     description:
       'Designate trusted loved ones to have access to your W Vault information and to be notified in case of critical life events, ensuring your financial life is managed according to your wishes.',
-    icon: 'whiteboard',
+    icon: 'lucide:users',
   },
   {
     title: 'Smart Financial Calculators',
     description: 'Plan for your future with confidence using our suite of six financial calculators:',
-    icon: 'quiz',
+    icon: 'lucide:calculator',
   },
   {
     title: 'Financial Worksheet Templates',
     description:
       'Access professionally designed templates to structure your financial journey, including SMART goal setting worksheets and comprehensive monthly budgeting tools that help you track income, expenses, and progress toward your financial objectives.',
-    icon: 'recording',
+    icon: 'lucide:file-spreadsheet',
   },
   {
     title: 'Financial Knowledge Hub',
     description:
       'Expand your financial knowledge with our curated collection of articles, guides, and resources covering essential topics from basic money management to advanced wealth-building strategies.',
-    icon: 'recording',
+    icon: 'lucide:graduation-cap',
+  },
+];
+
+const navlinks = [
+  {
+    title: 'Hello',
+    href: '/',
+  },
+  {
+    title: 'Benefits',
+    href: '#',
   },
 ];
 ---
 
-<PageLayout>
+<PageLayout metadata={metadata}>
   <Hero
     actions={[
       {
@@ -97,21 +118,16 @@ const features = [
       A dedicated digital safe, uniquely crafted <span class="theme-gradient">for women by women</span></Fragment
     >
     <Fragment slot="subtitle">
-      <div class="">
-        <div class="">
+      <div class="space-y-6">
+        <div>
           <p class="text-md lg:text-xl">Organize your complete financial picture in one secure digital vault</p>
         </div>
-        <a
-          href="https://wahine.wcapital.asia/accounts/register/"
+        <LinkButton
+          link="https://wahine.wcapital.asia/accounts/register/"
           target="_blank"
-          class="inline-flex items-center bg-primary-700 text-white px-6 py-3 rounded-full hover:bg-primary-800 transition-colors group my-6"
-        >
-          <span class="font-medium">Get Stared for Free</span>
-          <Icon
-            name="lucide:arrow-up-right"
-            class="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-          />
-        </a>
+          color="primary"
+          buttonText="Get Started for Free"
+        />
       </div>
     </Fragment>
     <Fragment slot="image">
@@ -136,14 +152,28 @@ const features = [
         crossorigin="anonymous"></script>
     </Fragment>
   </Hero>
+
   <div class="bg-gray-100 py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-lg font-medium text-gray-500 mb-2 font-serif theme-gradient">What is W Vault?</p>
+        <h2 class="text-2xl font-medium text-gray-800">
+          W Vault is a dedicated digital safe, uniquely crafted for women, allowing you to securely store and organize
+          vital digital details such as documents and financial records. Similar to a highly secure digital vault, it
+          provides extra safety measures and tools tailored to meet women's requirements. Moreover, W Vault simplifies
+          the process of sharing this financial information with your loved ones, making it accessible when needed, yet
+          keeping it secure from unauthorized access.
+        </h2>
+      </div>
+    </div>
     <ProductBenefits benefits={benefits} />
   </div>
+
   <div class="py-12">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <p class="text-lg font-medium text-gray-500 mb-2 font-serif theme-gradient">What's In The Vault?</p>
-        <h2 class="text-3xl font-medium text-gray-800">
+        <h2 class="text-2xl font-medium text-gray-800">
           Whether you're just starting your financial journey or looking to take your wealth to the next level, W Vault
           provides the tools, education, and support you need to succeed. It's not just a financial management platform
           - it's your partner in building a thriving financial future.
@@ -164,13 +194,16 @@ const features = [
   >
     <div class="flex flex-col items-center justify-center">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-medium text-gray-900 font-serif">Explore our engaging articles and powerful financial tools, including retirement calculators, on W Vault's resource page! Discover how to take charge of your financial future today!</h2>
+        <h2 class="text-3xl font-medium text-gray-900 font-serif">
+          Explore our engaging articles and powerful financial tools, including retirement calculators, on W Vault's
+          resource page! Discover how to take charge of your financial future today!
+        </h2>
       </div>
       <img src="https://assets.lifeofw.com/images/calculator-article.png" alt="" class="w-lg" />
     </div>
   </div>
   <PricingSection />
-  
+
   <HighlightSection
     primaryCTA={{ text: 'Get Started for Free', href: 'https://wahine.wcapital.asia/accounts/register/' }}
     secondaryCTA={false}

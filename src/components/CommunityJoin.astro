@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon/components";
+import LinkButton from "./ui/LinkButton.astro";
 
 const {
   title = 'Join the\nWahine Community',
@@ -36,18 +36,10 @@ const {
             )
           }
         </h1>
-
         <p class="text-lg mb-8 leading-relaxed max-w-3xl">
           {description}
         </p>
-
-        <a href="/community" class="inline-flex items-center bg-lime-300 text-teal-900 px-6 py-3 rounded-full hover:bg-lime-400 transition-colors group">
-          <span class="font-medium">{buttonText}</span>
-          <Icon
-            name="lucide:arrow-up-right" 
-            class="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-          />
-        </a>
+        <LinkButton buttonText={buttonText} link="/community" target="_blank" />
       </div>
     </div>
   </div>

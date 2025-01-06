@@ -1,9 +1,28 @@
 ---
+import HighlightSection from '~/components/HighlightSection.astro';
+import LinkButton from '~/components/ui/LinkButton.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import PageLayout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Wahine Community | Empowering Women Through Networks',
+  description:
+    "Join Wahine's thriving community of Malaysian women supporting each other's financial journey. Network, learn, and grow through events, workshops, and shared resources.",
+  ignoreTitleTemplate: true,
+  keywords:
+    'Wahine Community, women financial network Malaysia, women finance community, financial empowerment community, Malaysian women network, financial workshops Malaysia, women finance events, financial community Malaysia, women business network, Malaysian women empowerment, financial networking events, women finance workshops',
+  openGraph: {
+    site_name: 'Wahine Community - Uniting Women for Stronger Financial Futures',
+  },
+};
+
+const title = {
+  line1: 'Join Wahine Community',
+  line2: '',
+};
 ---
 
-<PageLayout>
+<PageLayout metadata={metadata}>
   <Hero
     actions={[
       {
@@ -28,18 +47,12 @@ import PageLayout from '~/layouts/PageLayout.astro';
         what's possible in finance? Join us and let's make waves together!</span
       >
       <div>
-        <a
-          href="https://forms.gle/W9pvgTJy4BQtLs5s6"
-          class="inline-flex items-center px-6 py-3 rounded-full bg-accent-600 hover:bg-accent-700 text-white font-medium transition-colors"
-        >
-          Join Our Community
-          <svg class="ml-2 w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-            <path
-              fill-rule="evenodd"
-              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-              clip-rule="evenodd"></path>
-          </svg>
-        </a>
+        <LinkButton
+          link="https://forms.gle/W9pvgTJy4BQtLs5s6"
+          target="_blank"
+          color="accent"
+          buttonText="Join Our Community"
+        />
       </div>
     </Fragment>
   </Hero>
@@ -170,38 +183,19 @@ import PageLayout from '~/layouts/PageLayout.astro';
           <img class="w-full rounded-lg" src="/images/community/16.jpeg" alt="" />
         </div>
         <div class="break-inside-avoid">
-            <img class="w-full rounded-lg" src="/images/community/03.jpeg" alt="" />
-          </div>
-          <div class="break-inside-avoid">
-            <img class="w-full rounded-lg" src="/images/community/08.jpeg" alt="" />
-          </div>
+          <img class="w-full rounded-lg" src="/images/community/03.jpeg" alt="" />
+        </div>
+        <div class="break-inside-avoid">
+          <img class="w-full rounded-lg" src="/images/community/08.jpeg" alt="" />
+        </div>
       </div>
     </div>
   </div>
-  <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8 my-16">
-    <h2
-      class="mx-auto mt-2 max-w-4xl text-pretty text-center text-2xl font-medium tracking-tight text-gray-950 sm:text-3xl"
-    >
-      Redefine Finance Together: <span class="theme-gradient">Join Wahine Community</span>
-    </h2>
-    <p class="mx-auto mt-2 max-w-4xl text-pretty text-center text-2xl font-medium text-gray-800 sm:text-2xl">
-      Join us as we forge a new era in finance, where every woman's voice is heard, every ambition is supported, and
-      every success story inspires the next generation of female financial leaders. Together, we're not just breaking
-      barriers – we're creating a legacy of empowerment, excellence, and enduring impact in the world of finance.
-    </p>
-    <div class="flex items-center justify-center mt-6 mb-10">
-      <a
-        href="https://forms.gle/W9pvgTJy4BQtLs5s6"
-        class="inline-flex items-center px-6 py-3 rounded-full bg-accent-600 hover:bg-accent-700 text-white font-medium transition-colors"
-      >
-        Join Our Community
-        <svg class="ml-2 w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-          <path
-            fill-rule="evenodd"
-            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-            clip-rule="evenodd"></path>
-        </svg>
-      </a>
-    </div>
-  </div>
+
+  <HighlightSection
+    title={`Join Wahine Community`}
+    description="Join us as we forge a new era in finance, where every woman's voice is heard, every ambition is supported, and every success story inspires the next generation of female financial leaders. Together, we're not just breaking barriers – we're creating a legacy of empowerment, excellence, and enduring impact in the world of finance."
+    primaryCTA={{ text: 'Get Started for Free', href: 'https://forms.gle/W9pvgTJy4BQtLs5s6' }}
+    secondaryCTA={false}
+  />
 </PageLayout>

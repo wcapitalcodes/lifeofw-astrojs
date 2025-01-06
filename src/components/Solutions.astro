@@ -1,4 +1,6 @@
 ---
+import LinkButton from './ui/LinkButton.astro';
+
 interface Tool {
   icon: string;
   title: string;
@@ -11,26 +13,30 @@ const {
     {
       icon: '/path-to-vault-icon.svg',
       title: 'W Vault',
+      link: '/wvault',
       description:
-        'A dedicated digital safe, uniquely crafted for women, allowing women to securely store and organize vital digital details such as documents and financial records.',
+        'A secure digital vault designed for women to organize and store their important financial information, documents, and records in one protected space.',
     },
     {
       icon: '/path-to-masterclass-icon.svg',
       title: 'Wahine Finance Video Series',
+      link: 'outclass',
       description:
-        "A comprehensive video series focused on empowering women in finance. Each module covers essential topics such as financial literacy, investment strategies, budgeting, providing valuable insights and practical guidance to enhance women's financial confidence and independence.",
+        'A comprehensive financial education series designed for women, covering essential topics from budgeting to investment strategies through engaging video lessons.',
     },
     {
       icon: '/path-to-wani-icon.svg',
       title: 'Wani Chat',
+      link: 'https://wani.lifeofw.com',
       description:
-        'Our friendly assistant bot designed to help with any questions you have about budgeting, investing, or women. Wani is equipped to provide insights to empower women in their financial journeys.',
+        'Your friendly AI assistant ready to answer questions about personal finance, budgeting, and investments with tailored guidance for women.',
     },
     {
       icon: '/path-to-community-icon.svg',
       title: 'Wahine Community',
+      link: '/community',
       description:
-        'Empowering network for women, providing support, resources, and networking opportunities. Fosters personal and professional growth through mentorship programs, workshops, and collaborative projects.',
+        'Join a supportive network of women sharing financial knowledge through mentorship programs, workshops, and collaborative learning experiences.',
     },
   ],
 } = Astro.props;
@@ -57,16 +63,14 @@ const {
 
   <!-- Main Content Grid -->
   <div>
-    <div class="grid grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       {
         tools.map((tool) => (
           <div class="flex flex-col gap-4 items-center">
-            {/* <div class="w-12 h-12 flex-shrink-0">
-              <img src={tool.icon} alt={`${tool.title} icon`} class="w-full h-full object-contain" />
-            </div> */}
-            <div class="text-center">
-              <h3 class="text-xl font-serif text-teal-800 mb-2">{tool.title}</h3>
+            <div class="text-center space-y-6">
+              <h3 class="text-xl font-serif theme-gradient mb-2">{tool.title}</h3>
               <p class="text-gray-600 leading-relaxed">{tool.description}</p>
+              <LinkButton link={tool.link} target="_blank" color="accent" buttonText="Learn More" size="smallest" />
             </div>
           </div>
         ))

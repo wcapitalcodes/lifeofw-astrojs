@@ -1,6 +1,7 @@
 ---
 import PageLayout from '~/layouts/PageLayout.astro';
 import HighlightSection from '~/components/HighlightSection.astro';
+import LinkButton from '~/components/ui/LinkButton.astro';
 interface Course {
   title: string;
   description: string;
@@ -10,6 +11,18 @@ interface BenefitCard {
   title: string;
   description: string;
 }
+
+const metadata = {
+  title: 'Wahine Finance Video Series',
+  description:
+    "Master personal finance with Malaysia's premier 16-video series for women. Expert-led lessons on financial independence, wealth building, and money management fundamentals.",
+  keywords:
+    'Wahine Finance Video Series, women financial education Malaysia, financial courses for women, Malaysian women finance, personal finance video course, financial independence Malaysia, money management course, women wealth building, financial literacy Malaysia, financial vulnerability women, financial risk management, Malaysian finance tutorials',
+  openGraph: {
+    site_name: 'Master Your Money | Wahine Capital Personal Finance Video Series for Women',
+  },
+  ignoreTitleTemplate: true,
+};
 
 const highlight = {
   title: "We're committed to making financial mastery achievable for every woman.",
@@ -47,46 +60,40 @@ const benefits: BenefitCard[] = [
 const courses: Course[] = [
   {
     title: 'Financial Vulnerabilities',
-    description: 'The financial vulnerabilities unique to women',
+    description: 'Discover key financial challenges women face and learn powerful strategies to protect your wealth and secure your financial future.',
     buttonText: 'Enroll now',
   },
   {
     title: "Women's Risk Appetites",
-    description: 'The factors women consider in making financial decisions',
+    description: 'Understand how to approach investment risks and learn to make confident financial decisions aligned with your goals and comfort level.',
     buttonText: 'Enroll now',
   },
   {
     title: 'Financial Independence',
-    description: 'The importance of financial independence',
+    description: 'Take control of your financial destiny. Learn essential steps to build lasting independence and create the life you deserve.',
     buttonText: 'Enroll now',
   },
   {
     title: 'Finance talk with your partner',
-    description: 'How to talk finances with your partner',
+    description: 'Master the art of money conversations. Learn effective strategies to discuss finances openly and build stronger relationships through financial harmony.',
     buttonText: 'Enroll now',
   },
   {
     title: 'Setting your financial goals',
-    description: 'Back to basics - Setting your Financial Goals',
+    description: 'Transform your financial dreams into reality. Learn proven techniques to set, track, and achieve meaningful financial goals.',
     buttonText: 'Enroll now',
   },
 ];
 ---
 
-<PageLayout>
+<PageLayout metadata={metadata}>
   <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
     <div class="text-center mb-12">
       <h1 class="text-4xl sm:text-5xl font-medium font-serif text-accent-900 max-w-4xl mx-auto leading-tight mb-8">
         Master your money, secure your future, and build lasting wealth with Malaysia's premier financial education
         series designed exclusively for women.
       </h1>
-
-      <a
-        href="#"
-        class="inline-block bg-teal-600 text-white px-8 py-3 rounded-full font-medium hover:bg-teal-700 transition-colors"
-      >
-        Explore The Videos in OutClass
-      </a>
+      <LinkButton link="#" buttonText="Coming Soon in OutClass" color="primary" />
     </div>
 
     <!-- Course cards with auto-scroll -->
@@ -127,13 +134,13 @@ const courses: Course[] = [
             >
               <h3 class="font-semibold text-lg mb-1">{course.title}</h3>
               <p class="text-sm mb-4">{course.description}</p>
-              <button
+              {/* <button
                 class={`text-sm px-4 py-2 rounded-full ${
                   index % courses.length === 4 ? 'bg-white text-red-800' : 'bg-gray-800 text-white'
                 } hover:opacity-90 transition-opacity`}
               >
                 {course.buttonText}
-              </button>
+              </button> */}
             </div>
           ))
         }
@@ -153,7 +160,7 @@ const courses: Course[] = [
         <div class="relative z-10">
           <p class="text-sm mb-6">Wahine Financial Wellness</p>
           <h1 class="text-3xl md:text-4xl font-medium italic leading-tight mb-6 font-serif">
-            Join thousands of Malaysian women who've revolutionized their approach to personal finance through our
+            Join thousands of users who've revolutionized their approach to personal finance through our
             comprehensive 16-video series.
           </h1>
         </div>

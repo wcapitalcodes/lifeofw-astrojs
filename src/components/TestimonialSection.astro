@@ -8,15 +8,16 @@ interface Props {
   authorTitle?: string;
   authorCompany?: string;
   companyLogo?: string;
+  authorPic: string;
 }
 
 const {
   //   quote = "I've been using W Vault to manage my finances for the past year. It's an incredible platform that truly understands what women need for financial organization.",
-  quote = 'W Vault is more than just a digital vault to house your important documents. In addition to allowing you (and your authorised list of accessors) immediate access to a list of assets and liabilities for handling important life events such as divorce, death or even tax audits, W Vault will provide you a snapshot of your financial life (through the dashboard) of your assets and liabilities. With this information, you can get a good understanding of your financial standing. By inputting information, W Vault serves as a personal life manager for you, securely.',
-  authorName = 'Uzzair B.',
-  authorTitle = 'Founder',
-  authorCompany = 'Uzzair Web Studio',
-  companyLogo = '/images/company-logo.png',
+  quote = 'W Vault is more than just a digital vault to house your important documents. In addition to allowing you (and your authorised list of accessors) immediate access to a list of assets and liabilities for handling important life events such as death or even tax audits, W Vault will provide you a snapshot of your financial life (through the dashboard) of your assets and liabilities. With this information, you can get a good understanding of your financial standing. By inputting information, W Vault serves as a personal life manager for you, securely.',
+  authorName = 'Aqella Ali',
+  authorTitle = 'Lead Auditor',
+  authorCompany = '',
+  authorPic = '/images/testimonial/aqella-ali.png',
 } = Astro.props;
 ---
 
@@ -28,10 +29,15 @@ const {
       </p>
       <footer class="mt-8 flex items-center justify-center gap-4">
         <div class="flex items-center gap-4">
-          <div class="h-12 w-12 rounded-full bg-gray-200"></div>
+          <div class="h-16 w-16 rounded-full bg-gray-200">
+            <img src={authorPic} alt="" class="rounded-full"/>
+          </div>
           <div class="text-left">
             <div class="font-medium text-gray-900">{authorName}</div>
-            <div class="text-gray-600">{authorTitle}, {authorCompany}</div>
+            <div class="text-gray-600">
+              {authorTitle}
+              <!-- , {authorCompany} -->
+            </div>
           </div>
         </div>
       </footer>

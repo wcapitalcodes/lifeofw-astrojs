@@ -20,33 +20,44 @@ const featuredData = [
 ];
 const metadata = {
   title: 'Life of W',
+  description:
+    'Life of W by Wahine Capital empowers Malaysian women with personalized financial strategies, expert guidance, and community support at every life stage. Join our financial literacy journey.',
   ignoreTitleTemplate: true,
+  keywords:
+    'Life of W, Wahine Capital, women financial education Malaysia, financial strategies for women, Malaysian women finance, women wealth management, financial literacy Malaysia, women financial community, personal finance for women, financial tools Malaysia, women financial experts, Malaysian financial advisors, wealth building for women, women investment Malaysia',
+  openGraph: {
+    site_name: 'Life of W - Building Wealth Strategies for Malaysian Women',
+  },
 };
 
 const toolsData = [
   {
     icon: '/path-to-vault-icon.svg',
     title: 'W Vault',
+    link: '/wvault',
     description:
-      'A dedicated digital safe, uniquely crafted for women, allowing women to securely store and organize vital digital details such as documents and financial records.',
+      'A secure digital vault designed for women to organize and store their important financial information, documents, and records in one protected space.',
   },
   {
     icon: '/path-to-masterclass-icon.svg',
-    title: 'Wahine Finance Masterclass',
+    title: 'Wahine Finance Video Series',
+    link: 'outclass',
     description:
-      "A comprehensive video series focused on empowering women in finance. Each module covers essential topics such as financial literacy, investment strategies, budgeting, providing valuable insights and practical guidance to enhance women's financial confidence and independence.",
+      'A comprehensive financial education series designed for women, covering essential topics from budgeting to investment strategies through engaging video lessons.',
   },
   {
     icon: '/path-to-wani-icon.svg',
     title: 'Wani Chat',
+    link: 'https://wani.lifeofw.com',
     description:
-      'Our friendly assistant bot designed to help with any questions you have about budgeting, investing, or women. Wani is equipped to provide insights to empower women in their financial journeys.',
+      'Your friendly AI assistant ready to answer questions about personal finance, budgeting, and investments with tailored guidance for women.',
   },
   {
     icon: '/path-to-community-icon.svg',
     title: 'Wahine Community',
+    link: '/community',
     description:
-      'Empowering network for women, providing support, resources, and networking opportunities. Fosters personal and professional growth through mentorship programs, workshops, and collaborative projects.',
+      'Join a supportive network of women sharing financial knowledge through mentorship programs, workshops, and collaborative learning experiences.',
   },
 ];
 ---
@@ -65,13 +76,13 @@ const toolsData = [
     ]}
     image={{ src: '~/assets/images/hero-image.png', alt: '' }}
   >
-    <Fragment slot="subtitlePrimary" class="font-serif"> Redefining Financial Management for Women </Fragment>
-    <Fragment slot="title" class="font-serif"> Financial Strategies for Women in Every Stage of Life </Fragment>
+    <Fragment slot="subtitlePrimary" class="font-serif"> Your Journey, Your Wealth </Fragment>
+    <Fragment slot="title" class="font-serif"> Empowering Women's Financial Lives at Every Stage </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        Your financial future, reimagined: Innovative wealth management solutions that celebrate and support women's
-        unique paths to success.
+        From first savings to lasting legacy - we provide the tools, knowledge, and community to help you take charge of
+        your financial journey with confidence.
       </span>
     </Fragment>
   </Hero>
