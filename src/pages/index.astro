@@ -12,6 +12,9 @@ import CommunityJoin from '~/components/CommunityJoin.astro';
 import VideoSeriesPreview from '~/components/VideoSeriesPreview.astro';
 import ExpertSlider from '~/components/ExpertSlider.astro';
 import AccreditedByHRDF from '~/components/AccreditedByHRDF.astro';
+import NewsHighlight from '~/components/NewsHighlight.astro';
+
+import HeroGrid from '~/components/HeroGrid.astro';
 const featuredData = [
   { url: '/images/featuredon/bfm.png', classes: 'object-contain w-32' },
   { url: '/images/featuredon/the-edge.png', classes: 'object-contain w-36' },
@@ -60,6 +63,8 @@ const toolsData = [
       'Join a supportive network of women sharing financial knowledge through mentorship programs, workshops, and collaborative learning experiences.',
   },
 ];
+
+const images = await Astro.glob('/public/images/hero-grid/*');
 ---
 
 <PageLayout metadata={metadata}>
@@ -74,9 +79,8 @@ const toolsData = [
       },
       { text: 'Learn more', href: '#features' },
     ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: '' }}
   >
-    <Fragment slot="subtitlePrimary" class="font-serif"> Your Journey, Your Wealth </Fragment>
+    <Fragment slot="subtitlePrimary" class="font-serif"> Grace & Growth in Finance </Fragment>
     <Fragment slot="title" class="font-serif"> Empowering Women's Financial Lives at Every Stage </Fragment>
 
     <Fragment slot="subtitle">
@@ -85,7 +89,33 @@ const toolsData = [
         your financial journey with confidence.
       </span>
     </Fragment>
+    <Fragment slot="image">
+      <HeroGrid />
+    </Fragment>
   </Hero>
+
+  <style>
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .animate-scroll {
+      animation: scroll 50s linear infinite;
+    }
+  </style>
   <AccreditedByHRDF />
   <Partners
     title="Our Partners"
@@ -183,11 +213,5 @@ const toolsData = [
 
   <ExpertSlider />
   <!-- Quote -->
-  <Quote />
-  <!-- News Quote -->
-  <NewsQuote />
-  <!-- Community Card -->
-  <CommunityJoin />
-  <!-- VideoSeries Card -->
-  <VideoSeriesPreview />
+  <NewsHighlight />
 </PageLayout>

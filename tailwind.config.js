@@ -46,16 +46,19 @@ export default {
         serif: ['var(--aw-font-serif, ui-serif)', ...defaultTheme.fontFamily.serif],
         heading: ['var(--aw-font-heading, ui-serif)', ...defaultTheme.fontFamily.serif],
       },
-
       animation: {
         fade: 'fadeInUp 1s both',
+        'scroll': 'scroll var(--animationDuration) linear infinite',
       },
-
       keyframes: {
         fadeInUp: {
           '0%': { opacity: 0, transform: 'translateY(2rem)' },
           '100%': { opacity: 1, transform: 'translateY(0)' },
         },
+        scroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        }
       },
     },
   },
