@@ -11,7 +11,7 @@ const { title, subtitle, highlightedTitleText = '', hasBackground = true } = Ast
 // Function to highlight words
 const highlightWords = (text: string, words: string) => {
   if (!text || !highlightedTitleText) return text;
-  
+
   const wordsArray = words.split(',').map((word) => word.trim());
   const regex = new RegExp(`(${wordsArray.join('|')})`, 'gi');
   return text
@@ -21,10 +21,7 @@ const highlightWords = (text: string, words: string) => {
 };
 ---
 
-<div
-  class={`relative overflow-hidden ${hasBackground ? `before:absolute before:top-0 before:start-1/2 before:bg-[url('https://preline.co/assets/svg/examples/polygon-bg-element.svg')] before:bg-no-repeat before:bg-top before:bg-cover before:w-full before:h-full before:-z-[1] before:transform before:-translate-x-1/2` : ''}`}
-  class=""
->
+<div class={`relative overflow-hidden`}>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-10">
     <div class="mt-3 max-w-2xl text-center mx-auto">
       <h1
