@@ -19,7 +19,7 @@ export const headerData = {
           description: 'Your personal digital vault designed for women by women.',
         },
         {
-          text: 'Wahine Finance Video Series',
+          text: 'Wahine Financial Awareness',
           href: getPermalink('/outclass'),
           description: 'A comprehensive video series focused on empowering women in finance.',
         },
@@ -54,7 +54,7 @@ export const footerData = {
       title: 'Solutions',
       links: [
         { text: 'W Vault', href: '/wvault' },
-        { text: 'Wahine Finance Video Series', href: '/outclass' },
+        { text: 'Wahine Financial Awareness', href: '/outclass' },
         { text: 'Wani Chat', href: 'https://wani.lifeofw.com/' },
         { text: 'Wahine Community', href: '/community/' },
       ],
@@ -82,7 +82,11 @@ export const footerData = {
       href: 'https://www.facebook.com/p/Wahine-Capital-100087760548404/',
     },
     { ariaLabel: 'Vimeo', icon: 'tabler:brand-vimeo', href: 'https://vimeo.com/user220015810' },
-    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/wahine-capital/posts/?feedView=all' },
+    {
+      ariaLabel: 'LinkedIn',
+      icon: 'tabler:brand-linkedin',
+      href: 'https://www.linkedin.com/company/wahine-capital/posts/?feedView=all',
+    },
   ],
   footNote: `All rights reserved · 2024`,
 };
