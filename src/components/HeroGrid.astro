@@ -1,0 +1,80 @@
+---
+const images = [
+  { id: 1, alt: 'Financial Talk - Women discussing financial strategies' },
+  { id: 2, alt: 'GFEF Event - Global financial empowerment forum' },
+  { id: 3, alt: "WEPs Award - Women's Empowerment Principles award ceremony" },
+  { id: 4, alt: "Community Group - Women's financial community gathering" },
+  { id: 5, alt: 'Cafe Meet - Casual financial discussion meetup' },
+  { id: 6, alt: 'Casual Meeting - Women networking event' },
+  { id: 7, alt: 'Panel Discussion - Financial experts sharing insights' },
+  { id: 8, alt: 'Group Photo - Community members gathering' },
+  { id: 9, alt: 'Cafe Meeting - Financial planning session' },
+  { id: 10, alt: 'DTX Event - Digital transformation in finance' },
+  { id: 11, alt: 'Key Takeaways - Financial workshop highlights' },
+  { id: 12, alt: 'DTX Banner - Digital finance exhibition' },
+  { id: 13, alt: 'Hospice Visit - Community outreach program' },
+  { id: 14, alt: 'Financial Training - Educational workshop' },
+  { id: 15, alt: 'Financial Awareness - Public seminar' },
+  { id: 16, alt: 'Training Session - Financial literacy program' },
+  { id: 17, alt: 'Networking Event - Professional development' },
+  { id: 18, alt: 'Community Workshop - Group learning session' },
+  { id: 19, alt: 'Expert Panel - Industry leaders discussion' },
+  { id: 20, alt: 'Team Meeting - Strategic planning session' },
+  { id: 21, alt: 'Awards Ceremony - Recognition event' },
+  { id: 22, alt: 'Awards Ceremony - Recognition event' },
+];
+
+// Shuffle the images array randomly
+const shuffledImages = images.sort(() => Math.random() - 0.5);
+
+const duration = 60; // Duration in seconds
+---
+
+<div class="relative overflow-hidden w-full">
+  <div class="flex gap-4 py-4">
+    <div class="flex gap-4 animate-scroll" style={`--duration: ${duration}s`}>
+      <!-- First set of shuffled images -->
+      {
+        shuffledImages.map((image) => (
+          <div class="flex-none">
+            <img
+              src={`/images/hero-grid/${image.id}.jpeg`}
+              alt={image.alt}
+              class="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 object-cover rounded-lg shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              loading="lazy"
+            />
+          </div>
+        ))
+      }
+
+      <!-- Second set of shuffled images for seamless loop -->
+      {
+        shuffledImages.map((image) => (
+          <div class="flex-none">
+            <img
+              src={`/images/hero-grid/${image.id}.jpeg`}
+              alt={image.alt}
+              class="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 object-cover rounded-lg shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              loading="lazy"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .animate-scroll {
+    animation: scroll var(--duration) linear infinite;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-100% - 16px)); /* Adjust based on gap size */
+    }
+  }
+</style>
