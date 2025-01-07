@@ -2,6 +2,7 @@
 import PageLayout from '~/layouts/PageLayout.astro';
 import HighlightSection from '~/components/HighlightSection.astro';
 import LinkButton from '~/components/ui/LinkButton.astro';
+import Hero from '~/components/widgets/Hero.astro';
 interface Course {
   title: string;
   description: string;
@@ -60,45 +61,68 @@ const benefits: BenefitCard[] = [
 const courses: Course[] = [
   {
     title: 'Financial Vulnerabilities',
-    description: 'Discover key financial challenges women face and learn powerful strategies to protect your wealth and secure your financial future.',
+    description:
+      'Discover key financial challenges women face and learn powerful strategies to protect your wealth and secure your financial future.',
     buttonText: 'Enroll now',
   },
   {
     title: "Women's Risk Appetites",
-    description: 'Understand how to approach investment risks and learn to make confident financial decisions aligned with your goals and comfort level.',
+    description:
+      'Understand how to approach investment risks and learn to make confident financial decisions aligned with your goals and comfort level.',
     buttonText: 'Enroll now',
   },
   {
     title: 'Financial Independence',
-    description: 'Take control of your financial destiny. Learn essential steps to build lasting independence and create the life you deserve.',
+    description:
+      'Take control of your financial destiny. Learn essential steps to build lasting independence and create the life you deserve.',
     buttonText: 'Enroll now',
   },
   {
     title: 'Finance talk with your partner',
-    description: 'Master the art of money conversations. Learn effective strategies to discuss finances openly and build stronger relationships through financial harmony.',
+    description:
+      'Master the art of money conversations. Learn effective strategies to discuss finances openly and build stronger relationships through financial harmony.',
     buttonText: 'Enroll now',
   },
   {
     title: 'Setting your financial goals',
-    description: 'Transform your financial dreams into reality. Learn proven techniques to set, track, and achieve meaningful financial goals.',
+    description:
+      'Transform your financial dreams into reality. Learn proven techniques to set, track, and achieve meaningful financial goals.',
     buttonText: 'Enroll now',
   },
 ];
 ---
 
 <PageLayout metadata={metadata}>
-  <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto ">
-    <div class="text-center mb-12">
-      <h1 class="lg:text-4xl text-2xl font-medium font-serif text-accent-900 max-w-4xl mx-auto leading-tight mb-8">
-        Master your money, secure your future, and build lasting wealth with Malaysia's premier financial education
-        series designed exclusively for women.
-      </h1>
-      <LinkButton link="#" buttonText="Coming Soon in OutClass" color="primary" />
-    </div>
-
-    <!-- Course cards with auto-scroll -->
-    <div
-      x-data="{ 
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get template',
+        href: 'https://github.com/onwidget/astrowind',
+        target: '_blank',
+        icon: 'tabler:download',
+      },
+      { text: 'Learn more', href: '#features' },
+    ]}
+  >
+    <Fragment slot="subtitlePrimary" class="font-serif theme-gradient"> Wahine Financial Awareness</Fragment>
+    <Fragment slot="title" class="font-serif text-gray-800">
+      <div class="">
+        <p class="text-2xl lg:text-4xl">
+          Master your money, secure your future, and build lasting wealth with Malaysia's <span class="theme-gradient"
+            >premier financial education video series</span
+          > designed exclusively for women.
+        </p>
+      </div></Fragment
+    >
+    <Fragment slot="subtitle">
+      <div class="space-y-8">
+        <LinkButton link="#" buttonText="Coming Soon in OutClass" color="primary" />
+      </div>
+    </Fragment>
+  </Hero>
+  <div
+    x-data="{ 
             scrollDistance: 0,
             scrollWidth: 0,
             containerWidth: 0,
@@ -120,34 +144,25 @@ const courses: Course[] = [
               requestAnimationFrame(scroll);
             }
           }"
-      class="mt-16 relative overflow-hidden"
-      @mouseover="$refs.scroller.style.animationPlayState = 'paused'"
-      @mouseleave="$refs.scroller.style.animationPlayState = 'running'"
-    >
-      <div x-ref="scroller" class="flex gap-4 animate-scroll">
-        {
-          [...courses, ...courses].map((course, index) => (
-            <div
-              class={`flex-none w-72 ${
-                index % courses.length === 4 ? 'bg-red-800 text-white' : 'bg-cream-50'
-              } rounded-xl p-6`}
-            >
-              <h3 class="font-semibold text-lg mb-1">{course.title}</h3>
-              <p class="text-sm mb-4">{course.description}</p>
-              {/* <button
-                class={`text-sm px-4 py-2 rounded-full ${
-                  index % courses.length === 4 ? 'bg-white text-red-800' : 'bg-gray-800 text-white'
-                } hover:opacity-90 transition-opacity`}
-              >
-                {course.buttonText}
-              </button> */}
-            </div>
-          ))
-        }
-      </div>
+    class="mt-16 relative overflow-hidden"
+    @mouseover="$refs.scroller.style.animationPlayState = 'paused'"
+    @mouseleave="$refs.scroller.style.animationPlayState = 'running'"
+  >
+    <div x-ref="scroller" class="flex gap-4 animate-scroll">
+      {
+        [...courses, ...courses].map((course, index) => (
+          <div
+            class={`flex-none w-72 ${
+              index % courses.length === 4 ? 'bg-red-800 text-white' : 'bg-cream-50'
+            } rounded-xl p-6`}
+          >
+            <h3 class="font-semibold text-lg mb-1">{course.title}</h3>
+            <p class="text-sm mb-4">{course.description}</p>
+          </div>
+        ))
+      }
     </div>
-  </section>
-
+  </div>
   <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
     <div class="grid md:grid-cols-2 gap-8 items-start">
       <!-- Feature Card -->
@@ -160,8 +175,8 @@ const courses: Course[] = [
         <div class="relative z-10">
           <p class="text-sm mb-6">Wahine Financial Wellness</p>
           <h1 class="text-3xl md:text-4xl font-medium italic leading-tight mb-6 font-serif">
-            Join thousands of users who've revolutionized their approach to personal finance through our
-            comprehensive 16-video series.
+            Join thousands of users who've revolutionized their approach to personal finance through our comprehensive
+            16-video series.
           </h1>
         </div>
       </div>
