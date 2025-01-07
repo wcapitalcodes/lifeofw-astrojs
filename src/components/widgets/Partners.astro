@@ -19,9 +19,11 @@ const { title = await Astro.slots.render('title'), items = [] } = Astro.props;
         items && (
           <div>
             {items.map(({ title, logos }) => (
-              <div class="items-center w-full gap-3 grid grid-cols-1 lg:grid-cols-2 my-6">
-                <div>{title && <h3 class="text-xl font-medium">{title}</h3>}</div>
-                <div class="flex items-center flex-row space-x-6">
+              <div class="items-center w-full gap-3 grid grid-cols-1 lg:grid-cols-2 my-4">
+                <div class="text-center">
+                  {title && <h3 class="text-xl font-medium">{title}</h3>}
+                </div>
+                <div class="flex items-center flex-row space-x-6 justify-center lg:justify-start">
                   {logos?.map(({ url, ref_link, classes }) => (
                     <a href={ref_link} target="_blank">
                       <img src={url} alt="" class={classes} />
