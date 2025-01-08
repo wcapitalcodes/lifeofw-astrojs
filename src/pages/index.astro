@@ -103,6 +103,10 @@ const images = await Astro.glob('/public/images/hero-grid/*');
       scrollbar-width: none;
     }
 
+    body {
+      overflow-x: hidden;
+    }
+
     @keyframes scroll {
       0% {
         transform: translateX(0);
