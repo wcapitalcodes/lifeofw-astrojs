@@ -1,36 +1,120 @@
----
-
----
-
-<div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-  <div class="bg-white p-6 rounded-lg max-w-md w-full">
+<div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white p-6 rounded-lg max-w-md w-full max-h-[90vh] overflow-y-auto">
     <div class="flex items-center justify-center space-x-6">
       <div class="rounded-full bg-gradient-to-r from-primary-500 via-athens-gray-500 to-accent-500 p-1">
         <img id="modal-avatar" class="w-28 h-28 rounded-full bg-gray-100" src="" alt="" />
       </div>
     </div>
     <h2 id="modal-name" class="text-xl font-bold mt-4 text-center"></h2>
-    <p id="modal-description" class="mt-2 text-gray-600"></p>
-    <button onclick="closeModal()" class="mt-4 w-full bg-primary-700 text-white py-2 rounded-lg"> Close </button>
+
+    <div id="initial-content">
+      <p id="modal-description" class="mt-2 text-gray-600"></p>
+      <div class="mt-4 space-y-3">
+        <button onclick="showBookingForm()" class="w-full bg-accent-600 text-white py-2 rounded-lg hover:bg-accent-700 transition-colors">
+          Book a Consultation
+        </button>
+        <button onclick="closeModal()" class="w-full bg-gray-100 text-gray-700 py-2 rounded-lg hover:bg-gray-200 transition-colors">
+          Close
+        </button>
+      </div>
+    </div>
+
+    <div id="booking-form-content" class="hidden">
+      <div id="success-message" class="hidden mt-4 p-4 bg-green-50 text-green-700 rounded-lg">
+        Thank you for your consultation booking request. We will reach out to you via email shortly to confirm your session.
+      </div>
+
+      <form id="expert-form" action="/api/send-email" method="POST" class="mt-4 space-y-4">
+        <input 
+          type="text" 
+          name="customer_name" 
+          class="w-full rounded-lg px-4 py-2 border border-gray-300" 
+          placeholder="Your full name" 
+          required 
+        />
+        <input 
+          type="email" 
+          name="customer_email" 
+          class="w-full rounded-lg border border-gray-300 px-4 py-2" 
+          placeholder="Your email address" 
+          required 
+        />
+        <input 
+          type="tel" 
+          name="customer_phone" 
+          class="w-full rounded-lg border border-gray-300 px-4 py-2" 
+          placeholder="Your phone number" 
+          required 
+        />
+        <input type="hidden" name="expert_name" id="form-expert-name" />
+        
+        <div class="flex justify-center">
+          <div class="g-recaptcha" data-sitekey="6LeJGEQpAAAAAHblaCkp5kDRprXjnmII54CqhfRW"></div>
+        </div>
+
+        <div class="flex space-x-3">
+          <button 
+            type="button" 
+            onclick="hideBookingForm()" 
+            class="flex-1 bg-gray-100 text-gray-700 py-2 rounded-lg hover:bg-gray-200 transition-colors"
+          >
+            Back
+          </button>
+          <button 
+            type="submit" 
+            class="flex-1 bg-accent-600 text-white py-2 rounded-lg hover:bg-accent-700 transition-colors flex items-center justify-center"
+          >
+            <span id="submit-text">Book slot</span>
+            <svg 
+              id="loading-spinner" 
+              class="hidden animate-spin ml-2 h-5 w-5 text-white" 
+              xmlns="http://www.w3.org/2000/svg" 
+              fill="none" 
+              viewBox="0 0 24 24"
+            >
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 
   <script>
-    // Expose openModal to the global scope
+    // Load reCAPTCHA if not already loaded
+    if (!window.recaptchaLoaded) {
+      const script = document.createElement('script');
+      script.src = 'https://www.google.com/recaptcha/api.js';
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+      window.recaptchaLoaded = true;
+    }
+
     window.openModal = function (data) {
       const modal = document.getElementById('modal');
       const modalAvatar = document.getElementById('modal-avatar');
       const modalName = document.getElementById('modal-name');
       const modalDescription = document.getElementById('modal-description');
+      const formExpertName = document.getElementById('form-expert-name');
 
       if (modal && modalAvatar && modalName && modalDescription) {
         modalAvatar.src = data.avatar_url;
         modalName.textContent = data.name;
         modalDescription.textContent = data.description;
+        formExpertName.value = data.name;
+        
+        // Reset form state
+        document.getElementById('initial-content').classList.remove('hidden');
+        document.getElementById('booking-form-content').classList.add('hidden');
+        document.getElementById('success-message').classList.add('hidden');
+        document.getElementById('expert-form').classList.remove('hidden');
+        
         modal.classList.remove('hidden');
       }
     };
 
-    // Expose closeModal to the global scope
     window.closeModal = function () {
       const modal = document.getElementById('modal');
       if (modal) {
@@ -38,7 +122,71 @@
       }
     };
 
-    // Listen for the custom event
+    window.showBookingForm = function() {
+      document.getElementById('initial-content').classList.add('hidden');
+      document.getElementById('booking-form-content').classList.remove('hidden');
+    };
+
+    window.hideBookingForm = function() {
+      document.getElementById('booking-form-content').classList.add('hidden');
+      document.getElementById('initial-content').classList.remove('hidden');
+    };
+
+    // Form submission handling
+    const form = document.getElementById('expert-form');
+    const loadingSpinner = document.getElementById('loading-spinner');
+    const submitText = document.getElementById('submit-text');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Verify reCAPTCHA
+      const recaptchaResponse = grecaptcha.getResponse();
+      if (!recaptchaResponse) {
+        alert('Please complete the reCAPTCHA verification');
+        return;
+      }
+
+      loadingSpinner.classList.remove('hidden');
+      submitText.textContent = 'Submitting...';
+
+      try {
+        const formData = new FormData(form);
+        formData.append('g-recaptcha-response', recaptchaResponse);
+
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          form.reset();
+          form.classList.add('hidden');
+          document.getElementById('success-message').classList.remove('hidden');
+        } else {
+          throw new Error(data.error || 'Submission failed');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to submit form. Please try again.');
+      } finally {
+        loadingSpinner.classList.add('hidden');
+        submitText.textContent = 'Book slot';
+        grecaptcha.reset();
+      }
+    });
+
+    // Close modal on outside click
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('modal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Listen for custom event
     window.addEventListener('open-modal', (e) => openModal(e.detail));
   </script>
 </div>

@@ -30,6 +30,12 @@ export const headerData = {
             'Our friendly assistant bot designed to help with any questions you have about budgeting, investing, or women',
         },
         {
+          text: 'Wahine Experts',
+          href: '/wahine_experts',
+          description:
+            "Connect with our network of seasoned professionals who provide expert guidance and support through meaningful conversations.",
+        },
+        {
           text: 'Wahine Community',
           href: getPermalink('/community'),
           description: 'Empowering network for women, providing support, resources, and networking opportunities.',

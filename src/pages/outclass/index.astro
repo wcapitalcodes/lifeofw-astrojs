@@ -118,11 +118,8 @@ const courses: Course[] = [
     <Fragment slot="subtitle">
       <div class="space-y-8">
         <LinkButton link="#" buttonText="Coming Soon in OutClass" color="primary" />
-      </div>
-    </Fragment>
-  </Hero>
-  <div
-    x-data="{ 
+        <div
+          x-data="{ 
             scrollDistance: 0,
             scrollWidth: 0,
             containerWidth: 0,
@@ -144,25 +141,29 @@ const courses: Course[] = [
               requestAnimationFrame(scroll);
             }
           }"
-    class="mt-16 relative overflow-hidden"
-    @mouseover="$refs.scroller.style.animationPlayState = 'paused'"
-    @mouseleave="$refs.scroller.style.animationPlayState = 'running'"
-  >
-    <div x-ref="scroller" class="flex gap-4 animate-scroll">
-      {
-        [...courses, ...courses].map((course, index) => (
-          <div
-            class={`flex-none w-72 ${
-              index % courses.length === 4 ? 'bg-red-800 text-white' : 'bg-cream-50'
-            } rounded-xl p-6`}
-          >
-            <h3 class="font-semibold text-lg mb-1">{course.title}</h3>
-            <p class="text-sm mb-4">{course.description}</p>
+          class="mt-16 relative overflow-hidden"
+          @mouseover="$refs.scroller.style.animationPlayState = 'paused'"
+          @mouseleave="$refs.scroller.style.animationPlayState = 'running'"
+        >
+          <div x-ref="scroller" class="flex gap-4 animate-scroll">
+            {
+              [...courses, ...courses].map((course, index) => (
+                <div
+                  class={`flex-none w-72 ${
+                    index % courses.length === 4 ? 'bg-red-800 text-white' : 'bg-cream-50'
+                  } rounded-xl p-6`}
+                >
+                  <h3 class="font-semibold text-lg mb-1">{course.title}</h3>
+                  <p class="text-sm mb-4">{course.description}</p>
+                </div>
+              ))
+            }
           </div>
-        ))
-      }
-    </div>
-  </div>
+        </div>
+      </div>
+    </Fragment>
+  </Hero>
+
   <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
     <div class="grid md:grid-cols-2 gap-8 items-start">
       <!-- Feature Card -->
