@@ -105,16 +105,16 @@ const careerExperts = [
   pageSubtitle={pageSubtitle}
   highlightedTitleText="Experts"
 >
-  <div class="mx-auto max-w-7xl">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <ExpertModal />
     <div class="grid lg:grid-cols-2 my-16">
-      <div class="max-w-md">
+      <div class="lg:max-w-md mb-4 lg:mb-0">
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Money and Me</h2>
         <p class="mt-6 text-lg leading-8 text-gray-600 font-sans">
           Discover insights from financial mavens, guiding you toward fiscal empowerment and a prosperous future.
         </p>
       </div>
-      <ul role="list" class="grid lg:grid-cols-2 gap-8">
+      <ul role="list" class="grid grid-cols-2 gap-8">
         {
           moneyExperts.map((expert) => (
             <ExpertCard name={expert.name} avatarUrl={expert.avatarUrl} description={expert.description} />
@@ -123,13 +123,13 @@ const careerExperts = [
       </ul>
     </div>
     <div class="grid lg:grid-cols-2 my-16">
-      <div class="max-w-md">
+      <div class="lg:max-w-md mb-4 lg:mb-0">
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Relationships & Me</h2>
         <p class="mt-6 text-lg leading-8 text-gray-600 font-sans">
           Explore advice from relationship connoisseurs, fostering connections and empowering love that lasts.
         </p>
       </div>
-      <ul role="list" class="grid lg:grid-cols-2 gap-8">
+      <ul role="list" class="grid grid-cols-2 gap-8">
         {
           relationshipExperts.map((expert) => (
             <ExpertCard name={expert.name} avatarUrl={expert.avatarUrl} description={expert.description} />
@@ -138,14 +138,14 @@ const careerExperts = [
       </ul>
     </div>
     <div class="grid lg:grid-cols-2 my-16">
-      <div class="max-w-md">
+      <div class="lg:max-w-md mb-4 lg:mb-0">
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Career & Me</h2>
         <p class="mt-6 text-lg leading-8 text-gray-600 font-sans">
           Empower your professional journey with wisdom from career trailblazers, shaping success stories and fostering
           growth.
         </p>
       </div>
-      <ul role="list" class="grid lg:grid-cols-2 gap-8">
+      <ul role="list" class="grid grid-cols-2 gap-8">
         {
           careerExperts.map((expert) => (
             <ExpertCard name={expert.name} avatarUrl={expert.avatarUrl} description={expert.description} />

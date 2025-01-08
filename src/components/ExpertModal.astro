@@ -1,7 +1,3 @@
----
-const csrfToken = (await import.meta.env?.CSRF_TOKEN) || '';
----
-
 <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
   <div class="bg-white p-6 rounded-lg max-w-md w-full max-h-[90vh] overflow-y-auto">
     <div class="flex items-center justify-center space-x-6">
@@ -28,27 +24,25 @@ const csrfToken = (await import.meta.env?.CSRF_TOKEN) || '';
         Thank you for your consultation booking request. We will reach out to you via email shortly to confirm your session.
       </div>
 
-      <form id="expert-form" action="https://wahine.wcapital.asia/ask/expert/" method="POST" class="mt-4 space-y-4">
-        <input type="hidden" name="csrfmiddlewaretoken" id="csrf-token" value={csrfToken} />
-        
+      <form id="expert-form" action="/api/send-email" method="POST" class="mt-4 space-y-4">
         <input 
           type="text" 
           name="customer_name" 
-          class="w-full rounded-lg border-gray-300 px-4 py-2" 
+          class="w-full rounded-lg px-4 py-2 border border-gray-300" 
           placeholder="Your full name" 
           required 
         />
         <input 
           type="email" 
           name="customer_email" 
-          class="w-full rounded-lg border-gray-300 px-4 py-2" 
+          class="w-full rounded-lg border border-gray-300 px-4 py-2" 
           placeholder="Your email address" 
           required 
         />
         <input 
           type="tel" 
           name="customer_phone" 
-          class="w-full rounded-lg border-gray-300 px-4 py-2" 
+          class="w-full rounded-lg border border-gray-300 px-4 py-2" 
           placeholder="Your phone number" 
           required 
         />
@@ -98,13 +92,6 @@ const csrfToken = (await import.meta.env?.CSRF_TOKEN) || '';
       window.recaptchaLoaded = true;
     }
 
-    // CSRF token helper function
-    const getCookie = (name) => {
-      const value = `; ${document.cookie}`;
-      const parts = value.split(`; ${name}=`);
-      if (parts.length === 2) return parts.pop().split(';').shift();
-    };
-
     window.openModal = function (data) {
       const modal = document.getElementById('modal');
       const modalAvatar = document.getElementById('modal-avatar');
@@ -152,35 +139,42 @@ const csrfToken = (await import.meta.env?.CSRF_TOKEN) || '';
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      
+      // Verify reCAPTCHA
+      const recaptchaResponse = grecaptcha.getResponse();
+      if (!recaptchaResponse) {
+        alert('Please complete the reCAPTCHA verification');
+        return;
+      }
+
       loadingSpinner.classList.remove('hidden');
       submitText.textContent = 'Submitting...';
 
       try {
         const formData = new FormData(form);
-        const csrfToken = getCookie('csrftoken') || document.getElementById('csrf-token').value;
+        formData.append('g-recaptcha-response', recaptchaResponse);
 
         const response = await fetch(form.action, {
           method: 'POST',
-          headers: {
-            'X-CSRFToken': csrfToken,
-          },
-          body: formData,
-          credentials: 'same-origin', // Important for CSRF
+          body: formData
         });
+
+        const data = await response.json();
 
         if (response.ok) {
           form.reset();
           form.classList.add('hidden');
           document.getElementById('success-message').classList.remove('hidden');
         } else {
-          throw new Error('Submission failed');
+          throw new Error(data.error || 'Submission failed');
         }
       } catch (error) {
         console.error('Error:', error);
-        // Add error handling UI here if needed
+        alert('Failed to submit form. Please try again.');
       } finally {
         loadingSpinner.classList.add('hidden');
         submitText.textContent = 'Book slot';
+        grecaptcha.reset();
       }
     });
 
