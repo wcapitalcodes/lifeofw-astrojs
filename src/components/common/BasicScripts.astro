@@ -1,15 +1,25 @@
 ---
 import { UI } from 'astrowind:config';
 ---
+
 <!-- Google tag (gtag.js) -->
 <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-VDC4HDM1VN"></script>
 <script type="text/partytown">
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() {
+    dataLayer.push(arguments);
+  }
   gtag('js', new Date());
 
   gtag('config', 'G-VDC4HDM1VN');
 </script>
+<script type="text/partytown">
+  var _iub = _iub || [];
+  _iub.csConfiguration = { siteId: 3888318, cookiePolicyId: 87094482, lang: 'en', storage: { useSiteId: true } };
+</script>
+<script type="text/partytown" src="https://cs.iubenda.com/autoblocking/3888318.js"></script>
+<script type="text/partytown" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+<script type="text/partytown" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
 <script is:inline define:vars={{ defaultTheme: UI.theme }}>
   if (window.basic_script) {
     return;
