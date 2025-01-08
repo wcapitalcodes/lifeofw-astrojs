@@ -43,6 +43,10 @@ export const headerData = {
       ],
     },
     {
+      text: 'Social Impact',
+      href: '/social-impact',
+    },
+    {
       text: 'Contact Us',
       href: '/contact',
     },
@@ -69,7 +73,7 @@ export const footerData = {
       title: 'Company',
       links: [
         { text: 'About Us', href: '/about' },
-        { text: 'Social Impact', href: '#' },
+        { text: 'Social Impact', href: '/social-impact' },
         { text: 'Terms', href: '/terms' },
         { text: 'Privacy Policy', href: '/privacy-policy' },
         { text: 'Community Guidelines', href: '/community/guidelines' },
