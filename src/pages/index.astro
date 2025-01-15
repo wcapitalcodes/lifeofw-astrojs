@@ -6,21 +6,38 @@ import Partners from '~/components/widgets/Partners.astro';
 import Recognitions from '~/components/Recognitions.astro';
 import Solutions from '~/components/Solutions.astro';
 import FeaturedOn from '~/components/FeaturedOn.astro';
-import NewsQuote from '~/components/NewsQuote.astro';
-import Quote from '~/components/Quote.astro';
-import CommunityJoin from '~/components/CommunityJoin.astro';
-import VideoSeriesPreview from '~/components/VideoSeriesPreview.astro';
 import ExpertSlider from '~/components/ExpertSlider.astro';
 import AccreditedByHRDF from '~/components/AccreditedByHRDF.astro';
 import NewsHighlight from '~/components/NewsHighlight.astro';
 
 import HeroGrid from '~/components/HeroGrid.astro';
 const featuredData = [
-  { url: '/images/featuredon/bfm.png', classes: 'object-contain w-32' },
-  { url: '/images/featuredon/the-edge.png', classes: 'object-contain w-36' },
-  { url: '/images/featuredon/star-biz7.png', classes: 'w-14' },
-  { url: '/images/featuredon/astro-awani.png', classes: 'w-32' },
-];
+    {
+      url: '/images/featuredon/bfm.png',
+      link: 'https://www.bfm.my/content/podcast/rejina-rahim-from-nomura-asset-management-md-to-starting-wahine-capital-to-financially-empower-women',
+      classes: 'object-contain w-32',
+    },
+    {
+      url: '/images/featuredon/the-edge.png',
+      link: 'https://www.optionstheedge.com/tags/wahine-capital',
+      classes: 'object-contain w-36',
+    },
+    {
+      url: '/images/featuredon/star-biz7.png',
+      link: 'https://www.thestar.com.my/business/business-news/2024/02/09/unleashing-the-power-of-the-purse',
+      classes: 'w-14',
+    },
+    {
+      url: '/images/featuredon/astro-awani.png',
+      link: 'https://international.astroawani.com/videos/future-female-x7ko8w/future-female-wahine-capital-mitigating-gendered-financial-vulnerability-x8lo6ja',
+      classes: 'w-32',
+    },
+    {
+      url: '/images/featuredon/ifn-logo.jpg',
+      link: 'https://www.islamicfinancenews.com/company/wahine-capital',
+      classes: 'object-contain w-12',
+    },
+  ];
 const metadata = {
   title: 'Life of W',
   description:

@@ -1,14 +1,35 @@
 ---
-import Headline from "./ui/Headline.astro";
+import Headline from './ui/Headline.astro';
 
 const {
-  title = "As Featured On",
+  title = 'As Featured On',
   features = [
-    { url: '/images/featuredon/bfm.png', classes: 'object-contain w-32' },
-    { url: '/images/featuredon/the-edge.png', classes: 'object-contain w-36' },
-    { url: '/images/featuredon/star-biz7.png', classes: 'w-14' },
-    { url: '/images/featuredon/astro-awani.png', classes: 'w-32' }
-  ]
+    {
+      url: '/images/featuredon/bfm.png',
+      link: 'https://www.bfm.my/content/podcast/rejina-rahim-from-nomura-asset-management-md-to-starting-wahine-capital-to-financially-empower-women',
+      classes: 'object-contain w-32',
+    },
+    {
+      url: '/images/featuredon/the-edge.png',
+      link: 'https://www.optionstheedge.com/tags/wahine-capital',
+      classes: 'object-contain w-36',
+    },
+    {
+      url: '/images/featuredon/star-biz7.png',
+      link: 'https://www.thestar.com.my/business/business-news/2024/02/09/unleashing-the-power-of-the-purse',
+      classes: 'w-14',
+    },
+    {
+      url: '/images/featuredon/astro-awani.png',
+      link: 'https://international.astroawani.com/videos/future-female-x7ko8w/future-female-wahine-capital-mitigating-gendered-financial-vulnerability-x8lo6ja',
+      classes: 'w-32',
+    },
+    {
+      url: '/images/featuredon/ifn-logo.jpg',
+      link: 'https://www.islamicfinancenews.com/company/wahine-capital',
+      classes: 'object-contain w-48',
+    },
+  ],
 } = Astro.props;
 ---
 
@@ -16,21 +37,25 @@ const {
   <div class="inset-0 absolute pointer-events-none -z-[1]" aria-hidden="true">
     <div class="inset-0 absolute"></div>
   </div>
-  <div class="intersect-once motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-quarter intercept-no-queue relative mx-auto px-4 text-default max-w-5xl">
+  <div
+    class="intersect-once motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-quarter intercept-no-queue relative mx-auto px-4 text-default max-w-5xl"
+  >
     <div class="text-center md:mx-auto max-w-3xl">
       <Headline title={title} subtitle={''} />
     </div>
     <div class="mx-auto mt-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 items-center justify-items-center">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12 items-center justify-items-center">
         {
-          features.map(({ url, classes }) => (
+          features.map(({ url, link, classes }) => (
             <div class="flex items-center justify-center w-full">
-              <img 
-                class={`${classes} transition-transform duration-300 hover:scale-110`} 
-                src={url} 
-                alt="" 
-                loading="lazy"
-              />
+              <a href={link} target="_blank">
+                <img
+                  class={`${classes} transition-transform duration-300 hover:scale-110`}
+                  src={url}
+                  alt=""
+                  loading="lazy"
+                />
+              </a>
             </div>
           ))
         }

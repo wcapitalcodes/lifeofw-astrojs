@@ -1,13 +1,33 @@
 ---
-import Headline from "./ui/Headline.astro";
+import Headline from './ui/Headline.astro';
 
 const {
-  title = 'Proudly Recognized By',
+  title = 'Awards & Recognition',
   images = [
-    { url: '/images/recognitions/wep-awards.png', classes: 'object-contain w-32' },
-    { url: '/images/recognitions/1337.png', classes: 'object-contain w-36' },
-    { url: '/images/recognitions/tigerhall-women.png', classes: 'w-14' },
-    { url: '/images/recognitions/rhb.png', classes: 'w-32' },
+    {
+      url: '/images/recognitions/wep-awards.png',
+      description: 'The 2024 WEPs Awards, First Runner-up in Innovative Financing',
+      link: 'https://www.linkedin.com/posts/wahine-capital_mental-activity-7252218684260114433-fiMb?utm_source=share&utm_medium=member_desktop',
+      classes: 'object-contain w-32',
+    },
+    {
+      url: '/images/recognitions/the-lhoft.png',
+      description: 'Top 10 for Acceleration Program, 2024',
+      link: 'https://www.linkedin.com/posts/the-lhoft_wvault-fintech-womenempowerment-ugcPost-7209801952132538368-yvoG?utm_source=share&utm_medium=member_desktop',
+      classes: 'object-contain w-32',
+    },
+    {
+      url: '/images/recognitions/tigerhall-women.png',
+      description: 'AWS x Tigerhall Womens, Jan 2023',
+      link: '#',
+      classes: 'w-28',
+    },
+    {
+      url: '/images/recognitions/rhb.png',
+      description: 'Top 28 for RHB Xcelerator Program, Jan 2023',
+      link: 'https://1337.ventures/rhb-bank-launches-xcelerator-2023-to-advance-asean-fintech-solutions/',
+      classes: 'w-32',
+    },
   ],
 } = Astro.props;
 ---
@@ -25,15 +45,16 @@ const {
     <div class="mx-auto mt-8">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 items-center justify-items-center">
         {
-          images.map(({ url, classes }) => (
-            <div class="flex items-center justify-center w-full">
-              <img 
-                class={`${classes} transition-transform duration-300 hover:scale-110`} 
-                src={url} 
-                alt="" 
+          images.map(({ url, link, description, classes }) => (
+            <a href={link} target="_blank" class="flex flex-col space-y-4 items-center justify-center w-full">
+              <img
+                class={`${classes} transition-transform duration-300 hover:scale-110`}
+                src={url}
+                alt=""
                 loading="lazy"
               />
-            </div>
+              <p class="text-sm text-center">{description}</p>
+            </a>
           ))
         }
       </div>
