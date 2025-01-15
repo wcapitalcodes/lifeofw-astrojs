@@ -227,7 +227,7 @@ const eventsByYear = eventTimeline.reduce((acc, event) => {
   return acc;
 }, {});
 // Sort events within each year in descending order
-Object.keys(eventsByYear).forEach(year => {
+Object.keys(eventsByYear).forEach((year) => {
   eventsByYear[year].sort((a, b) => parseDate(b.date) - parseDate(a.date));
 });
 
@@ -279,9 +279,9 @@ const years = Object.keys(eventsByYear).sort((a, b) => b - a);
 
   <style>
     .tab-button.active {
-      background-color: #D61B6A;
+      background-color: #d61b6a;
       color: white;
-      border-color: #D61B6A;
+      border-color: #d61b6a;
     }
   </style>
 
@@ -289,16 +289,15 @@ const years = Object.keys(eventsByYear).sort((a, b) => b - a);
     function initTabs() {
       const tabs = document.querySelectorAll('.tab-button');
       const contents = document.querySelectorAll('.timeline-content');
-
-      // Show first year by default
       if (tabs.length > 0) {
         const firstTab = tabs[0];
         const firstYear = firstTab.getAttribute('data-year');
         firstTab.classList.add('active');
-        document.querySelector(`.timeline-content[data-year="${firstYear}"]`).classList.remove('hidden');
+        const firstContent = document.querySelector(`.timeline-content[data-year="${firstYear}"]`);
+        if (firstContent) {
+          firstContent.classList.remove('hidden');
+        }
       }
-
-      // Add click handlers
       tabs.forEach((tab) => {
         tab.addEventListener('click', () => {
           const year = tab.getAttribute('data-year');
@@ -308,12 +307,16 @@ const years = Object.keys(eventsByYear).sort((a, b) => b - a);
           contents.forEach((c) => c.classList.add('hidden'));
 
           tab.classList.add('active');
-          document.querySelector(`.timeline-content[data-year="${year}"]`).classList.remove('hidden');
+          const content = document.querySelector(`.timeline-content[data-year="${year}"]`);
+          if (content) {
+            content.classList.remove('hidden');
+          }
         });
       });
     }
-
-    // Initialize when DOM is ready
+    initTabs();
     document.addEventListener('DOMContentLoaded', initTabs);
+    document.addEventListener('astro:page-load', initTabs);
+    document.addEventListener('astro:after-swap', initTabs);
   </script>
 </PageLayout>
