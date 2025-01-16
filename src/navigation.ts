@@ -33,12 +33,21 @@ export const headerData = {
           text: 'Wahine Experts',
           href: '/wahine_experts',
           description:
-            "Connect with our network of seasoned professionals who provide expert guidance and support through meaningful conversations.",
+            'Connect with our network of seasoned professionals who provide expert guidance and support through meaningful conversations.',
         },
         {
           text: 'Wahine Community',
           href: getPermalink('/community'),
           description: 'Empowering network for women, providing support, resources, and networking opportunities.',
+        },
+      ],
+    },
+    {
+      text: 'Resources',
+      links: [
+        {
+          text: 'Wahine Blog',
+          href: getPermalink('/blog'),
         },
       ],
     },
@@ -78,6 +87,10 @@ export const footerData = {
         { text: 'Privacy Policy', href: '/privacy-policy' },
         { text: 'Community Guidelines', href: '/community/guidelines' },
       ],
+    },
+    {
+      title: 'Resources',
+      links: [{ text: 'Wahine Blog', href: '/blog' }],
     },
   ],
   secondaryLinks: [

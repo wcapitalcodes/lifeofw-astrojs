@@ -1,0 +1,56 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '~/layouts/PageLayout.astro';
+import { formatDate } from '~/utils/utils';
+
+const metadata = {
+  title: 'Blog | Life of W • Wahine Capital',
+  description:
+    'Explore expert insights on finance, digital security, and estate planning tailored for women. From investment basics to advanced strategies, our articles enhance your financial well-being and W Vault experience.',
+};
+
+const posts = await getCollection('blog', ({ data }) => {
+  return import.meta.env.PROD ? data.draft !== true : true;
+});
+
+// Sort posts by date
+const sortedPosts = posts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+---
+
+<PageLayout
+  metadata={metadata}
+  hasPageHeader={true}
+  pageTitle="Wahine Blog"
+  pageSubtitle="Explore expert insights on finance, digital security, and estate planning tailored for women. From investment basics to advanced strategies, our articles enhance your financial well-being and W Vault experience."
+  highlightedTitleText="Blog"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        sortedPosts.map((post) => (
+          <article class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+            {post.data.image && (
+              <a href={post.data.external_link ?? `/blog/${post.slug}`}>
+                <img src={post.data.image} alt={post.data.title} class="w-full h-48 object-cover" />
+              </a>
+            )}
+            <div class="p-6">
+              <div class="text-sm text-gray-600 mb-2">{formatDate(post.data.publishDate)}</div>
+              <h2 class="text-xl font-bold mb-2">
+                <a href={post.data.external_link ?? `/blog/${post.slug}`} class="hover:text-accent-600">
+                  {post.data.title}
+                </a>
+              </h2>
+              <p class="text-gray-600 mb-4">{post.data.description}</p>
+              <div class="flex gap-2">
+                {post.data.tags.slice(0, 3).map((tag) => (
+                  <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</PageLayout>
