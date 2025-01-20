@@ -20,7 +20,7 @@ export const headerData = {
         },
         {
           text: 'Wahine Financial Awareness',
-          href: getPermalink('/outclass'),
+          href: getPermalink('/trainings'),
           description: 'A comprehensive video series focused on empowering women in finance.',
         },
         {
@@ -73,7 +73,7 @@ export const footerData = {
       title: 'Solutions',
       links: [
         { text: 'W Vault', href: '/wvault' },
-        { text: 'Wahine Financial Awareness', href: '/outclass' },
+        { text: 'Wahine Financial Awareness', href: '/trainings' },
         { text: 'Wani Chat', href: 'https://wani.lifeofw.com/' },
         { text: 'Wahine Community', href: '/community/' },
       ],

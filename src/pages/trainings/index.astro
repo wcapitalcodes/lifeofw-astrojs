@@ -3,6 +3,9 @@ import PageLayout from '~/layouts/PageLayout.astro';
 import HighlightSection from '~/components/HighlightSection.astro';
 import LinkButton from '~/components/ui/LinkButton.astro';
 import Hero from '~/components/widgets/Hero.astro';
+
+import { Icon } from 'astro-icon/components';
+
 interface Course {
   title: string;
   description: string;
@@ -11,6 +14,12 @@ interface Course {
 interface BenefitCard {
   title: string;
   description: string;
+}
+
+interface TrainingOption {
+  title: string;
+  description: string;
+  icon: string;
 }
 
 const metadata = {
@@ -90,6 +99,24 @@ const courses: Course[] = [
     buttonText: 'Enroll now',
   },
 ];
+
+const trainingOptions: TrainingOption[] = [
+  {
+    title: 'Corporate Workshops',
+    description: 'Customized financial wellness programs for organizations of all sizes.',
+    icon: 'lucide:building-2',
+  },
+  {
+    title: 'W Vault Implementation',
+    description: 'Hands-on training for secure asset management and legacy planning.',
+    icon: 'lucide:shield-check',
+  },
+  {
+    title: 'Group Coaching',
+    description: 'Personalized financial coaching sessions for teams and departments.',
+    icon: 'lucide:users',
+  },
+];
 ---
 
 <PageLayout metadata={metadata}>
@@ -117,7 +144,10 @@ const courses: Course[] = [
     >
     <Fragment slot="subtitle">
       <div class="space-y-8">
-        <LinkButton link="#" buttonText="Coming Soon in OutClass" color="primary" />
+        <div class="space-x-4">
+          <LinkButton link="#" buttonText="Coming Soon in OutClass" color="primary" />
+          <LinkButton link="/contact" buttonText="Book Corporate Training" color="accent" />
+        </div>
         <div
           x-data="{ 
             scrollDistance: 0,
@@ -163,8 +193,37 @@ const courses: Course[] = [
       </div>
     </Fragment>
   </Hero>
-
+  <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-cream-50">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-[#822F46] mb-4">Customized Training Solutions</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Empower your organization with tailored financial wellness programs and expert-led training sessions.
+      </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      {
+        trainingOptions.map((option) => (
+          <div class="bg-white rounded-xl p-6 shadow-lg hover:transform hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center">
+            <div class="text-[#822F46] mb-4">
+              <Icon
+                name={option.icon}
+                class="w-16 h-16 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform text-accent-600"
+              />
+            </div>
+            <h3 class="text-xl font-semibold mb-2">{option.title}</h3>
+            <p class="text-gray-600 text-center">{option.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
   <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-[#822F46] mb-4">Comprehensive Video Learning Experience</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Master your financial journey through our 16-part video series, carefully crafted to guide Malaysian women from financial basics to wealth-building expertise.
+      </p>
+    </div>
     <div class="grid md:grid-cols-2 gap-8 items-start">
       <!-- Feature Card -->
       <div class="bg-[#822F46] text-white p-8 rounded-3xl relative overflow-hidden">
