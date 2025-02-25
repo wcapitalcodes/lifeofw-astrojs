@@ -12,32 +12,32 @@ import NewsHighlight from '~/components/NewsHighlight.astro';
 
 import HeroGrid from '~/components/HeroGrid.astro';
 const featuredData = [
-    {
-      url: '/images/featuredon/bfm.png',
-      link: 'https://www.bfm.my/content/podcast/rejina-rahim-from-nomura-asset-management-md-to-starting-wahine-capital-to-financially-empower-women',
-      classes: 'object-contain w-32',
-    },
-    {
-      url: '/images/featuredon/the-edge.png',
-      link: 'https://www.optionstheedge.com/tags/wahine-capital',
-      classes: 'object-contain w-36',
-    },
-    {
-      url: '/images/featuredon/star-biz7.png',
-      link: 'https://www.thestar.com.my/business/business-news/2024/02/09/unleashing-the-power-of-the-purse',
-      classes: 'w-14',
-    },
-    {
-      url: '/images/featuredon/astro-awani.png',
-      link: 'https://international.astroawani.com/videos/future-female-x7ko8w/future-female-wahine-capital-mitigating-gendered-financial-vulnerability-x8lo6ja',
-      classes: 'w-32',
-    },
-    {
-      url: '/images/featuredon/ifn-logo.jpg',
-      link: 'https://www.islamicfinancenews.com/company/wahine-capital',
-      classes: 'object-contain w-12',
-    },
-  ];
+  {
+    url: '/images/featuredon/bfm.png',
+    link: 'https://www.bfm.my/content/podcast/rejina-rahim-from-nomura-asset-management-md-to-starting-wahine-capital-to-financially-empower-women',
+    classes: 'object-contain w-32',
+  },
+  {
+    url: '/images/featuredon/the-edge.png',
+    link: 'https://www.optionstheedge.com/tags/wahine-capital',
+    classes: 'object-contain w-36',
+  },
+  {
+    url: '/images/featuredon/star-biz7.png',
+    link: 'https://www.thestar.com.my/business/business-news/2024/02/09/unleashing-the-power-of-the-purse',
+    classes: 'w-14',
+  },
+  {
+    url: '/images/featuredon/astro-awani.png',
+    link: 'https://international.astroawani.com/videos/future-female-x7ko8w/future-female-wahine-capital-mitigating-gendered-financial-vulnerability-x8lo6ja',
+    classes: 'w-32',
+  },
+  {
+    url: '/images/featuredon/ifn-logo.jpg',
+    link: 'https://www.islamicfinancenews.com/company/wahine-capital',
+    classes: 'object-contain w-12',
+  },
+];
 const metadata = {
   title: 'Life of W',
   description:
@@ -85,6 +85,13 @@ const images = await Astro.glob('/public/images/hero-grid/*');
 ---
 
 <PageLayout metadata={metadata}>
+  <div class="py-5 lg:py-10">
+    <div class="mx-auto max-w-6xl px-6 lg:px-10 lg:rounded-3xl z-[200]">
+      <a href="https://app.senangpay.my/payment/174010140353" target="_blank" rel="noopener">
+        <img src="/images/banner/pkpaydm-banner.png" class="rounded-lg lg:rounded-3xl z-100" alt="" />
+      </a>
+    </div>
+  </div>
   <Hero
     actions={[
       {
