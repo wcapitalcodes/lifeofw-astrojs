@@ -11,6 +11,10 @@ export const headerData = {
       href: '/about',
     },
     {
+      text: 'W Vault',
+      href: 'https://wvault.lifeofw.com/',
+    },
+    {
       text: 'Solutions',
       links: [
         {
