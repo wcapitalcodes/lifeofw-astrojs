@@ -3,7 +3,7 @@ title: "Unleashing The Power Of The Purse"
 description: "In the dynamic landscape of finance, a powerful force that has been gaining momentum in the Western developed economies is the rise of female financial empowerment..."
 publishDate: 2024-09-18
 author: "Rejina Rahim"
-image: "https://a4112be5a540a3777842b9d5b9c31134.r2.cloudflarestorage.com/wahinecapital/static/featured_images/purse.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=9695b2705e0fe695c3c0ddc864983e7e%2F20250116%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250116T132815Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=a288dc3ab946a6d63547b237c370bebed13117520a1d13aa2ffa29ae4e79be36"
+image: "/images/blog/purse.jpg"
 category: "Retirement"
 tags: ["Financial Planning", "Retirement"]
 draft: false

@@ -3,7 +3,7 @@ title: "Financial Planning: Trusts in the spotlight"
 description: "Public awareness of using a trust as a tool for estate planning has risen since the outbreak of Covid-19. But knowledge of how trusts work remains low, with some people falling prey to unregulated cash trust products in the market."
 publishDate: 2024-09-18
 author: "Sherry Sheriff"
-image: "https://a4112be5a540a3777842b9d5b9c31134.r2.cloudflarestorage.com/wahinecapital/static/featured_images/trust.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=9695b2705e0fe695c3c0ddc864983e7e%2F20250116%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250116T132815Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=e690929156ecb4628db31fa92111b34a547153ab5bbc096a49910faa95ae1201"
+image: "/images/blog/financial-planning.jpg"
 category: "Financial Planning"
 tags: ["Financial Planning"]
 draft: false
