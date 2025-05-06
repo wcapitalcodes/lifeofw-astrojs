@@ -11,6 +11,7 @@ import AccreditedByHRDF from '~/components/AccreditedByHRDF.astro';
 import NewsHighlight from '~/components/NewsHighlight.astro';
 
 import HeroGrid from '~/components/HeroGrid.astro';
+import Headline from '~/components/ui/Headline.astro';
 const featuredData = [
   {
     url: '/images/featuredon/bfm.png',
@@ -145,6 +146,23 @@ const images = await Astro.glob('/public/images/hero-grid/*');
     }
   </style>
   <AccreditedByHRDF />
+  <section class="relative not-prose scroll-mt-[72px] my-8">
+    <div class="inset-0 absolute pointer-events-none -z-[1]" aria-hidden="true">
+      <div class="inset-0 absolute"></div>
+    </div>
+    <div
+      class="intersect-once motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-quarter intercept-no-queue relative mx-auto px-4 text-default max-w-5xl"
+    >
+      <div class="">
+        <Headline title="Our Education Platform Partner" subtitle={''} />
+      </div>
+      <div class="mx-auto gap-8 md:gap-y-12 items-center flex justify-center">
+        <a href="https://theoutclass.com/en/on-demand-learning/reframing-your-relationship-with-money" target="_blank">
+        <img src="/images/outclass-logo.png" alt="" style="max-height: 64px;" />
+      </a>
+      </div>
+    </div>
+  </section>
   <Partners
     title="Our Partners"
     items={[
