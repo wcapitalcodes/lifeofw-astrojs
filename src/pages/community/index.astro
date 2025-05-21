@@ -4,9 +4,8 @@ import LinkButton from '~/components/ui/LinkButton.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import PageLayout from '~/layouts/PageLayout.astro';
 
-// Creating a base path that can be used for OG images
-const baseUrl = 'https://www.lifeofw.com';
-const ogImagePath = '/images/wahine-logo.png';
+// Directly define OG image path without domain reference
+const ogImagePath = '/wahine-logo.png';
 
 const metadata = {
   title: 'Wahine Community | Connect with Financial-Minded Malaysian Women | Life of W',
@@ -20,9 +19,9 @@ const metadata = {
     type: 'website',
     images: [
       {
-        url: `${baseUrl}${ogImagePath}`,
-        width: 1200,
-        height: 1200,
+        url: ogImagePath,
+        width: 173, // Exact dimensions of the logo
+        height: 172, // Exact dimensions of the logo
         alt: 'Wahine Community - Uniting Malaysian Women for Financial Empowerment'
       }
     ]

@@ -5,9 +5,8 @@ import LinkButton from '~/components/ui/LinkButton.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import { Icon } from 'astro-icon/components';
 
-// Creating a base path that can be used for OG images
-const baseUrl = 'https://www.lifeofw.com';
-const ogImagePath = '/images/wahine-logo.png';
+// Directly define OG image path without domain reference
+const ogImagePath = '/wahine-logo.png';
 
 interface Course {
   title: string;
@@ -36,9 +35,9 @@ const metadata = {
     type: 'website',
     images: [
       {
-        url: `${baseUrl}${ogImagePath}`,
-        width: 1200,
-        height: 1200,
+        url: ogImagePath,
+        width: 173, // Exact dimensions of the logo
+        height: 172, // Exact dimensions of the logo
         alt: 'Wahine Finance Video Series - Financial Education for Malaysian Women'
       }
     ]

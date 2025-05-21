@@ -9,9 +9,8 @@ import HighlightSection from '~/components/HighlightSection.astro';
 import PricingSection from '~/components/PricingSection.astro';
 import LinkButton from '~/components/ui/LinkButton.astro';
 
-// Creating a base path that can be used for OG images
-const baseUrl = 'https://www.lifeofw.com';
-const ogImagePath = '/images/wahine-logo.png';
+// Directly define OG image path without domain reference
+const ogImagePath = '/wahine-logo.png';
 
 const metadata = {
   title: 'W Vault | Secure Digital Financial Vault for Malaysian Women | Life of W',
@@ -24,9 +23,9 @@ const metadata = {
     type: 'website',
     images: [
       {
-        url: `${baseUrl}${ogImagePath}`,
-        width: 1200,
-        height: 1200,
+        url: ogImagePath,
+        width: 173, // Exact dimensions of the logo
+        height: 172, // Exact dimensions of the logo
         alt: 'W Vault - Digital Financial Safe for Women'
       }
     ]
