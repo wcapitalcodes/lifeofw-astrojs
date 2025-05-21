@@ -3,8 +3,11 @@ import PageLayout from '~/layouts/PageLayout.astro';
 import HighlightSection from '~/components/HighlightSection.astro';
 import LinkButton from '~/components/ui/LinkButton.astro';
 import Hero from '~/components/widgets/Hero.astro';
-
 import { Icon } from 'astro-icon/components';
+
+// Creating a base path that can be used for OG images
+const baseUrl = 'https://www.lifeofw.com';
+const ogImagePath = '/images/wahine-logo.png';
 
 interface Course {
   title: string;
@@ -33,9 +36,9 @@ const metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/training-page.png',
+        url: `${baseUrl}${ogImagePath}`,
         width: 1200,
-        height: 630,
+        height: 1200,
         alt: 'Wahine Finance Video Series - Financial Education for Malaysian Women'
       }
     ]
@@ -49,7 +52,10 @@ const metadata = {
 };
 
 const highlight = {
-  title: "We're committed to making financial mastery achievable for every woman.",
+  title: {
+    line1: "We're committed to making financial mastery achievable",
+    line2: "for every woman."
+  },
   description:
     "Securely organize and manage your assets, track financial goals, and access powerful tools designed specifically for women's wealth management.",
   primaryCTA: {
@@ -329,9 +335,8 @@ const trainingOptions: TrainingOption[] = [
 
   <HighlightSection
     title={highlight.title}
-    description={``}
-    primaryCTA={{ text: highlight.primaryCTA.text, href: highlight.primaryCTA.href }}
-    secondaryCTA={``}
+    description={highlight.description}
+    primaryCTA={highlight.primaryCTA}
   />
 
   <style>

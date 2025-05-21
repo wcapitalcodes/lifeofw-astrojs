@@ -4,6 +4,10 @@ import LinkButton from '~/components/ui/LinkButton.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import PageLayout from '~/layouts/PageLayout.astro';
 
+// Creating a base path that can be used for OG images
+const baseUrl = 'https://www.lifeofw.com';
+const ogImagePath = '/images/wahine-logo.png';
+
 const metadata = {
   title: 'Wahine Community | Connect with Financial-Minded Malaysian Women | Life of W',
   description:
@@ -16,9 +20,9 @@ const metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/wahinecommunity-page.png',
+        url: `${baseUrl}${ogImagePath}`,
         width: 1200,
-        height: 630,
+        height: 1200,
         alt: 'Wahine Community - Uniting Malaysian Women for Financial Empowerment'
       }
     ]
@@ -30,10 +34,13 @@ const metadata = {
   }
 };
 
-const title = {
+// Remove unused title variable
+const highlightTitle = {
   line1: 'Join Wahine Community',
-  line2: '',
+  line2: ''
 };
+const highlightDescription = "Join us as we forge a new era in finance, where every woman's voice is heard, every ambition is supported, and every success story inspires the next generation of female financial leaders. Together, we're not just breaking barriers – we're creating a legacy of empowerment, excellence, and enduring impact in the world of finance.";
+const primaryCTA = { text: 'Get Started for Free', href: 'https://forms.gle/W9pvgTJy4BQtLs5s6' };
 ---
 
 <PageLayout metadata={metadata}>
@@ -209,9 +216,8 @@ const title = {
   </div>
 
   <HighlightSection
-    title={`Join Wahine Community`}
-    description="Join us as we forge a new era in finance, where every woman's voice is heard, every ambition is supported, and every success story inspires the next generation of female financial leaders. Together, we're not just breaking barriers – we're creating a legacy of empowerment, excellence, and enduring impact in the world of finance."
-    primaryCTA={{ text: 'Get Started for Free', href: 'https://forms.gle/W9pvgTJy4BQtLs5s6' }}
-    secondaryCTA={false}
+    title={highlightTitle}
+    description={highlightDescription}
+    primaryCTA={primaryCTA}
   />
 </PageLayout>

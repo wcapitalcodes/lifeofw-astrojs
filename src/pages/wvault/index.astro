@@ -7,8 +7,11 @@ import FeatureCard from '~/components/FeatureCard.astro';
 import TestimonialSection from '~/components/TestimonialSection.astro';
 import HighlightSection from '~/components/HighlightSection.astro';
 import PricingSection from '~/components/PricingSection.astro';
-import { Icon } from 'astro-icon/components';
 import LinkButton from '~/components/ui/LinkButton.astro';
+
+// Creating a base path that can be used for OG images
+const baseUrl = 'https://www.lifeofw.com';
+const ogImagePath = '/images/wahine-logo.png';
 
 const metadata = {
   title: 'W Vault | Secure Digital Financial Vault for Malaysian Women | Life of W',
@@ -21,9 +24,9 @@ const metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/wvault-page.png',
+        url: `${baseUrl}${ogImagePath}`,
         width: 1200,
-        height: 630,
+        height: 1200,
         alt: 'W Vault - Digital Financial Safe for Women'
       }
     ]
@@ -102,16 +105,6 @@ const features = [
   },
 ];
 
-const navlinks = [
-  {
-    title: 'Hello',
-    href: '/',
-  },
-  {
-    title: 'Benefits',
-    href: '#',
-  },
-];
 ---
 
 <PageLayout metadata={metadata}>
@@ -203,7 +196,7 @@ const navlinks = [
       </div>
     </div>
   </div>
-  <TestimonialSection />
+  <TestimonialSection authorPic="/images/testimonial/aqella-ali.png" />
   <div
     class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 md:space-x-16 flex flex-col md:flex-row items-center space-y-10 md:space-y-0 py-10"
   >
@@ -220,7 +213,11 @@ const navlinks = [
   <PricingSection />
 
   <HighlightSection
+    title={{
+      line1: "Your Digital Vault for",
+      line2: "Financial Empowerment"
+    }}
+    description="Securely organize and manage your assets, track financial goals, and access powerful tools designed specifically for women's wealth management."
     primaryCTA={{ text: 'Get Started for Free', href: 'https://wahine.wcapital.asia/accounts/register/' }}
-    secondaryCTA={false}
   />
 </PageLayout>
