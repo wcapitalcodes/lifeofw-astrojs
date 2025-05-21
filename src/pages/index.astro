@@ -40,7 +40,7 @@ const featuredData = [
   },
 ];
 const metadata = {
-  title: 'Life of W',
+  title: 'Life of W | Financial Empowerment for Malaysian Women | Wahine Capital',
   description:
     'Life of W by Wahine Capital empowers Malaysian women with personalized financial strategies, expert guidance, and community support at every life stage. Join our financial literacy journey.',
   ignoreTitleTemplate: true,
@@ -86,6 +86,23 @@ const images = await Astro.glob('/public/images/hero-grid/*');
 ---
 
 <PageLayout metadata={metadata}>
+  {/* Add Organization schema for better local SEO */}
+  <script type="application/ld+json" slot="head">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Life of W",
+      "alternateName": "Wahine Capital",
+      "url": "https://www.lifeofw.com",
+      "logo": "https://www.lifeofw.com/wahine-logo.png",
+      "description": "Life of W by Wahine Capital empowers Malaysian women with personalized financial strategies, expert guidance, and community support at every life stage.",
+      "sameAs": [
+        "https://www.facebook.com/p/Wahine-Capital-100087760548404/",
+        "https://www.instagram.com/wahine_capital/",
+        "https://my.linkedin.com/company/wahine-capital"
+      ]
+    })}
+  </script>
   <!-- <div class="py-5 lg:py-10">
     <div class="mx-auto max-w-6xl px-6 lg:px-10 lg:rounded-3xl z-[200]">
       <a href="https://app.senangpay.my/payment/174010140353" target="_blank" rel="noopener">

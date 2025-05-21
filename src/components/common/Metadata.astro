@@ -70,3 +70,24 @@ const seoProps: AstroSeoProps = merge(
 ---
 
 <AstroSeo {...{ ...seoProps, openGraph: await adaptOpenGraphImages(seoProps?.openGraph, Astro.site) }} />
+
+{
+  /* Add JSON-LD structured data for better search engine understanding */
+  title && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": title,
+      "url": canonical,
+      "description": description,
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": `${canonical}?q={search_term_string}`
+        },
+        "query-input": "required name=search_term_string"
+      }
+    })} />
+  )
+}
