@@ -9,32 +9,12 @@ import HighlightSection from '~/components/HighlightSection.astro';
 import PricingSection from '~/components/PricingSection.astro';
 import LinkButton from '~/components/ui/LinkButton.astro';
 
-// Directly define OG image path without domain reference
-const ogImagePath = '/wahine-logo.png';
-
 const metadata = {
   title: 'W Vault | Secure Digital Financial Vault for Malaysian Women | Life of W',
   description:
     'W Vault: A secure digital vault designed specifically for women to manage financial assets, liabilities, and important documents in one place. Access comprehensive financial tools and expert guidance from RM19.90/month.',
   keywords:
-    'W Vault, digital vault Malaysia, women financial vault, financial document storage, digital safe Malaysia, financial asset management, online financial vault, financial liability tracking, women financial tools, secure document storage Malaysia, digital financial management, women estate planning Malaysia, financial information storage',
-  openGraph: {
-    site_name: 'W Vault | Life of W',
-    type: 'website',
-    images: [
-      {
-        url: ogImagePath,
-        width: 173, // Exact dimensions of the logo
-        height: 172, // Exact dimensions of the logo
-        alt: 'W Vault - Digital Financial Safe for Women'
-      }
-    ]
-  },
-  twitter: {
-    card: 'summary_large_image',
-    site: '@wahine_capital',
-    creator: '@wahine_capital'
-  }
+    'W Vault, digital vault Malaysia, women financial vault, financial document storage, digital safe Malaysia, financial asset management, online financial vault, financial liability tracking, women financial tools, secure document storage Malaysia, digital financial management, women estate planning Malaysia, financial information storage'
 };
 const benefits: Benefit[] = [
   {

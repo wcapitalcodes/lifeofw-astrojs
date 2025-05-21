@@ -4,9 +4,6 @@ import LinkButton from '~/components/ui/LinkButton.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import PageLayout from '~/layouts/PageLayout.astro';
 
-// Directly define OG image path without domain reference
-const ogImagePath = '/wahine-logo.png';
-
 const metadata = {
   title: 'Wahine Community | Connect with Financial-Minded Malaysian Women | Life of W',
   description:
@@ -14,26 +11,11 @@ const metadata = {
   ignoreTitleTemplate: true,
   keywords:
     'Wahine Community, women financial network Malaysia, women finance community, financial empowerment community, Malaysian women network, financial workshops Malaysia, women finance events, financial community Malaysia, women business network, Malaysian women empowerment, financial networking events, women finance workshops',
-  openGraph: {
-    site_name: 'Wahine Community | Life of W',
-    type: 'website',
-    images: [
-      {
-        url: ogImagePath,
-        width: 173, // Exact dimensions of the logo
-        height: 172, // Exact dimensions of the logo
-        alt: 'Wahine Community - Uniting Malaysian Women for Financial Empowerment'
-      }
-    ]
-  },
-  twitter: {
-    card: 'summary_large_image',
-    site: '@wahine_capital',
-    creator: '@wahine_capital'
-  }
 };
 
-// Remove unused title variable
+// Remove OpenGraph completely from metadata to avoid image dimension errors
+// The page will still have basic metadata
+
 const highlightTitle = {
   line1: 'Join Wahine Community',
   line2: ''

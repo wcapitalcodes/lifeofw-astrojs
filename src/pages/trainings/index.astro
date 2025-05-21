@@ -5,9 +5,6 @@ import LinkButton from '~/components/ui/LinkButton.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import { Icon } from 'astro-icon/components';
 
-// Directly define OG image path without domain reference
-const ogImagePath = '/wahine-logo.png';
-
 interface Course {
   title: string;
   description: string;
@@ -30,23 +27,6 @@ const metadata = {
     "Master personal finance with Malaysia's premier 16-video series designed exclusively for women. Expert-led lessons on financial independence, wealth building, and money management fundamentals to transform your financial future.",
   keywords:
     'Wahine Finance Video Series, women financial education Malaysia, financial courses for women, Malaysian women finance, personal finance video course, financial independence Malaysia, money management course, women wealth building, financial literacy Malaysia, financial vulnerability women, financial risk management, Malaysian finance tutorials',
-  openGraph: {
-    site_name: 'Wahine Finance Video Series | Life of W',
-    type: 'website',
-    images: [
-      {
-        url: ogImagePath,
-        width: 173, // Exact dimensions of the logo
-        height: 172, // Exact dimensions of the logo
-        alt: 'Wahine Finance Video Series - Financial Education for Malaysian Women'
-      }
-    ]
-  },
-  twitter: {
-    card: 'summary_large_image',
-    site: '@wahine_capital',
-    creator: '@wahine_capital'
-  },
   ignoreTitleTemplate: true,
 };
 
