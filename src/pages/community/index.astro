@@ -5,15 +5,29 @@ import Hero from '~/components/widgets/Hero.astro';
 import PageLayout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Wahine Community | Empowering Women Through Networks',
+  title: 'Wahine Community | Connect with Financial-Minded Malaysian Women | Life of W',
   description:
-    "Join Wahine's thriving community of Malaysian women supporting each other's financial journey. Network, learn, and grow through events, workshops, and shared resources.",
+    "Join Wahine's thriving community of Malaysian women supporting each other's financial journey. Network with like-minded women, access exclusive events, workshops, and shared resources designed to empower your financial independence and growth.",
   ignoreTitleTemplate: true,
   keywords:
     'Wahine Community, women financial network Malaysia, women finance community, financial empowerment community, Malaysian women network, financial workshops Malaysia, women finance events, financial community Malaysia, women business network, Malaysian women empowerment, financial networking events, women finance workshops',
   openGraph: {
-    site_name: 'Wahine Community - Uniting Women for Stronger Financial Futures',
+    site_name: 'Wahine Community | Life of W',
+    type: 'website',
+    images: [
+      {
+        url: '/images/wahinecommunity-page.png',
+        width: 1200,
+        height: 630,
+        alt: 'Wahine Community - Uniting Malaysian Women for Financial Empowerment'
+      }
+    ]
   },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@wahine_capital',
+    creator: '@wahine_capital'
+  }
 };
 
 const title = {
