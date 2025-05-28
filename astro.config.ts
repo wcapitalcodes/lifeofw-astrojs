@@ -37,9 +37,7 @@ export default defineConfig({
         if (item.url === 'https://lifeofw.com') {
           return {
             ...item,
-            lastmod: new Date(),
-            changefreq: 'daily',
-            priority: 1.0
+            lastmod: new Date().toISOString()
           };
         }
         return item;

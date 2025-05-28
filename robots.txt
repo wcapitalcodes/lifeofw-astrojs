@@ -1,4 +1,39 @@
+# Life of W - Main robots.txt file
+# Last updated: October 29, 2024
+
+# Allow all bots to index most of the site
 User-agent: *
 Allow: /
 
+# Block WordPress admin, search pages, and checkout pages
+Disallow: /wp-admin/
+Disallow: /*?s=*
+Disallow: /*?p=*
+Disallow: /search/
+
+# Block filter parameters that create duplicate content
+Disallow: /*?filter=*
+Disallow: /*?sort=*
+Disallow: /*&price=*
+Disallow: /*&size=*
+Disallow: /*&color=*
+
+# Block AI training and LLM crawlers
+User-agent: GPTBot
+User-agent: Claude-Web
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: cohere-ai
+User-agent: Google-Extended
+User-Agent: PerplexityBot
+Disallow: /
+
+# Block specific scrapers
+User-agent: Scrapy
+User-agent: CCBot
+User-Agent: omgili
+User-Agent: omgilibot
+Disallow: /
+
+# Sitemap
 Sitemap: https://www.lifeofw.com/sitemap-index.xml

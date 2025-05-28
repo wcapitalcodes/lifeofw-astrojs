@@ -34,6 +34,33 @@ const { language, textDirection } = I18N;
     <SiteVerification />
     <Analytics />
     
+    <!-- Sitemap reference -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    
+    <!-- SiteNavigationElement schema for better sitelinks in search results -->
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": [
+          "Home",
+          "Blog",
+          "Community",
+          "Trainings",
+          "W Vault",
+          "Contact"
+        ],
+        "url": [
+          "https://www.lifeofw.com/",
+          "https://www.lifeofw.com/blog/",
+          "https://www.lifeofw.com/community/",
+          "https://www.lifeofw.com/trainings/",
+          "https://www.lifeofw.com/wvault/",
+          "https://www.lifeofw.com/contact/"
+        ]
+      })}
+    </script>
+    
     <!-- Comment the line below to disable View Transitions -->
     <ViewTransitions fallback="swap" />
   </head>
