@@ -28,7 +28,23 @@ export default defineConfig({
     tailwind({
       applyBaseStyles: false,
     }),
-    sitemap(),
+    sitemap({
+      customPages: [],
+      lastmod: new Date(),
+      changefreq: 'weekly',
+      priority: 0.7,
+      serialize: (item) => {
+        if (item.url === 'https://lifeofw.com') {
+          return {
+            ...item,
+            lastmod: new Date(),
+            changefreq: 'daily',
+            priority: 1.0
+          };
+        }
+        return item;
+      }
+    }),
     mdx(),
     icon({
       include: {
