@@ -96,10 +96,91 @@ const images = await Astro.glob('/public/images/hero-grid/*');
       "url": "https://www.lifeofw.com",
       "logo": "https://www.lifeofw.com/wahine-logo.png",
       "description": "Life of W by Wahine Capital empowers Malaysian women with personalized financial strategies, expert guidance, and community support at every life stage.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Malaysia",
+        "addressLocality": "Kuala Lumpur"
+      },
       "sameAs": [
         "https://www.facebook.com/p/Wahine-Capital-100087760548404/",
         "https://www.instagram.com/wahine_capital/",
         "https://my.linkedin.com/company/wahine-capital"
+      ],
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://www.lifeofw.com/search?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      ]
+    })}
+  </script>
+  
+  <script type="application/ld+json" slot="head">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Life of W",
+      "url": "https://www.lifeofw.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.lifeofw.com/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      },
+      "sameAs": [
+        "https://www.facebook.com/p/Wahine-Capital-100087760548404/",
+        "https://www.instagram.com/wahine_capital/",
+        "https://my.linkedin.com/company/wahine-capital"
+      ]
+    })}
+  </script>
+  
+  <script type="application/ld+json" slot="head">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "SiteNavigationElement",
+          "position": 1,
+          "name": "W Vault",
+          "description": "Digital safe for women to store financial documents",
+          "url": "https://www.lifeofw.com/wvault"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 2,
+          "name": "Financial Awareness",
+          "description": "Video series on financial education",
+          "url": "https://www.lifeofw.com/trainings"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 3,
+          "name": "Community",
+          "description": "Join our supportive network",
+          "url": "https://www.lifeofw.com/community"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 4,
+          "name": "Blog",
+          "description": "Financial insights and tips",
+          "url": "https://www.lifeofw.com/blog"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 5,
+          "name": "Contact Us",
+          "description": "Get in touch with our team",
+          "url": "https://www.lifeofw.com/contact"
+        }
       ]
     })}
   </script>

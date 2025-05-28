@@ -87,6 +87,31 @@ const features = [
 ---
 
 <PageLayout metadata={metadata}>
+  <script type="application/ld+json" slot="head">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "W Vault",
+      "description": "A secure digital vault designed specifically for women to manage financial assets, liabilities, and important documents in one place.",
+      "image": "https://www.lifeofw.com/images/wvault-product.png",
+      "url": "https://www.lifeofw.com/wvault",
+      "brand": {
+        "@type": "Brand",
+        "name": "Wahine Capital"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "19.90",
+        "priceCurrency": "MYR",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "124"
+      }
+    })}
+  </script>
   
   <Hero
     actions={[
