@@ -243,6 +243,8 @@ const images = await Astro.glob('/public/images/hero-grid/*');
       animation: scroll 50s linear infinite;
     }
   </style>
+  <!--Solutions -->
+  <Solutions title="Financial Tools & <br/>Resources for Your Needs" tools={toolsData} />
   <AccreditedByHRDF />
   <section class="relative not-prose scroll-mt-[72px] my-8">
     <div class="inset-0 absolute pointer-events-none -z-[1]" aria-hidden="true">
@@ -352,8 +354,7 @@ const images = await Astro.glob('/public/images/hero-grid/*');
   <!--Featured On -->
   <FeaturedOn title="As Featured On" features={featuredData} />
 
-  <!--Solutions -->
-  <Solutions title="Financial Tools & <br/>Resources for Your Needs" tools={toolsData} />
+  
 
   <ExpertSlider />
   <!-- Quote -->
