@@ -115,5 +115,5 @@ export const footerData = {
       href: 'https://www.linkedin.com/company/wahine-capital/posts/?feedView=all',
     },
   ],
-  footNote: `All rights reserved · 2024`,
+  footNote: `All rights reserved · 2025`,
 };
