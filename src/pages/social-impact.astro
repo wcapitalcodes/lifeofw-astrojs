@@ -4,7 +4,7 @@ import PageLayout from '~/layouts/PageLayout.astro';
 const metadata = {
   title: 'Social Impact | Life of W • Wahine Capital',
   description:
-    "We are goes beyond finance – we're committed to creating positive social change. Through education, community initiatives, and sustainable practices, we empower women to build a better future for themselves and generations to come.",
+    "We go beyond finance – we're committed to creating positive social change. Through education, community initiatives, and sustainable practices, we empower women to build a better future for themselves and generations to come.",
   keywords:
     'Women Empowerment, Financial Literacy for Women, Social Impact Initiatives, Women in Finance, Financial Education Malaysia, Empowering Women Entrepreneurs, Gender Equality in Finance, Women’s Economic Empowerment, Financial Independence for Women, Community Initiatives for Women, Women-Focused Fintech, Sustainable Practices for Women, Women’s Financial Security, Philanthropy and Women, Women’s Leadership in Finance, social impact',
   openGraph: {
@@ -110,7 +110,7 @@ const eventTimeline = [
   },
   {
     date: '17th April, 2023',
-    title: "From Investment to startup life",
+    title: 'From Investment to startup life',
     description:
       'Rejina Rahim, our managing director, got featured in Tatler, talking about From investment management to startup life: Quest to help women be financially secure',
     host: 'Tatler Malaysia',
@@ -152,7 +152,7 @@ const eventTimeline = [
   },
   {
     date: '27th October, 2023',
-    title: "Women Law Conference: Legacy Building and Islamic Principles",
+    title: 'Women Law Conference: Legacy Building and Islamic Principles',
     description:
       "Our founder, Sherry Sheriff, held a talk on Legacy Building & Islamic Principles at the Women's Law Conference organised by the AW It was a fruitful and productive session, informing Muslim women about the importance of long-term financial planning and providing for future generations. This is crucial for Muslim women — who are subject to Syariah inheritance laws.",
     host: 'Association of Women Lawyers',
@@ -191,6 +191,13 @@ const eventTimeline = [
     description:
       'Jointly hosted by Wahine Capital Sdn Bhd and Resolute Planning Sdn Bhd, the "Untying Knots: Navigating Divorce, Finance and New Beginnings" forum addressed the challenges they encountered, equipping them with the knowledge and resources needed to secure a stable future.',
     host: 'Wahine Capital x Resolute Planning Sdn Bhd',
+  },
+  {
+    date: '29th April, 2024',
+    title: 'Top 10 Winners for Financial Inclusion Southeast Asia Programme',
+    description:
+      "Wahine Capital was selected as one of the top 10 winners of the Catapult: Financial Inclusion Southeast Asia program, earning them a place in the next stage in Luxembourg. As one of only two Malaysian impact startups to advance, Wahine Capital's selection highlights their commitment to financial inclusion. The company expressed gratitude for the enriching experience in Bangkok, hosted by the Luxembourg House of Financial Technology, and is enthusiastic about continuing their journey to further their mission of ensuring no one is left behind.",
+    host: 'Luxembourg House of Financial Technology (LHoFT)',
   },
   {
     date: '7th May, 2024',
@@ -277,11 +284,18 @@ const eventTimeline = [
     host: 'UN Women',
   },
   {
-    date:'4th February, 2025',
-    title:'Ask the Boss Podcast: Why Women Should Keep A Dashboard of their Assets and Liabilities',
-    description:'Ask the Boss Podcast EP16:Women are often the best savers but not always the best investors. Why is that, and how can we change it? In this episode, Sherry Mohd Sheriff, Co-founder of Wahine Capital and Board Member of Sisters in Islam, shares practical insights on financial planning, investments, and overcoming financial vulnerabilities unique to women.'
-,
-  }
+    date: '4th February, 2025',
+    title: 'Ask the Boss Podcast: Why Women Should Keep A Dashboard of their Assets and Liabilities',
+    description:
+      'Ask the Boss Podcast EP16:Women are often the best savers but not always the best investors. Why is that, and how can we change it? In this episode, Sherry Mohd Sheriff, Co-founder of Wahine Capital and Board Member of Sisters in Islam, shares practical insights on financial planning, investments, and overcoming financial vulnerabilities unique to women.',
+  },
+  {
+    date: '9th March, 2025',
+    title: 'Majlis Iftar and Baju Raya Shopping with the orphanage at Persatuan Kami Prihatin Anak Yatim dan Miskin',
+    description:
+      "Wahine Capital, in collaboration with Persatuan Kami Prihatin Anak Yatim dan Miskin, successfully hosted a Majlis Berbuka Puasa at 3 Damansara Mall on March 9th, 2025. Thanks to Nando's sponsorship, 20 children enjoyed a baju raya shopping spree at Jakel Mall, KL, with special discounts provided by Jakel. The event continued with a heartwarming iftar, where the children received duit raya. All donations collected were directly given to the orphanage, ensuring their support during Ramadan. The event was a successful effort to spread joy and give back to the community during the holy month.",
+    host: "Jakel & Nando's",
+  },
 ].sort((a, b) => new Date(b.date) - new Date(a.date));
 
 // Process events and add images
@@ -322,7 +336,7 @@ const years = Object.keys(eventsByYear).sort((a, b) => b - a);
   metadata={metadata}
   hasPageHeader={true}
   pageTitle="Empowering Change, Creating Impact"
-  pageSubtitle="We goes beyond finance – we're committed to creating positive social change. Through education, community initiatives, and sustainable practices, we empower women to build a better future for themselves and generations to come."
+  pageSubtitle="We go beyond finance – we're committed to creating positive social change. Through education, community initiatives, and sustainable practices, we empower women to build a better future for themselves and generations to come."
   highlightedTitleText="Creating Impact"
 >
   <div class="max-w-5xl mx-auto px-6 lg:px-8 mb-16">
@@ -372,7 +386,7 @@ const years = Object.keys(eventsByYear).sort((a, b) => b - a);
                       </div>
                     </div>
                   ) : (
-                    <p class="mt-2 text-sm text-gray-500"></p>
+                    <p class="mt-2 text-sm text-gray-500" />
                   )}
                 </div>
               </div>

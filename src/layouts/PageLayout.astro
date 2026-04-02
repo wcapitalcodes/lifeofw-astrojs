@@ -3,6 +3,7 @@ import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/widgets/Header.astro';
 import Footer from '~/components/widgets/Footer.astro';
 import PageHeader from '~/components/PageHeader.astro';
+import SeoSchema from '~/components/common/SeoSchema.astro';
 
 import { headerData, footerData } from '~/navigation';
 
@@ -15,25 +16,59 @@ export interface Props {
   pageTitle?: string;
   pageSubtitle?: string;
   highlightedTitleText?: string;
+  schemaType?: 'WebPage' | 'Article' | 'Product' | 'FAQPage';
+  schemaData?: Record<string, unknown>;
 }
 
-const { metadata, hasPageHeader = false, pageTitle, pageSubtitle, highlightedTitleText = '' } = Astro.props;
+const { 
+  metadata, 
+  hasPageHeader = false, 
+  pageTitle, 
+  pageSubtitle, 
+  highlightedTitleText = '',
+  schemaType = 'WebPage',
+  schemaData = {} 
+} = Astro.props;
+
+// Default WebPage schema with metadata
+const defaultSchemaData = {
+  name: pageTitle || metadata?.title || 'Wahine Capital',
+  description: pageSubtitle || metadata?.description || 'Financial empowerment for Malaysian women',
+  url: Astro.url.toString(),
+  inLanguage: 'en',
+  datePublished: new Date().toISOString(),
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": Astro.url.toString()
+  },
+  publisher: {
+    "@type": "Organization",
+    "name": "Life of W by Wahine Capital",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.lifeofw.com/wahine-logo.png"
+    }
+  }
+};
+
+const mergedSchemaData = {...defaultSchemaData, ...schemaData};
 ---
 
 <Layout metadata={metadata}>
+  {schemaType && <SeoSchema type={schemaType} data={mergedSchemaData} />}
   <div aria-hidden="true" class="flex absolute -top-96 start-1/2 transform -translate-x-1/2">
-    <div
+    <!-- <div
       class="bg-gradient-to-l from-primary-300/50 to-primary-100 blur-3xl w-[25rem] h-[44rem] rotate-[-60deg] transform -translate-x-[10rem]"
     >
-    </div>
-    <div
+    </div> -->
+    <!-- <div
       class="bg-gradient-to-tl from-accent-50 via-accent-100 to-accent-50 blur-3xl w-[90rem] h-[50rem] rounded-fulls origin-top-left -rotate-12 -translate-x-[15rem]"
     >
-    </div>
-    <div
+    </div> -->
+    <!-- <div
       class="bg-gradient-to-r from-primary-100/50 to-primary-300 blur-3xl w-[25rem] h-[44rem] rotate-[-60deg] transform -translate-x-[10rem]"
     >
-    </div>
+    </div> -->
   </div>
   <slot name="header">
     <Header {...headerData} isSticky showRssFeed showToggleTheme />

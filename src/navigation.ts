@@ -11,6 +11,10 @@ export const headerData = {
       href: '/about',
     },
     {
+      text: 'W Vault',
+      href: 'https://wvault.lifeofw.com/',
+    },
+    {
       text: 'Solutions',
       links: [
         {
@@ -111,5 +115,5 @@ export const footerData = {
       href: 'https://www.linkedin.com/company/wahine-capital/posts/?feedView=all',
     },
   ],
-  footNote: `All rights reserved · 2024`,
+  footNote: `All rights reserved · 2025`,
 };

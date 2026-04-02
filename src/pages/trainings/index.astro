@@ -3,7 +3,6 @@ import PageLayout from '~/layouts/PageLayout.astro';
 import HighlightSection from '~/components/HighlightSection.astro';
 import LinkButton from '~/components/ui/LinkButton.astro';
 import Hero from '~/components/widgets/Hero.astro';
-
 import { Icon } from 'astro-icon/components';
 
 interface Course {
@@ -23,24 +22,26 @@ interface TrainingOption {
 }
 
 const metadata = {
-  title: 'Wahine Finance Video Series',
+  title: 'Financial Education for Women | Wahine Finance Video Series | Life of W',
   description:
-    "Master personal finance with Malaysia's premier 16-video series for women. Expert-led lessons on financial independence, wealth building, and money management fundamentals.",
+    "Master personal finance with Malaysia's premier 16-video series designed exclusively for women. Expert-led lessons on financial independence, wealth building, and money management fundamentals to transform your financial future.",
   keywords:
     'Wahine Finance Video Series, women financial education Malaysia, financial courses for women, Malaysian women finance, personal finance video course, financial independence Malaysia, money management course, women wealth building, financial literacy Malaysia, financial vulnerability women, financial risk management, Malaysian finance tutorials',
-  openGraph: {
-    site_name: 'Master Your Money | Wahine Capital Personal Finance Video Series for Women',
-  },
   ignoreTitleTemplate: true,
 };
 
 const highlight = {
-  title: "We're committed to making financial mastery achievable for every woman.",
+  title:  "We're committed to making financial mastery achievable for every woman."
+ ,
   description:
     "Securely organize and manage your assets, track financial goals, and access powerful tools designed specifically for women's wealth management.",
   primaryCTA: {
-    text: 'Coming Soon in OutClass',
-    href: '#',
+    text: 'Stream the Videos Today in Wahine Wellness',
+    href: 'https://wellness.lifeofw.com',
+  },
+  secondaryCTA: {
+    text: 'Stream All the Videos in Our Platform',
+    href: 'https://wellness.lifeofw.com',
   },
 };
 
@@ -63,7 +64,7 @@ const benefits: BenefitCard[] = [
   {
     title: 'Flexible Learning Path',
     description:
-      "Learn at your own pace with bite-sized, structured content that fits your busy lifestyle - anytime, anywhere on AirAsia's Outclass platform.",
+      "Learn at your own pace with bite-sized, structured content that fits your busy lifestyle - anytime, anywhere on our Wahine Wellness platform.",
   },
 ];
 
@@ -144,9 +145,25 @@ const trainingOptions: TrainingOption[] = [
     >
     <Fragment slot="subtitle">
       <div class="space-y-8">
-        <div class="space-x-4">
-          <LinkButton link="#" buttonText="Coming Soon in OutClass" color="primary" />
-          <LinkButton link="/contact" buttonText="Book Corporate Training" color="accent" />
+        <div class="space-x-4 flex flex-col items-center justify-center space-y-4">
+          <div class="flex flex-col md:flex-row items-center space-x-4">
+            <LinkButton
+              link="https://wellness.lifeofw.com"
+              buttonText="Stream the Videos Today in Wahine Wellness"
+              color="theme"
+              target="_blank"
+            />
+            <!-- <p class="p-2 bg-gray-100 rounded-full h-10 w-10 flex items-center justify-center">or</p>
+            <LinkButton
+              link="https://wellness.lifeofw.com"
+              buttonText="Stream All the Videos in Our Platform"
+              color="accent"
+              target="_blank"
+            /> -->
+          </div>
+          <div class="mt-4">
+            <a href="#corporate-training" class="text-[#822F46] hover:underline font-medium">Looking for corporate financial training solutions? Learn more below</a>
+          </div>
         </div>
         <div
           x-data="{ 
@@ -193,35 +210,13 @@ const trainingOptions: TrainingOption[] = [
       </div>
     </Fragment>
   </Hero>
-  <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-cream-50">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold text-[#822F46] mb-4">Customized Training Solutions</h2>
-      <p class="text-gray-600 max-w-2xl mx-auto">
-        Empower your organization with tailored financial wellness programs and expert-led training sessions.
-      </p>
-    </div>
-    <div class="grid md:grid-cols-3 gap-8">
-      {
-        trainingOptions.map((option) => (
-          <div class="bg-white rounded-xl p-6 shadow-lg hover:transform hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center">
-            <div class="text-[#822F46] mb-4">
-              <Icon
-                name={option.icon}
-                class="w-16 h-16 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform text-accent-600"
-              />
-            </div>
-            <h3 class="text-xl font-semibold mb-2">{option.title}</h3>
-            <p class="text-gray-600 text-center">{option.description}</p>
-          </div>
-        ))
-      }
-    </div>
-  </section>
+
   <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
     <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold text-[#822F46] mb-4">Comprehensive Video Learning Experience</h2>
+      <h2 class="text-3xl font-bold text-[#822F46] mb-4">Our Signature Video Learning Experience</h2>
       <p class="text-gray-600 max-w-2xl mx-auto">
-        Master your financial journey through our 16-part video series, carefully crafted to guide Malaysian women from financial basics to wealth-building expertise.
+        Master your financial journey through our 16-part video series, carefully crafted to guide Malaysian women from
+        financial basics to wealth-building expertise.
       </p>
     </div>
     <div class="grid md:grid-cols-2 gap-8 items-start">
@@ -313,12 +308,37 @@ const trainingOptions: TrainingOption[] = [
     </div>
   </section>
 
-  <HighlightSection
-    title={highlight.title}
-    description={``}
-    primaryCTA={{ text: highlight.primaryCTA.text, href: highlight.primaryCTA.href }}
-    secondaryCTA={``}
-  />
+  <HighlightSection title={highlight.title} description={highlight.description} primaryCTA={highlight.primaryCTA} secondaryCTA={highlight.secondaryCTA} />
+
+  <section id="corporate-training" class="my-16 py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-cream-50">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-[#822F46] mb-4">Our Financial Education Solutions</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        From our signature video series for individuals to tailored programs for organizations, we offer complete financial education solutions to meet diverse needs.
+      </p>
+      <div class="my-4">
+        <LinkButton link="mailto:hello@wcapital.asia" buttonText="Book Our Slot Today!" color="accent" />
+      </div>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      {
+        trainingOptions.map((option) => (
+          <div class="bg-white rounded-xl p-6 shadow-lg hover:transform hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center">
+            <div class="text-[#822F46] mb-4">
+              <Icon
+                name={option.icon}
+                class="w-16 h-16 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform text-accent-600"
+              />
+            </div>
+            <h3 class="text-xl font-semibold mb-2">{option.title}</h3>
+            <p class="text-gray-600 text-center">{option.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+ 
 
   <style>
     .aspect-[16/10] {

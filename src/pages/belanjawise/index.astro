@@ -1,0 +1,268 @@
+---
+import Hero from '~/components/widgets/Hero.astro';
+import PageLayout from '~/layouts/PageLayout.astro';
+import ProductBenefits from '~/components/ProductBenefits.astro';
+import type { Benefit } from '~/types';
+import FeatureCard from '~/components/FeatureCard.astro';
+import HighlightSection from '~/components/HighlightSection.astro';
+import LinkButton from '~/components/ui/LinkButton.astro';
+
+const metadata = {
+  title: 'Belanjawise | WhatsApp Receipt Tracker for Malaysian Women | Life of W',
+  description:
+    'Belanjawise: Track your expenses effortlessly with our WhatsApp bot. Simply send a photo of your receipt and we will automatically extract, categorize, and save it to your W Vault budget tracker. No manual data entry needed.',
+  keywords:
+    'Belanjawise, WhatsApp receipt tracker, receipt scanner Malaysia, expense tracking WhatsApp, automatic receipt processing, budget tracker Malaysia, receipt OCR Malaysia, expense management bot, women finance tracker, WhatsApp finance bot, receipt organizer Malaysia, digital receipt storage, expense categorization Malaysia'
+};
+const benefits: Benefit[] = [
+  {
+    id: 1,
+    title: 'Snap & Save',
+    description: 'Simply take a photo of your receipt and send it via WhatsApp. No need to manually enter details or download apps.',
+    image: '/images/benefits/instant-financial-access.png',
+  },
+  {
+    id: 2,
+    title: 'Smart Receipt Analysis',
+    description:
+      'Our AI-powered bot automatically extracts key information from your receipts: vendor name, date, total amount, items purchased, and more - all in seconds.',
+    image: '/images/benefits/prepare-for-life-events.png',
+  },
+  {
+    id: 3,
+    title: 'Automatic Categorization',
+    description:
+      'Receipts are automatically categorized (Food, Shopping, Healthcare, etc.) and saved directly to your W Vault budget tracker, giving you instant insights into your spending patterns.',
+    image: '/images/benefits/clear-financial-overview.png',
+  },
+  {
+    id: 4,
+    title: 'Seamless W Vault Integration',
+    description:
+      'All your receipts are automatically synced to W Vault, where you can view spending summaries, track budgets, and manage your complete financial picture in one secure place.',
+    image: '/images/benefits/network-of-experts.png',
+  },
+];
+
+const features = [
+  {
+    title: 'WhatsApp Integration',
+    description:
+      'Works directly through WhatsApp - no app downloads or complicated setups. Just send a photo and you are done.',
+    icon: 'lucide:message-circle',
+  },
+  {
+    title: 'Instant Receipt Processing',
+    description:
+      'Advanced OCR technology extracts receipt details in seconds. Get vendor, date, amount, and itemized breakdown automatically.',
+    icon: 'lucide:scan-line',
+  },
+  {
+    title: 'Smart Categorization',
+    description:
+      'Receipts are automatically categorized into spending categories like Food & Dining, Shopping, Healthcare, Transportation, and more.',
+    icon: 'lucide:tags',
+  },
+  {
+    title: 'W Vault Sync',
+    description:
+      'All processed receipts are automatically saved to your W Vault account, where you can view monthly summaries, track spending by category, and manage your budget.',
+    icon: 'lucide:cloud-upload',
+  },
+  {
+    title: 'Edit & Review',
+    description:
+      'Review and edit receipt details anytime. Update vendor names, adjust categories, or modify amounts to ensure accurate tracking.',
+    icon: 'lucide:edit',
+  },
+  {
+    title: 'Spending Insights',
+    description:
+      'Get a clear view of your spending habits with monthly summaries, category breakdowns, and receipt history all organized in W Vault.',
+    icon: 'lucide:trending-up',
+  },
+];
+
+---
+
+<PageLayout metadata={metadata}>
+  <script type="application/ld+json" slot="head">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Belanjawise",
+      "description": "WhatsApp bot that automatically processes receipts and saves them to W Vault budget tracker. Simply send a photo of your receipt via WhatsApp and get instant expense tracking.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "WhatsApp",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "MYR",
+        "availability": "https://schema.org/InStock"
+      },
+      "brand": {
+        "@type": "Brand",
+        "name": "Wahine Capital"
+      },
+      "url": "https://www.lifeofw.com/belanjawise"
+    })}
+  </script>
+  
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Start on WhatsApp',
+        href: '#',
+        target: '_blank',
+        icon: 'lucide:message-circle',
+      },
+      { text: 'Learn how it works', href: '#features' },
+    ]}
+  >
+    <Fragment slot="subtitlePrimary" class="font-serif theme-gradient"> Belanjawise </Fragment>
+    <Fragment slot="title" class="font-serif text-gray-800">
+      Track Your Expenses Effortlessly <span class="theme-gradient">with WhatsApp</span></Fragment
+    >
+    <Fragment slot="subtitle">
+      <div class="space-y-6">
+        <div>
+          <p class="text-md lg:text-xl">Simply send a photo of your receipt via WhatsApp. Our smart bot automatically extracts, categorizes, and saves it to your W Vault budget tracker. No manual data entry needed.</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 sm:justify-center">
+          <LinkButton
+            link="https://wa.me/60166241844"
+            target="_blank"
+            color="primary"
+            buttonText="Start Tracking on WhatsApp"
+          />
+          
+        </div>
+      </div>
+    </Fragment>
+    <Fragment slot="image">
+      <div class="relative rounded-2xl overflow-hidden shadow-lg">
+        <img
+          src="https://assets.lifeofw.com/images/belanjawise-hero.png"
+          alt="Belanjawise WhatsApp receipt tracking interface"
+          class="w-full h-auto"
+        />
+      </div>
+    </Fragment>
+  </Hero>
+
+  <div class="bg-gray-100 py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-lg font-medium text-gray-500 mb-2 font-serif theme-gradient">What is Belanjawise?</p>
+        <h2 class="lg:text-2xl font-medium text-gray-800">
+          Belanjawise is your personal receipt tracking assistant on WhatsApp. Instead of manually entering expenses or keeping paper receipts, simply snap a photo and send it to our bot. We'll automatically extract all the details, categorize your spending, and save everything to your W Vault budget tracker. It's that simple - track your expenses without the hassle.
+        </h2>
+      </div>
+    </div>
+    <ProductBenefits benefits={benefits} />
+  </div>
+
+  <div id="features" class="py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-lg font-medium text-gray-500 mb-2 font-serif theme-gradient">How It Works</p>
+        <h2 class="lg:text-2xl font-medium text-gray-800">
+          Belanjawise makes expense tracking effortless. From capturing receipts to getting spending insights, everything happens automatically through WhatsApp and syncs seamlessly with your W Vault account.
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          features.map((feature) => (
+            <FeatureCard title={feature.title} icon={feature.icon} description={feature.description} />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+  <!-- How to Use Section -->
+  <div class="bg-gray-50 py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-lg font-medium text-gray-500 mb-2 font-serif theme-gradient">Getting Started</p>
+        <h2 class="text-2xl lg:text-3xl font-medium text-gray-900 font-serif mb-4">
+          Start Tracking Your Expenses in 3 Simple Steps
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl p-8 shadow-sm text-center">
+          <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-accent-600">1</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Send Receipt Photo</h3>
+          <p class="text-gray-600">Take a photo of your receipt and send it to Belanjawise via WhatsApp. That is it!</p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 shadow-sm text-center">
+          <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-accent-600">2</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Automatic Processing</h3>
+          <p class="text-gray-600">Our bot extracts all details - vendor, date, amount, items - and categorizes your expense automatically.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 shadow-sm text-center">
+          <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-accent-600">3</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">View in W Vault</h3>
+          <p class="text-gray-600">All your receipts are saved to W Vault, where you can view spending summaries, track budgets, and manage your finances.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Integration with W Vault -->
+  <div class="py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-r from-accent-50 to-primary-50 rounded-3xl p-8 md:p-12">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl lg:text-3xl font-medium text-gray-900 font-serif mb-4">
+            Seamlessly Integrated with W Vault
+          </h2>
+          <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+            Belanjawise works hand-in-hand with W Vault, your comprehensive financial management platform. All receipts processed through Belanjawise are automatically saved to your W Vault account, where you can:
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+          <div class="bg-white rounded-xl p-6">
+            <h3 class="font-semibold text-lg mb-2">📊 Monthly Spending Summaries</h3>
+            <p class="text-gray-600">See your total spending, number of receipts, and average per receipt at a glance.</p>
+          </div>
+          <div class="bg-white rounded-xl p-6">
+            <h3 class="font-semibold text-lg mb-2">🏷️ Category Breakdown</h3>
+            <p class="text-gray-600">View spending by category - Food, Shopping, Healthcare, and more - to understand your habits.</p>
+          </div>
+          <div class="bg-white rounded-xl p-6">
+            <h3 class="font-semibold text-lg mb-2">📝 Receipt History</h3>
+            <p class="text-gray-600">Access all your receipts organized by date and category, with the ability to view, edit, or delete.</p>
+          </div>
+          <div class="bg-white rounded-xl p-6">
+            <h3 class="font-semibold text-lg mb-2">💰 Budget Tracking</h3>
+            <p class="text-gray-600">Use your receipt data to track against your monthly budgets and financial goals.</p>
+          </div>
+        </div>
+        <div class="text-center mt-8">
+          <LinkButton
+            link="https://wvault.lifeofw.com/accounts/register/"
+            target="_blank"
+            color="primary"
+            buttonText="Get Started with W Vault"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <HighlightSection
+    title={{
+      line1: "Track Expenses Effortlessly",
+      line2: "Start Using Belanjawise Today"
+    }}
+    description="Join thousands of women who are simplifying their expense tracking with Belanjawise. No apps to download, no manual entry - just send a photo and let us handle the rest."
+    primaryCTA={{ text: 'Start on WhatsApp', href: '#' }}
+  /> -->
+</PageLayout>

@@ -5,21 +5,20 @@ import Hero from '~/components/widgets/Hero.astro';
 import PageLayout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Wahine Community | Empowering Women Through Networks',
+  title: 'Wahine Community | Connect with Financial-Minded Malaysian Women | Life of W',
   description:
-    "Join Wahine's thriving community of Malaysian women supporting each other's financial journey. Network, learn, and grow through events, workshops, and shared resources.",
+    "Join Wahine's thriving community of Malaysian women supporting each other's financial journey. Network with like-minded women, access exclusive events, workshops, and shared resources designed to empower your financial independence and growth.",
   ignoreTitleTemplate: true,
   keywords:
     'Wahine Community, women financial network Malaysia, women finance community, financial empowerment community, Malaysian women network, financial workshops Malaysia, women finance events, financial community Malaysia, women business network, Malaysian women empowerment, financial networking events, women finance workshops',
-  openGraph: {
-    site_name: 'Wahine Community - Uniting Women for Stronger Financial Futures',
-  },
 };
 
-const title = {
-  line1: 'Join Wahine Community',
-  line2: '',
-};
+// Remove OpenGraph completely from metadata to avoid image dimension errors
+// The page will still have basic metadata
+
+const highlightTitle = 'Join Wahine Community';
+const highlightDescription = "Join us as we forge a new era in finance, where every woman's voice is heard, every ambition is supported, and every success story inspires the next generation of female financial leaders. Together, we're not just breaking barriers – we're creating a legacy of empowerment, excellence, and enduring impact in the world of finance.";
+const primaryCTA = { text: 'Get Started for Free', href: 'https://forms.gle/W9pvgTJy4BQtLs5s6' };
 ---
 
 <PageLayout metadata={metadata}>
@@ -195,9 +194,8 @@ const title = {
   </div>
 
   <HighlightSection
-    title={`Join Wahine Community`}
-    description="Join us as we forge a new era in finance, where every woman's voice is heard, every ambition is supported, and every success story inspires the next generation of female financial leaders. Together, we're not just breaking barriers – we're creating a legacy of empowerment, excellence, and enduring impact in the world of finance."
-    primaryCTA={{ text: 'Get Started for Free', href: 'https://forms.gle/W9pvgTJy4BQtLs5s6' }}
-    secondaryCTA={false}
+    title={highlightTitle}
+    description={highlightDescription}
+    primaryCTA={primaryCTA}
   />
 </PageLayout>

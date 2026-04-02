@@ -2,10 +2,11 @@
 import Layout from '~/layouts/Layout.astro';
 import { getHomePermalink } from '~/utils/permalinks';
 
-const title = `Error 404`;
+const title = `Page Not Found | Life of W`;
+const description = "Sorry, we couldn't find the page you're looking for. Please use the links below to find what you need.";
 ---
 
-<Layout metadata={{ title }}>
+<Layout metadata={{ title, description }}>
   <section class="flex items-center h-full p-16">
     <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
       <div class="max-w-md text-center">
@@ -17,7 +18,20 @@ const title = `Error 404`;
         <p class="mt-4 mb-8 text-lg text-mute">
           But dont worry, you can find plenty of other things on our homepage.
         </p>
-        <a rel="noopener noreferrer" href={getHomePermalink()} class="btn ml-4">Back to homepage</a>
+        <div class="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4 justify-center">
+          <a rel="noopener noreferrer" href={getHomePermalink()} class="btn ml-4">Back to homepage</a>
+          <a rel="noopener noreferrer" href="/blog" class="btn ml-4">Explore Our Blog</a>
+        </div>
+        
+        <div class="mt-8">
+          <h3 class="text-xl font-semibold mb-4">Popular Resources:</h3>
+          <ul class="space-y-2">
+            <li><a href="/wvault" class="text-primary hover:underline">W Vault</a></li>
+            <li><a href="/trainings" class="text-primary hover:underline">Financial Awareness Training</a></li>
+            <li><a href="/community" class="text-primary hover:underline">Join Our Community</a></li>
+            <li><a href="https://wani.lifeofw.com" class="text-primary hover:underline">Wani Chat Assistant</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>

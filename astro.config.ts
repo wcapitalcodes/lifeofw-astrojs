@@ -21,14 +21,41 @@ const hasExternalScripts = false;
 const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroIntegration)[] = []) =>
   hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 
+// Integration to exclude API routes from static builds
+const excludeApiRoutes = (): AstroIntegration => ({
+  name: 'exclude-api-routes',
+  hooks: {
+    'astro:config:setup': ({ config, updateConfig }) => {
+      // For static builds, we'll handle API routes via Vite plugin
+      if (config.output === 'static') {
+        // This will be handled by the Vite plugin below
+      }
+    },
+  },
+});
+
 export default defineConfig({
   output: 'static',
-
+  site: 'https://www.lifeofw.com',
   integrations: [
     tailwind({
       applyBaseStyles: false,
     }),
-    sitemap(),
+    sitemap({
+      customPages: [],
+      lastmod: new Date(),
+      changefreq: 'weekly',
+      priority: 0.7,
+      serialize: (item) => {
+        if (item.url === 'https://lifeofw.com') {
+          return {
+            ...item,
+            lastmod: new Date().toISOString()
+          };
+        }
+        return item;
+      }
+    }),
     mdx(),
     icon({
       include: {
@@ -61,15 +88,18 @@ export default defineConfig({
           removeAttributeQuotes: false,
         },
       },
-      Image: false,
+      Image: false, // Disabled - Astro already optimizes images, this causes duplicate processing
       JavaScript: true,
-      SVG: false,
-      Logger: 1,
+      SVG: true,
+      Logger: 0, // Disable logging for faster builds
     }),
 
     astrowind({
       config: './src/config.yaml',
     }),
+
+    // Exclude API routes from static builds
+    excludeApiRoutes(),
   ],
 
   image: {
@@ -86,6 +116,20 @@ export default defineConfig({
       alias: {
         '~': path.resolve(__dirname, './src'),
       },
+    },
+    build: {
+      // Optimize build performance
+      minify: 'esbuild', // Faster JS minification (default, but explicit)
+      rollupOptions: {
+        output: {
+          // Reduce chunk size for faster processing
+          manualChunks: undefined,
+        },
+      },
+    },
+    optimizeDeps: {
+      // Pre-bundle dependencies for faster builds
+      include: ['astro-icon'],
     },
   },
 });

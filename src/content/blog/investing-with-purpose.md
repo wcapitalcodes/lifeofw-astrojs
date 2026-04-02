@@ -3,7 +3,7 @@ title: 'Investing With Purpose'
 description: 'WOMEN wield considerable financial influence globally, controlling assets worth more than US$72 trillion (RM343.9 trillion) and a significant portion of spending, estimated at US$31.8 trillion. Studies project that women’s assets will outpace that of men’s in the coming years...'
 publishDate: 2024-02-24
 author: 'Rejina Rahim'
-image: 'https://a4112be5a540a3777842b9d5b9c31134.r2.cloudflarestorage.com/wahinecapital/static/featured_images/investing-with-purpose.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=9695b2705e0fe695c3c0ddc864983e7e%2F20250116%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250116T132815Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=95da6cac7cf76ef6381094d3e2a51f5ee1342622cc3f2dbb14514b8f22772e94'
+image: '/images/blog/investing.jpg'
 category: 'Investment'
 tags: ['Financial Planning', 'Investment']
 draft: false

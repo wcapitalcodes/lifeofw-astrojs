@@ -1,5 +1,5 @@
 site:
-  name: 'Wahine Capital Sdn Bhd'
+  name: 'Life of W by Wahine Capital'
   site: 'https://lifeofw.com'
   base: '/'
   trailingSlash: false
@@ -9,22 +9,22 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: 'Wahine Capital'
-    template: '%s — Wahine Capital'
-  description: ""
+    default: 'Life of W | Financial Education for Women by Wahine Capital'
+    template: '%s | Life of W'
+  description: "Life of W by Wahine Capital provides financial education, resources, and tools to empower Malaysian women to take control of their financial future."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: 'Life of W'
+    site_name: 'Life of W by Wahine Capital'
     images:
-      - url: '~/assets/images/default.png'
+      - url: 'https://lifeofw.com/images/image.png'
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@onwidget'
-    site: '@onwidget'
+    handle: '@wahine_capital'
+    site: '@wahine_capital'
     cardType: summary_large_image
 
 i18n:

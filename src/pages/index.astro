@@ -11,35 +11,36 @@ import AccreditedByHRDF from '~/components/AccreditedByHRDF.astro';
 import NewsHighlight from '~/components/NewsHighlight.astro';
 
 import HeroGrid from '~/components/HeroGrid.astro';
+import Headline from '~/components/ui/Headline.astro';
 const featuredData = [
-    {
-      url: '/images/featuredon/bfm.png',
-      link: 'https://www.bfm.my/content/podcast/rejina-rahim-from-nomura-asset-management-md-to-starting-wahine-capital-to-financially-empower-women',
-      classes: 'object-contain w-32',
-    },
-    {
-      url: '/images/featuredon/the-edge.png',
-      link: 'https://www.optionstheedge.com/tags/wahine-capital',
-      classes: 'object-contain w-36',
-    },
-    {
-      url: '/images/featuredon/star-biz7.png',
-      link: 'https://www.thestar.com.my/business/business-news/2024/02/09/unleashing-the-power-of-the-purse',
-      classes: 'w-14',
-    },
-    {
-      url: '/images/featuredon/astro-awani.png',
-      link: 'https://international.astroawani.com/videos/future-female-x7ko8w/future-female-wahine-capital-mitigating-gendered-financial-vulnerability-x8lo6ja',
-      classes: 'w-32',
-    },
-    {
-      url: '/images/featuredon/ifn-logo.jpg',
-      link: 'https://www.islamicfinancenews.com/company/wahine-capital',
-      classes: 'object-contain w-12',
-    },
-  ];
+  {
+    url: '/images/featuredon/bfm.png',
+    link: 'https://www.bfm.my/content/podcast/rejina-rahim-from-nomura-asset-management-md-to-starting-wahine-capital-to-financially-empower-women',
+    classes: 'object-contain w-32',
+  },
+  {
+    url: '/images/featuredon/the-edge.png',
+    link: 'https://www.optionstheedge.com/tags/wahine-capital',
+    classes: 'object-contain w-36',
+  },
+  {
+    url: '/images/featuredon/star-biz7.png',
+    link: 'https://www.thestar.com.my/business/business-news/2024/02/09/unleashing-the-power-of-the-purse',
+    classes: 'w-14',
+  },
+  {
+    url: '/images/featuredon/astro-awani.png',
+    link: 'https://international.astroawani.com/videos/future-female-x7ko8w/future-female-wahine-capital-mitigating-gendered-financial-vulnerability-x8lo6ja',
+    classes: 'w-32',
+  },
+  {
+    url: '/images/featuredon/ifn-logo.jpg',
+    link: 'https://www.islamicfinancenews.com/company/wahine-capital',
+    classes: 'object-contain w-12',
+  },
+];
 const metadata = {
-  title: 'Life of W',
+  title: 'Life of W | Financial Empowerment for Malaysian Women | Wahine Capital',
   description:
     'Life of W by Wahine Capital empowers Malaysian women with personalized financial strategies, expert guidance, and community support at every life stage. Join our financial literacy journey.',
   ignoreTitleTemplate: true,
@@ -61,7 +62,7 @@ const toolsData = [
   {
     icon: '/path-to-masterclass-icon.svg',
     title: 'Wahine Financial Awareness',
-    link: 'outclass',
+    link: 'trainings',
     description:
       'A comprehensive financial education series designed for women, covering essential topics from budgeting to investment strategies through engaging video lessons.',
   },
@@ -85,6 +86,118 @@ const images = await Astro.glob('/public/images/hero-grid/*');
 ---
 
 <PageLayout metadata={metadata}>
+  {/* Add Organization schema for better local SEO */}
+  <script type="application/ld+json" slot="head">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Life of W",
+      "alternateName": "Wahine Capital",
+      "url": "https://www.lifeofw.com",
+      "logo": "https://www.lifeofw.com/wahine-logo.png",
+      "description": "Life of W by Wahine Capital empowers Malaysian women with personalized financial strategies, expert guidance, and community support at every life stage.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Malaysia",
+        "addressLocality": "Kuala Lumpur"
+      },
+      "sameAs": [
+        "https://www.facebook.com/p/Wahine-Capital-100087760548404/",
+        "https://www.instagram.com/wahine_capital/",
+        "https://my.linkedin.com/company/wahine-capital"
+      ],
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://www.lifeofw.com/search?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      ]
+    })}
+  </script>
+  
+  <script type="application/ld+json" slot="head">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Life of W",
+      "url": "https://www.lifeofw.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.lifeofw.com/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      },
+      "sameAs": [
+        "https://www.facebook.com/p/Wahine-Capital-100087760548404/",
+        "https://www.instagram.com/wahine_capital/",
+        "https://my.linkedin.com/company/wahine-capital"
+      ]
+    })}
+  </script>
+  
+  <script type="application/ld+json" slot="head">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "SiteNavigationElement",
+          "position": 1,
+          "name": "W Vault",
+          "description": "Digital safe for women to store financial documents",
+          "url": "https://www.lifeofw.com/wvault"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 2,
+          "name": "Financial Awareness",
+          "description": "Video series on financial education",
+          "url": "https://www.lifeofw.com/trainings"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 3,
+          "name": "Community",
+          "description": "Join our supportive network",
+          "url": "https://www.lifeofw.com/community"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 4,
+          "name": "Blog",
+          "description": "Financial insights and tips",
+          "url": "https://www.lifeofw.com/blog"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 5,
+          "name": "Contact Us",
+          "description": "Get in touch with our team",
+          "url": "https://www.lifeofw.com/contact"
+        }
+      ]
+    })}
+  </script>
+  <!-- <div class="py-5 lg:py-10">
+    <div class="mx-auto max-w-6xl px-6 lg:px-10 lg:rounded-3xl z-[200]">
+      <a href="https://app.senangpay.my/payment/174010140353" target="_blank" rel="noopener">
+        <img src="/images/banner/pkpaydm-banner.png" class="rounded-lg lg:rounded-3xl z-100" alt="" />
+      </a>
+    </div>
+  </div> -->
+  <!-- Banner Money Moves -->
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 mt-4">
+    <a href="https://shopee.com.my/product/1658431058/46451788969/" target="_blank">
+      <img src="https://assets.lifeofw.com/banner/money-moves.png" alt="money-moves-banner" class="rounded-lg"/>
+    </a>
+  </div>
+  
   <Hero
     actions={[
       {
@@ -137,7 +250,26 @@ const images = await Astro.glob('/public/images/hero-grid/*');
       animation: scroll 50s linear infinite;
     }
   </style>
+  <!--Solutions -->
+  <Solutions title="Financial Tools & <br/>Resources for Your Needs" tools={toolsData} />
   <AccreditedByHRDF />
+  <section class="relative not-prose scroll-mt-[72px] my-8">
+    <div class="inset-0 absolute pointer-events-none -z-[1]" aria-hidden="true">
+      <div class="inset-0 absolute"></div>
+    </div>
+    <div
+      class="intersect-once motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-quarter intercept-no-queue relative mx-auto px-4 text-default max-w-5xl"
+    >
+      <div class="">
+        <Headline title="Our Education Platform Partner" subtitle={''} />
+      </div>
+      <div class="mx-auto gap-8 md:gap-y-12 items-center flex justify-center">
+        <a href="https://theoutclass.com/en/on-demand-learning/reframing-your-relationship-with-money" target="_blank">
+        <img src="/images/outclass-logo.png" alt="" style="max-height: 64px;" />
+      </a>
+      </div>
+    </div>
+  </section>
   <Partners
     title="Our Partners"
     items={[
@@ -169,11 +301,6 @@ const images = await Astro.glob('/public/images/hero-grid/*');
       {
         title: 'Personal Finance & Advisory',
         logos: [
-          {
-            url: 'https://assets.lifeofw.com/images/resolute-logo.webp',
-            classes: 'w-16 object-contain',
-            ref_link: 'https://www.resolute-planning.com/?ref=wahine_capital',
-          },
           {
             url: 'https://assets.lifeofw.com/images/mula.png',
             classes: 'w-36 object-contain',
@@ -229,8 +356,7 @@ const images = await Astro.glob('/public/images/hero-grid/*');
   <!--Featured On -->
   <FeaturedOn title="As Featured On" features={featuredData} />
 
-  <!--Solutions -->
-  <Solutions title="Financial Tools & <br/>Resources for Your Needs" tools={toolsData} />
+  
 
   <ExpertSlider />
   <!-- Quote -->

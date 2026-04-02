@@ -33,12 +33,55 @@ const { language, textDirection } = I18N;
     <Metadata {...metadata} />
     <SiteVerification />
     <Analytics />
-
+    
+    <!-- Sitemap reference -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    
+    <!-- SiteNavigationElement schema for better sitelinks in search results -->
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": [
+          "Home",
+          "Blog",
+          "Community",
+          "Trainings",
+          "W Vault",
+          "Contact"
+        ],
+        "url": [
+          "https://www.lifeofw.com/",
+          "https://www.lifeofw.com/blog/",
+          "https://www.lifeofw.com/community/",
+          "https://www.lifeofw.com/trainings/",
+          "https://www.lifeofw.com/wvault/",
+          "https://www.lifeofw.com/contact/"
+        ]
+      })}
+    </script>
+    
     <!-- Comment the line below to disable View Transitions -->
     <ViewTransitions fallback="swap" />
   </head>
 
   <body class="antialiased text-default tracking-tight">
+    <!-- <div class="bg-accent text-white py-2 px-4 text-center">
+      <div class="container mx-auto">
+        <p class="font-medium">
+          <span class="bg-white text-accent font-bold px-2 py-1 rounded text-xs mr-2">NEW</span>
+          Our exclusive wellness video is now live! 
+          <a 
+            href="https://theoutclass.com/en/on-demand-learning/reframing-your-relationship-with-money" 
+            target="_blank" 
+            rel="noopener"
+            class="font-bold underline decoration-2 decoration-white hover:text-white/90 transition-colors ml-1"
+          >
+            Watch them at Outclass today! →
+          </a>
+        </p>
+      </div>
+    </div> -->
     <slot />
     <BasicScripts />
   </body>

@@ -7,18 +7,14 @@ import FeatureCard from '~/components/FeatureCard.astro';
 import TestimonialSection from '~/components/TestimonialSection.astro';
 import HighlightSection from '~/components/HighlightSection.astro';
 import PricingSection from '~/components/PricingSection.astro';
-import { Icon } from 'astro-icon/components';
 import LinkButton from '~/components/ui/LinkButton.astro';
 
 const metadata = {
-  title: 'W Vault | Digital Financial Vault for Women',
+  title: 'W Vault | Secure Digital Financial Vault for Malaysian Women | Life of W',
   description:
-    'W Vault: A secure digital vault designed for women to manage their financial assets, liabilities, and documents. Access comprehensive financial tools from RM19.90/month.',
+    'W Vault: A secure digital vault designed specifically for women to manage financial assets, liabilities, and important documents in one place. Access comprehensive financial tools and expert guidance from RM19.90/month.',
   keywords:
-    'W Vault, digital vault Malaysia, women financial vault, financial document storage, digital safe Malaysia, financial asset management, online financial vault, financial liability tracking, women financial tools, secure document storage Malaysia, digital financial management, women estate planning Malaysia, financial information storage',
-  openGraph: {
-    site_name: 'W Vault - Your Digital Financial Vault | Secure, Simple, Made for Women',
-  },
+    'W Vault, digital vault Malaysia, women financial vault, financial document storage, digital safe Malaysia, financial asset management, online financial vault, financial liability tracking, women financial tools, secure document storage Malaysia, digital financial management, women estate planning Malaysia, financial information storage'
 };
 const benefits: Benefit[] = [
   {
@@ -88,19 +84,34 @@ const features = [
   },
 ];
 
-const navlinks = [
-  {
-    title: 'Hello',
-    href: '/',
-  },
-  {
-    title: 'Benefits',
-    href: '#',
-  },
-];
 ---
 
 <PageLayout metadata={metadata}>
+  <script type="application/ld+json" slot="head">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "W Vault",
+      "description": "A secure digital vault designed specifically for women to manage financial assets, liabilities, and important documents in one place.",
+      "image": "https://www.lifeofw.com/images/wvault-product.png",
+      "url": "https://www.lifeofw.com/wvault",
+      "brand": {
+        "@type": "Brand",
+        "name": "Wahine Capital"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "19.90",
+        "priceCurrency": "MYR",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "124"
+      }
+    })}
+  </script>
   
   <Hero
     actions={[
@@ -124,7 +135,7 @@ const navlinks = [
           <p class="text-md lg:text-xl">Organize your complete financial picture in one secure digital vault</p>
         </div>
         <LinkButton
-          link="https://wahine.wcapital.asia/accounts/register/"
+          link="https://wvault.lifeofw.com/accounts/register/"
           target="_blank"
           color="primary"
           buttonText="Get Started for Free"
@@ -189,7 +200,7 @@ const navlinks = [
       </div>
     </div>
   </div>
-  <TestimonialSection />
+  <TestimonialSection authorPic="/images/testimonial/aqella-ali.png" />
   <div
     class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 md:space-x-16 flex flex-col md:flex-row items-center space-y-10 md:space-y-0 py-10"
   >
@@ -206,7 +217,11 @@ const navlinks = [
   <PricingSection />
 
   <HighlightSection
-    primaryCTA={{ text: 'Get Started for Free', href: 'https://wahine.wcapital.asia/accounts/register/' }}
-    secondaryCTA={false}
+    title={{
+      line1: "Your Digital Vault for",
+      line2: "Financial Empowerment"
+    }}
+    description="Securely organize and manage your assets, track financial goals, and access powerful tools designed specifically for women's wealth management."
+    primaryCTA={{ text: 'Get Started for Free', href: 'https://wvault.lifeofw.com/accounts/register/' }}
   />
 </PageLayout>
