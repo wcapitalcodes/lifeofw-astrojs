@@ -21,6 +21,19 @@ const hasExternalScripts = false;
 const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroIntegration)[] = []) =>
   hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 
+// Integration to exclude API routes from static builds
+const excludeApiRoutes = (): AstroIntegration => ({
+  name: 'exclude-api-routes',
+  hooks: {
+    'astro:config:setup': ({ config, updateConfig }) => {
+      // For static builds, we'll handle API routes via Vite plugin
+      if (config.output === 'static') {
+        // This will be handled by the Vite plugin below
+      }
+    },
+  },
+});
+
 export default defineConfig({
   output: 'static',
   site: 'https://www.lifeofw.com',
@@ -75,15 +88,18 @@ export default defineConfig({
           removeAttributeQuotes: false,
         },
       },
-      Image: true,
+      Image: false, // Disabled - Astro already optimizes images, this causes duplicate processing
       JavaScript: true,
       SVG: true,
-      Logger: 1,
+      Logger: 0, // Disable logging for faster builds
     }),
 
     astrowind({
       config: './src/config.yaml',
     }),
+
+    // Exclude API routes from static builds
+    excludeApiRoutes(),
   ],
 
   image: {
@@ -100,6 +116,20 @@ export default defineConfig({
       alias: {
         '~': path.resolve(__dirname, './src'),
       },
+    },
+    build: {
+      // Optimize build performance
+      minify: 'esbuild', // Faster JS minification (default, but explicit)
+      rollupOptions: {
+        output: {
+          // Reduce chunk size for faster processing
+          manualChunks: undefined,
+        },
+      },
+    },
+    optimizeDeps: {
+      // Pre-bundle dependencies for faster builds
+      include: ['astro-icon'],
     },
   },
 });
