@@ -27,12 +27,12 @@ export const headerData = {
           href: getPermalink('/trainings'),
           description: 'A comprehensive video series focused on empowering women in finance.',
         },
-        {
-          text: 'Wani Chat',
-          href: 'https://wani.lifeofw.com/',
-          description:
-            'Our friendly assistant bot designed to help with any questions you have about budgeting, investing, or women',
-        },
+        // {
+        //   text: 'Wani Chat',
+        //   href: 'https://wani.lifeofw.com/',
+        //   description:
+        //     'Our friendly assistant bot designed to help with any questions you have about budgeting, investing, or women',
+        // },
         {
           text: 'Wahine Experts',
           href: '/wahine_experts',
@@ -78,7 +78,6 @@ export const footerData = {
       links: [
         { text: 'W Vault', href: '/wvault' },
         { text: 'Wahine Financial Awareness', href: '/trainings' },
-        { text: 'Wani Chat', href: 'https://wani.lifeofw.com/' },
         { text: 'Wahine Community', href: '/community/' },
       ],
     },
